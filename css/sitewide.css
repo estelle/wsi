@@ -1,0 +1,457 @@
+/* CSS Document */
+.slide {
+  position: absolute;
+  overflow: hidden;
+  height: 100vw;
+  width: 1px;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: none;
+}
+.slide.past, .slide.current, .slide.future, .slide.far-past, .slide.far-future {
+  visibility: visible;
+  padding: 10px;
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: initial;
+  transform: scale(1);
+  transform-origin: center;
+}
+.slide.past {
+  transform: translatex(-100vw) scale(1);
+}
+.slide.current {
+  transform: translatex(0vw) scale(1);
+  transition: transform 0.1s;
+}
+.slide.future {
+  transform: translatex(100vw) scale(1);
+}
+
+#info {
+  font-size: small;
+  position: absolute;
+  bottom: 0px;
+  left: 40%;
+  z-index: 500;
+  color: #aaa;
+}
+
+#topinfo {
+  font-size: small;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 500;
+}
+
+.key {
+  color: black;
+  display: inline-block;
+  padding: 3px;
+  text-shadow: none;
+  letter-spacing: 0;
+  position: relative;
+  background: #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  text-shadow: 0 0 1px currentColor;
+}
+
+pre, .ex, .pre, .codelike, style[class=editme i] {
+  text-align: left;
+  padding: 10px 20px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+pre b,
+.pre b,
+.imp {
+  font-weight: normal;
+}
+
+code {
+  color: blue;
+}
+
+pre b {
+  color: blue;
+  text-shadow: blue 0 0 1px;
+}
+
+pre em {
+  font-style: normal;
+  color: red;
+  text-shadow: red 0 0 1px;
+}
+
+[contenteditable]:focus {
+  box-shadow: none;
+  outline: 1px dashed red;
+}
+
+code, pre {
+  font-size: 1.25em;
+  line-height: 1.4;
+}
+code i, pre i {
+  opacity: 0.3;
+}
+
+/* Presentation and generic slides */
+body {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif, "Droid Sans";
+}
+
+#presentation {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  animation: none;
+  background-color: #eee;
+}
+
+.slide.intro {
+  text-align: center;
+  font-size: 200%;
+}
+
+.slide.intro hgroup {
+  margin-top: 200px;
+}
+
+.content {
+  font-size: 140%;
+}
+
+.content input, button {
+  font-size: 140%;
+}
+
+.content td {
+  border: 1px solid black;
+}
+
+.invalid {
+  background-color: red;
+}
+
+.slide.section, .slide.intro {
+  text-align: center;
+}
+
+.slide.section, .slide.intro header {
+  font-size: 200%;
+}
+
+.intro p, header, .divider {
+  text-align: center;
+}
+
+.intro header, .divider {
+  font-size: 200%;
+}
+
+.divider h1 {
+  padding-top: 200px;
+}
+
+.slide li {
+  margin-bottom: 10px;
+}
+
+.slide img {
+  max-height: 90%;
+}
+
+.slide p, .slide textarea {
+  font-size: 120%;
+}
+
+@media print {
+  .slide {
+    page-break-inside: avoid;
+    page-break-after: always;
+    visibility: visible !important;
+    font-size: 20pt;
+    font-family: Arial, sans-serif;
+  }
+
+  @page {
+    size: landscape;
+  }
+  body {
+    font-size: 12pt;
+    background: white;
+  }
+
+  header h1 {
+    border-top: 2pt solid gray;
+    border-bottom: 1px dotted silver;
+  }
+
+  #presentation-counter, #info, #topinfo, .counter {
+    display: none;
+  }
+}
+/* CSS Counter */
+body {
+  counter-reset: pagecount;
+}
+
+.slide {
+  counter-increment: pagecount;
+}
+
+.slide::after {
+  content: counter(pagecount);
+  color: lightblue;
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+}
+
+.slide .counter {
+  color: #999999;
+  position: absolute;
+  left: 20px;
+  top: 90%;
+  display: block;
+  font-size: 0.7rem;
+}
+
+.slide.title > .counter,
+.slide.segue > .counter,
+.slide.mainTitle > .counter {
+  display: none;
+}
+
+#presentation-counter {
+  color: #ccc;
+  font-size: 70%;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* OBJECT PAGES */
+.object header {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  left: 0;
+}
+
+.objectlink {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  background: #000;
+  padding: 3px 5px;
+  border: none;
+}
+
+.slide.object {
+  padding: 0;
+}
+
+.object object {
+  width: 100%;
+  height: calc(100% - 2.2em);
+  margin-top: 2em;
+}
+
+.object object[data^=http] {
+  height: 100%;
+  margin-top: 0;
+}
+
+header {
+  font-weight: normal;
+  letter-spacing: -0.05em;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  font-size: 140%;
+}
+
+body > header {
+  position: absolute;
+  bottom: 1vw;
+  left: -1vw;
+  width: 100vw;
+}
+
+h1 {
+  font-size: 200%;
+  margin-bottom: 0px;
+}
+
+section h1 ~ h1 {
+  border-top: 1px solid #00000099;
+  padding-top: 0.25em;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+section, footer {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 20px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 100%;
+  position: absolute;
+  bottom: 10px;
+  width: 800px;
+  text-align: center;
+}
+
+section footer,
+.slide footer {
+  font-size: 22px;
+  margin: 20px 0 0 30px;
+}
+
+section footer {
+  text-align: right;
+}
+
+a {
+  color: purple;
+  display: inline-block;
+  text-decoration: dotted 1px;
+  line-height: 110%;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+div.example {
+  display: block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+video {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  color: red;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+section.twopart {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrong, .sidenote {
+  opacity: 0.3;
+}
+
+strike {
+  opacity: 0.5;
+}
+
+.largeblock {
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+section.largeblock {
+  max-height: 80vh;
+}
+
+/* definition lists */
+dt {
+  font-weight: bold;
+  margin-top: 0.5em;
+  background-color: #efefef;
+  display: inline-block;
+  margin-bottom: 2px;
+  clear: both;
+}
+
+dl.inline dt {
+  width: 200px;
+  float: left;
+  text-align: right;
+  padding-right: 15px;
+  clear: both;
+  margin: 0 0 2px 0;
+}
+
+.hide_dd dt {
+  margin-bottom: 0.5rem;
+}
+.hide_dd dd {
+  display: none;
+}
+.hide_dd dt:hover + dd {
+  display: inherit;
+}
+
+.flex12 {
+  display: flex;
+}
+
+.flex12 article:first-of-type {
+  flex: 1;
+  margin-right: 1em;
+}
+.flex12 article:first-of-type ul {
+  border-right: 1px solid;
+}
+
+.flex12 article:last-of-type {
+  flex: 2;
+}
+.flex12 article:last-of-type ul {
+  column-count: 2;
+}
+
+.col3 {
+  column-count: 3;
+}
+
+.col2 {
+  column-count: 2;
+}
+
+.flex12, .col3, .col2 {
+  padding-left: 0;
+  column-rule: 1px solid #00000033;
+}
+.flex12 li, .col3 li, .col2 li {
+  list-style-type: none;
+}
+
+/*# sourceMappingURL=sitewide.css.map */

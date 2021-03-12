@@ -1,0 +1,2015 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Box Model</title>
+    
+<link rel="stylesheet" href="../intro/css/main.css"/>
+<link rel="stylesheet" href="../intro/css/box.css"/>
+<style>
+  :root { 
+  --splashcolor: #646405;
+  --dark_bg: #800420;
+  --colorpop: #646405;
+  --lightsplash: #64640522;
+}
+</style>
+</head>
+
+<body>
+<!-- Top instructions -->
+<div id="topinfo"></div>
+<!-- footer instructions -->
+<div id="info">
+    <p><a href="http://standardista.com">Estelle Weyl</a> | <a href="http://twitter.com/estellevw">@estellevw</a> | <a href="http://github.com/estelle">Github</a> | Press <span class="key">&rarr;</span> key to advance.</p>
+</div>
+
+  <div id="presentation">
+   <div id="presentation-counter"></div>
+   <div id="slides">
+
+<div class="slide intro">
+     <header>
+      <h1>Box Model</h1>
+     </header>
+     <section>
+     <p><a href="https://estelle.github.io/wsi/boxmodel/">estelle.github.io/wsi/boxmodel/</a></p>
+   </section>
+    </div>
+
+<!-- divider -->
+<div class="slide divider">
+  <header>
+    <h1>Box Model Properties</h1>
+  </header>
+<section class="content">
+  <ul class="col3">
+<li></li>
+<li><code>box-sizing</code> property</li>
+<li>Padding Properties</li>
+<li>Margin Properties</li>
+<li>Border Properties</li>
+<li><code>line-height</code> property</li>
+<li><code>z-index</code></li>
+<li>Stacking context</li>
+<li><code>border-radius</code></li>
+<li>Outlines and Shadows</li>
+<li><code>outline</code> properties</li>
+<li><code>outline</code> property</li>
+<li><code>outline-offset</code> property</li>
+<li>box shadows</li>
+<li><code>box-shadow</code> property</li>
+<li>Overflow</li>
+<li><code>overflow</code> property</li>
+<li>Size constraints</li>
+<li><code>width</code> property</li>
+<li><code>height</code> property</li>
+<li>max-width &amp; max-height</li>
+<li>min-width &amp; min-height</li>
+<li><code>display</code> property</li>
+<li> <code>visibility</code> property</li>
+<li>Exercise</li></ul>
+</section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>Box Model Properties</h1>
+  </header>
+  <section class="content">
+  <div class="boxmodel">
+    <div>margin
+      <div>border
+        <div>padding
+          <div>content</div>
+        &nbsp;</div>
+      &nbsp;</div>
+    &nbsp;</div>
+  &nbsp;</div>
+  </section>
+</div>
+
+
+
+<div class="slide">
+  <header>
+    <h1>Box Model Properties</h1>
+  </header>
+
+  <section class="content">
+   <div class="col2" style="padding-top: 50px;">
+    <h2 style="margin-top: 0">height</h2>
+    <code><ul>
+      <li>height*</li>
+      <li>padding
+          <ul>
+            <li>padding-top</li>
+            <li>padding-bottom</li>
+          </ul>
+        </li>
+         <li>border
+          <ul>
+            <li>border-top</li>
+            <li>border-bottom</li>
+          </ul>
+        </li>
+        <li>margin
+          <ul>
+            <li>margin-top*</li>
+            <li>margin-bottom*</li>
+          </ul>
+        </li>
+      </ul></code>
+<h2>width</h2>
+        <code>  <ul>
+      <li>width*</li>
+      <li>padding
+          <ul>
+            <li>padding-right</li>
+            <li>padding-left</li>
+          </ul>
+        </li>
+         <li>border
+          <ul>
+            <li>border-right</li>
+            <li>border-left</li>
+          </ul>
+        </li>
+        <li>margin
+          <ul>
+            <li>margin-right</li>
+            <li>margin-left</li>
+          </ul>
+        </li>
+      </ul>
+</code>
+</div>
+<small>* doesn't apply on inline</small>
+  </section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>Box Model Properties</h1>
+  </header>
+  <section class="content" style="display: flex;padding-top: 20px;  justify-content: center;">
+  <img src="images/boxmodel.png" alt="box model properties include content width and height, padding, and border. Margin too." style="max-height: 80vh; max-width: 80%">
+  </section>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>Box Model Properties</h1>
+  </header>
+  <object data="exercises/box.html"></object>
+  <a href="exercises/box.html" target="play" class="objectlink">Try it out</a>
+</div>
+  
+
+<div class="slide divider">
+  <header>
+    <h1><code>box-sizing</code> property</h1>
+  </header>
+<section class="content">
+  
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-sizing">box-sizing</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Sets how the total width and height of an element is calculated</p>
+  <pre contenteditable>content-box | border-box <strike class="deprecated">| padding-box</strike></pre>
+  <dl>
+<dt>content-box</dt>
+    <dd>Default (exceptin in old IE). The <code>width</code> and <code>height</code> properties include the content, but do not include the <code>padding, border</code>, or <code>margin</code>. <code class="pre">.box {width: 350px; border: 10px solid black;}</code> is 370px wide. <br/><code>width</code> = width of the content. <br/><code>height</code> = height of the content. <br/>(Borders and padding are not included in the calculation.)</dd>
+<dt>border-box</dt>
+    <dd>The <code>width</code> and <code>height</code> properties include the content, <code>padding</code>, and <code>border</code>, but do not include the <code>margin</code>. Padding and border will be inside of the box. <code class="pre">.box {width: 350px; border: 10px solid black;}</code> renders a box that is 350px wide, with the area for content being 330px wide. The content box is floored at 0. Dimensions of element are: <br/><code>width</code> = border + padding + width of the content. <br/><code>height</code> = border + padding + height of the content. </dd>
+  </dl>
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>box-sizing: content-box</h1>
+  </header>
+  <section class="content">
+  <h2>width</h2>
+  <pre>content = declared width - (padding-right + padding-left + 
+         border-right + border-left)</pre>
+  <h2>height</h2>
+  <pre>content = declared height - (padding-top + padding-bottom + 
+          border-top + border-bottom)</pre>
+  </section>
+</div><div class="slide">
+  <header>
+    <h1>box-sizing: border-box;</h1>
+  </header>
+  <section class="content">
+  
+  <h2>width</h2>
+  <pre>physical width  = declared width + 
+         padding-right + padding-left + 
+         border-right  + border-left</pre>
+  <h2>height</h2>
+  <pre>physical height = declared height + 
+         padding-top + padding-bottom + 
+         border-top  + border-bottom</pre>
+  </section>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>box-sizing: border-box;</h1>
+  </header>
+  <object data="exercises/border-box.html"></object>
+  <a href="exercises/border-box.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+
+<div class="slide divider">
+  <header>
+    <h1>Borders, Margin &amp; Padding</h1>
+  </header>
+<section class="content">
+  <ul>
+    <li><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/padding">padding</a></li>
+    <li><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/margin">margin</a></li>
+    <li><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border">border</a></li>
+  </ul>
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/padding">padding</a></code> properties</h1>
+  </header>
+<section class="content">
+  <p>Shorthand for <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, and <code>padding-left</code>, it sets the padding area on all four sides of an element. Padding is spacing between border and content.</p>
+  <pre contenteditable>[ &lt;length> | &lt;percentage> ]{1,4}</pre>
+  <p>Specified one, two, three, or four  &lt;length&gt; or &lt;percentage&gt;values. Negative values are not valid.</p>
+<table class="standard-table">
+  <thead>
+    <tr><th># of values</th><th>Assignment of each value</th></tr>
+  </thead>
+  <tbody>
+
+  <tr><th>1</th><td>Applies the same padding to <strong>all four sides</strong>.</td></tr>
+  <tr><th>2</th><td>The first padding applies to the <strong>top and bottom</strong>, the second to the <strong>left and right</strong>.</td></tr>
+  <tr><th>3</th><td>The first padding applies to the <strong>top</strong>, the second to the <strong>left and right</strong>, the third to the <strong>bottom</strong>.</td></tr>
+  <tr><th>4</th><td>The paddings apply clockwise in <strong>TR</strong>ou<strong>BL</strong>e order: <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, and <strong>left</strong>.</td></tr>
+</tbody>
+</table>
+
+
+</section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>padding</h1>
+  </header>
+  <section class="content">
+    <code>
+      <p>padding: 10px 20px 30px 40px;</p>
+      <ul>
+        <li>padding-top: 10px;</li>
+        <li>padding-right: 20px;</li>
+        <li>padding-bottom: 30px;</li>
+        <li>padding-left: 40px;</li>
+      </ul>
+    </code>
+    <p>TRouBLe remembering? Top, Right, Bottom, Left</p>
+    <pre contenteditable>padding: 10px;                <i>/* 10px all sides */</i>
+padding: 10px 20px;           <i>/* 10px top and bottom, 20px right and left */</i>
+padding: 10px 20px 30px;      <i>/* 10px top and bottom, 20px right, 30px left */</i>
+padding: 10px 20px 30px 40px; <i>/* TRouBLe */</i></pre>
+
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/margin">margin</a></code> properties</h1>
+  </header>
+<section class="content">
+  <p>Shorthand for <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, and <code>margin-left</code>, it sets the margin area on all four sides of an element. Margin is spacing on the outside of the border of an element, sometimes collapsing between adjacent elements</p>
+  <pre contenteditable>[ &lt;length> | &lt;percentage> | auto ]{1,4}</pre>
+  <p>Specified one, two, three, or four <code>&lt;length&gt;</code> or &lt;<code>percentage&gt;</code> values, or the <code>auto</code> keyword. </p>
+<table class="standard-table">
+  <thead>
+    <tr><th># of values</th><th>Assignment of each value</th></tr>
+  </thead>
+  <tbody>
+
+  <tr><th>1</th><td>Applies the same margin to <strong>all four sides</strong>.</td></tr>
+  <tr><th>2</th><td>The first margin applies to the <strong>top and bottom</strong>, the second to the <strong>left and right</strong>.</td></tr>
+  <tr><th>3</th><td>The first margin applies to the <strong>top</strong>, the second to the <strong>left and right</strong>, the third to the <strong>bottom</strong>.</td></tr>
+  <tr><th>4</th><td>The margins apply clockwise in <strong>TR</strong>ou<strong>BL</strong>e order: <strong>top</strong>, <strong>right</strong>, <strong>bottom</strong>, and <strong>left</strong>.</td></tr>
+</tbody>
+</table>
+<p>Negative values ARE valid.</p>
+<p>Setting left and right to 'auto' will center the element</p>
+</section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>margin (and padding)</h1>
+  </header>
+  <section class="content">
+<p style="font-size: 200%">Margins create extra space <strong>around</strong> an element.</p>
+<p style="font-size: 200%">Padding creates extra space <strong>within</strong> an element.</p>
+ <p>Take a look at:</p>   
+<ul>
+    <li>Order of margin values in <code>margin</code> (and <code>padding</code> and <code>border</code>)</li>
+    <li>Adjacent siblings and collapsing marging</li>
+    <li>Negative margins</li>
+    <li>on inline elements</li>
+    <li>centering with <code>auto</code></li>
+    <li>Completely empty boxes</li>
+    <li>Parent and first or last child element</li>
+    <li>Block formatting context</li>
+  </ul>
+
+</section>
+</div>
+
+  
+<div class="slide">
+  <header>
+    <h1>Margins: How they Work</h1>
+  </header>
+
+  <section class="content">
+
+<h3>Margin collapsing</h3>
+<p>When top and bottom margins collapse, the margin is the larger of two margin, or the difference if one is negative.</p>
+
+<p>When top and bottom margins collapse, the margin is the <b>larger of two margins</b>, or the difference if one is negative.</p>
+<ul>
+  <li>Margin collapsing occurs only between blocks that belong to the same block formatting context (BFC).</li>
+  <li>Margins of floated and absolutely positioned elements don't collapse.</li>
+</ul>
+ 
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>Margins: how they work</h1>
+  </header>
+
+  <section class="content">
+  <h3>Inline elements</h3>
+<p>Top and bottom margins have no effect on non-replaced inline elements like <code>&lt;span></code>.</p>
+
+  
+<p>Note the first 3 are floated left, so being inline is moot. The rest are inline, with <code class="pre">margin: 20px; padding: 20px;</code> set.</p>
+<ul><li>Inline: Top/bottom ignored, left/right don't collapse</li></ul>
+
+<div class="goonyContainer mv7">
+<div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div> lots of text <div></div>
+</div> 
+</section>
+</div>
+
+
+
+
+  
+<div class="slide">
+  <header>
+    <h1>Margins: how they work</h1>
+  </header>
+  <section class="content">
+    <h3><code>margin: auto</code></h3>
+    <pre contenteditable>div {
+   margin: auto;
+}</pre>
+    <p>Centers horizontally</p>
+    <div class="goonyContainer auto1">
+<div></div>
+</div>
+<br>
+  </section>
+</div>
+
+
+
+
+
+
+  
+  
+<div class="slide object">
+  <header>
+    <h1>Collapsing margins: adjacent siblings</h1>
+  </header>
+  <object data="exercises/margins.html"></object>
+  <a href="exercises/margins.html" target="play" class="objectlink">Try it out</a>
+</div>
+  
+<div class="slide object">
+  <header>
+    <h1>Collapsing margins on empty boxes</h1>
+  </header>
+  <object data="exercises/collapse.html"></object>
+  <a href="exercises/collapse.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>Margins outside parent</h1>
+  </header>
+  <object data="exercises/collapse_ends.html"></object>
+  <a href="exercises/collapse_ends.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>Non collapsing margins</h1>
+  </header>
+  <object data="exercises/collapse_ends2.html"></object>
+  <a href="exercises/collapse_ends2.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+
+
+<div class="slide divider">
+  <header>
+    <h1>Block Formatting Context</h1>
+  </header>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>Block Formatting Context</h1>
+  </header>
+
+  <section class="content">
+
+   <code><ul> 
+  <li>display: inline-block;</li>
+  <li>display: flow-root;</li>
+  <li>display: table;     <i>/* all other table values */</i></li>
+  <li>display: grid | inline-grid; <div style="background: white; padding: 20px; float: right; border: solid; border-radius: 5px; width: 45%">A block formatting context is a part of a visual CSS rendering of a web page. It's the region in which the layout of block boxes occurs and in which floats interact with other elements.</div></li>
+  <li>display: flex | inline-flex;</li>
+  <li>float: left;        <i>/* or right */</i></li>
+  <li>position: absolute;</li>
+  <li>position: fixed;</li>
+  <li>overflow: hidden;   <i>/* != visible */</i></li>
+  <li>column-count: 1;    <i>/* != auto */</i></li>
+  <li>column-width: 1em;  <i>/* != auto */</i></li>
+  <li>contain: content;   <i>/* content | layout | strict */</i></li>
+  </ul></code>
+  </section>
+</div>
+
+<div class="slide divider">
+  <header>
+    <h1>Border Properties</h1>
+  </header>
+  <section class="content">
+  <ul>
+    <li><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-width">border-width</a></li>
+    <li><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-style">border-style</a> - required!</li>
+    <li><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-color">border-color</a> - default: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword">currentColor</a></li>
+  </ul>
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>border-width</h1>
+  </header>
+  <section class="content">
+    <pre contenteditable>border-width: 10px 20px 30px 40px;
+        border-width-top: 10px;
+        border-width-right: 20px;
+        border-width-bottom: 30px;
+        border-width-left: 40px;</pre>
+    <p>TRouBLe remembering? Top, Right, Bottom, Left</p>
+    <pre contenteditable>border-width: 10px;                /* 10px all sides */
+border-width: 10px 20px;           /* 10px top and bottom, 20px right and left */
+border-width: 10px 20px 30px;      /* 10px top and bottom, 20px right, 30px left */
+border-width: 10px 20px 30px 40px; /* TRouBLe */</pre>
+  </section>
+</div>
+
+
+  
+<div class="slide">
+  <header>
+    <h1><code>border</code> properties</h1>
+  </header>
+  <section class="content">
+    <code>
+      <p>border: 1px solid red;</p>
+      <ul>
+        <li>border-width</li>
+        <li>border-style</li>
+        <li>border-color</li>
+      </ul>
+    </code>
+  </section>
+</div>
+  
+
+  
+  
+<div class="slide">
+  <header>
+    <h1>border-width</h1>
+  </header>
+  <section class="content">
+    <h2><code>border-width</code></h2>
+    <pre>&lt;length> | thin | <b>medium</b> | thick</pre>
+    <ul>
+      <li>% values are ignored.</li>
+  
+  </section>
+</div>
+  
+  
+
+
+  
+<div class="slide">
+  <header>
+    <h1>border-style</h1>
+  </header>
+  <section class="content">
+  <pre contenteditable>border-style: <b>none</b>;
+border-style: hidden;
+border-style: dotted;
+border-style: dashed;
+border-style: solid;
+border-style: double;
+border-style: groove;
+border-style: ridge;
+border-style: inset;
+border-style: outset;</pre>
+<ul>
+  <li>Required, or no border will show.</li>
+  <li>Use <code>transparent</code> color instead of <code>hidden</code> for toggling on/off</li>
+</ul>
+
+  </section>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>border-style</h1>
+  </header>
+  <object data="exercises/border-style.html"></object>
+  <a href="exercises/border-style.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+<!-- border shorthand-->
+<div class="slide">
+   <header>
+    <h1>border shorthand</h1>
+  </header>
+  <section class="content">
+     <pre contenteditable>border: width style color;</pre>
+     <pre contenteditable>border-left: width style color;</pre>
+     <pre contenteditable>border-top: 5px dashed rgba(217,68,11, 0.8);</pre>
+     <ul>
+     <li>style is REQUIRED.</li>
+     <li>width defaults to <span class="imp">medium</span></li>
+     <li>color defaults to <span class="imp">currentColor</span></li>
+     </ul>
+     </section>
+ </div>
+
+ <!-- border shorthand-->
+<div class="slide">
+   <header>
+    <h1>border longhand</h1>
+  </header>
+  <section class="content">
+     <pre contenteditable>border: 1px solid #58ade3;</pre>
+     <pre contenteditable>border-bottom-color: #58ade3;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-left-color: #58ade3;
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: #58ade3;
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: #58ade3;
+border-top-style: solid;
+border-top-width: 1px;</pre><br><br/>
+     </section>
+ </div>
+
+
+  
+<div class="slide object">
+  <header>
+    <h1><code>box-sizing</code> revisited</h1>
+  </header>
+  <object data="exercises/border-box.html"></object>
+  <a href="exercises/border-box.html" target="play" class="objectlink">Try it out</a>
+</div>
+  
+ 
+
+
+
+<div class="slide">
+<header><h1>DevTools</h1>
+  </header>
+<section class="content">
+<p>Check out the LAYOUT box model widget.</p>
+<ul>
+  <li>box-sizing</li>
+  <li>display</li>
+  <li>float</li>
+  <li>line-height</li>
+  <li>position</li>
+  <li>z-index</li>
+</ul>
+<p>Note the color theme. Also note the values are editable</p>
+</section>
+</div>
+
+
+
+
+<div class="slide divider">
+  <header>
+    <h1><code>line-height</code> property</h1>
+  </header>
+  <section class="content">
+    See fonts
+  </section>
+</div>
+
+
+
+<div class="slide">
+  <header>
+    <h1><code>line-height</code> property</h1>
+  </header>
+  <section class="content" id="lh2">
+    <style>#lh {display: flex; justify-content: space-around; height: auto;}
+    #lh div { flex: 0 0 30%; outline: 1px solid; box-sizing: border-box;padding: 5px; }
+    #lh2 #lh {align-items: baseline; padding-bottom: 100px;}
+  </style>
+  <style contenteditable class="editme">#lh2 div.one {line-height: 2;}
+#lh2 div.two {line-height: 4;}
+#lh2 div.three {line-height: 8;}</style>
+    
+    <article id="lh" contenteditable>
+      <div class="one"><h3>Centered</h3>
+      </div>
+      <div class="two"><h3>Vertically</h3>
+      </div>
+      <div class="three"><h3>Three Words Here</h3>
+      </div>
+    </article>
+  </section>
+</div>
+
+<!--
+<div class="slide divider">
+  <header>
+    <h1><code>z-index</code></h1>
+  </header>
+</div>
+
+<div class="slide">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/z-index">z-index</a></code></h1>
+  </header>
+  <section class="content">
+    <p>Sets the z-order of positioned elements and their descendants</p>
+    <p>For a positioned box, the 'z-index' property specifies:</p>
+
+    <ul>
+      <li>The stack level of the box in the current stacking context.</li>
+      <li>Whether the box establishes a stacking context.</li>
+    </ul>
+    <pre contenteditable>z-index: <em>auto</em> | &lt;number></pre>
+    <p>The value can be auto, a positive or negative integer, or 0.</p>
+  </section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1><code>z-index</code></h1>
+  </header>
+  <section class="content">
+    <style contenteditable class="editme" style="max-height: 25vh; overflow: scroll;">#A-abs1 { z-index: 5; position: absolute; }
+#B-rel1 { z-index: 3; position: relative; }
+#C-rel2 { z-index: 2; position: relative; }
+#D-abs2 { z-index: 1; position: absolute; }
+#E-sta1 { z-index: 8; }
+#F-child {z-index: 100; position: absolute;}</style>
+<div  id="bm">
+<div id="A-abs1">
+  <b>DIV #A</b>
+  <br />position: absolute;
+  <br />z-index: 5;
+</div>
+
+<div id="B-rel1">
+  <b>DIV #B</b>
+  <br />position: relative;
+  <br />z-index: 3;
+</div>
+
+<div id="C-rel2">
+  <b>DIV #C</b>
+  <br />position: relative;
+  <br />z-index: 2;
+</div>
+
+<div id="D-abs2">
+  <b>DIV #D</b>
+  <br />position: absolute;
+  <br />z-index: 1;
+</div>
+
+<div id="E-sta1">
+  <b>DIV #E</b>
+  <br />no positioning
+  <br />z-index: 8;
+  <div id="F-child">
+    <b>#F-Child</b><br/>
+    position: absolute;<br/>
+    z-index: 100;
+  </div>
+</div>
+</div>
+</section>
+</div>
+
+
+
+<div class="slide divider">
+  <header>
+    <h1>Stacking context</h1>
+  </header>
+</div>
+
+
+
+<div class="slide">
+  <header>
+    <h1><code>stacking context</code></h1>
+  </header>
+  <section class="content">
+
+<p>The stacking context is a 3-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user, who is assumed to be facing the viewport or the webpage. HTML elements occupy this space in priority order based on element attributes.</p>
+<p>Properties which cause elements to form a <em>stacking context</em>.</p>
+<ul class="col2">
+  <li>&lt;html&gt; (document root)</li>
+  <li><code>position: absolute | relative; <br/>and<br>z-index: !=auto</code></li>
+  <li><code>position: fixed | sticky;</code>.</li>
+  <li>flex items and grid items if  <code>z-index: != auto</code></li>
+  <li><code>opacity &lt; 1</code></li>
+  <li><code>mix-blend-mode: != normal</code></li>
+  <li><code>transform: != none</code></li>
+  <li><code>filter: != none</code></li>
+  <li><code>perspective: != none</code></li>
+  <li><code>clip-path: != none</code></li>
+  <li><code>mask</code> / <code>mask-image</code> / <code>mask-border: != none</code> </li>
+  <li><code>isolation: isolate</code> value isolate.</li>
+  <li><code>-webkit-overflow-scrolling: touch;</code></li>
+  <li><code>will-change</code>: above properties</li>
+  <li><code>contain: layout | contain; </code></li>
+</ul></div>
+
+
+
+<div class="slide">
+  <header>
+    <h1><code>stacking context</code></h1>
+  </header>
+  <section class="content">
+<p>The z-index  value of elements only have meaning in it's ancestor's stacking context. </p>
+<ul>
+  <li>Stacking contexts can be contained in other stacking contexts, and together create a hierarchy of stacking contexts.</li>
+  <li>Each stacking context is completely independent of its siblings:  only descendant elements are considered when stacking is processed.</li>
+  <li>Each stacking context is self-contained: after the element's  contents are stacked, the whole element is considered in the stacking  order of the parent stacking context.</li>
+</ul>
+  </section>
+</div>
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/css/isolation" target="resource">isolation</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Determines whether an element must create a new stacking context.</p>
+  <pre contenteditable>auto | isolate</pre>
+  <p>Use case: Prevent elements from blending with their backdrops.</p>
+  <dl><dt>auto</dt>
+    <dd>A new stacking context is created only if one of the properties applied to the element requires it.</dd>
+    <dt>isolate</dt>
+    <dd>A new stacking context must be created. Also prevents an element from blending into other elements that are in the backdrop.</dd>
+    </dl> 
+</section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/css/will-change" target="resource">will-change</a></code> property</h1>
+  </header>
+   <section class="content">
+    <p>Hints how an element is expected to change so browser can optimize for change before an element is happens. Can increase the responsiveness of a page by doing expensive work before its required.</p>
+    <pre contenteditable class="multi">auto | scroll-position | contents | &lt;ident></pre>
+
+<dl><dt>auto</dt>
+    <dd>Tells the browser "You do you", which it was going to do anyway.</dd>
+
+<dt>scroll-position</dt>
+    <dd>Tells the browser "The scroll position will change or be animated soon"</dd>
+<dt>contents</dt>
+    <dd>Tells the browser "something about contents will animate or change soon."</dd>
+<dt>&lt;ident></dt>
+<dd>    A property or several properties that will animate or change soon. A shorthand indicates that all the longhands will participate.<br>Can't be set to: <code>unset, initial, inherit, will-change, auto, scroll-position, or contents</code>.  </dd></dl>
+    <p>Chromes establishes a new compositing layer or a new stacking context for each element with this property set to anything but auto.</p>
+    <ul>
+      <li>Avoid using!</li>
+      <li>Don't apply will-change to too many elements.</li>
+    </ul>
+  </section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/contain" target="resource">contain</a></code> property</h1>
+  </header>
+   <section class="content">
+    <pI>Indicates an element and its contents are, as much as possible, independent of the rest of the document tree, allowing independent recalculations of layout, style, paint, and size for a limited area of the DOM</p>
+    <pre contenteditable class="multi">none | strict | content | [ size || layout || style || paint ]</pre>
+    <dl>
+  <dt>none</dt>
+  <dd>Indicates the element renders as normal, with no containment applied.</dd>
+  <dt>strict</dt>
+  <dd>Indicates that all containment rules except style are applied to the element. This is equivalent to contain: size layout paint.</dd>
+  <dt>content</dt>
+  <dd>Indicates that all containment rules except size and style are applied to the element. This is equivalent to contain: layout paint.</dd>
+  <dt>size</dt>
+  <dd>Indicates that the element can be sized without the need to examine its descendants for size changes.</dd>
+  <dt>layout</dt>
+  <dd>Indicates that nothing outside the element may affect its internal layout and vice versa.</dd>
+  <dt>style</dt>
+  <dd>Indicates that, for properties that can have effects on more than  just an element and its descendants, those effects don't escape the  containing element.</dd>
+  <dt>paint</dt>
+  <dd>Indicates that descendants of the element don't display outside its  bounds. If an element is off-screen or otherwise not visible, its  descendants are also guaranteed to not be visible.</dd>
+</dl>
+<p>If applied (with value: <code>paint, strict</code> or <code>content</code>):</p>
+<ul>
+    <li>New stacking context.</li>
+    <li>New block formatting context.</li>
+    <li>New containing block (for the descendants which position property is absolute or fixed).</li>
+</ul>
+  </section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>Stacking context</h1>
+  </header>
+  <section class="content">
+    <p>Each box belongs to one <strong>stacking context</strong>. Each positioned box in a given stacking context has an integer stack level, which is its position on the z-axis relative other stack levels within the same stacking context. Boxes with greater stack levels are always formatted in front of boxes with lower stack levels.  Boxes may have negative stack levels.  Boxes with the same stack level in a stacking context are stacked back-to-front according to document tree order. </p>
+<p> The root element forms the root stacking context. Other stacking  contexts are generated by any positioned element (including  relatively positioned elements) having a computed value of 'z-index'  other than 'auto'. Stacking contexts are not necessarily related to  containing blocks. In future levels of CSS, other properties may  introduce stacking contexts, for example <code>opacity</code></p>
+<p>Within each stacking context, the following layers are painted in back-to-front order: </p>
+<ol>
+  <li>the background and borders of the element forming the stacking   context. </li>
+  <li>the child stacking contexts with negative stack levels (most   negative first). </li>
+  <li>the in-flow, non-inline-level, non-positioned descendants. </li>
+  <li>the non-positioned floats. </li>
+  <li>the in-flow, inline-level, non-positioned descendants, including   inline tables and inline blocks. </li>
+  <li>the child stacking contexts with stack level 0 and the   positioned descendants with stack level 0. </li>
+  <li>the child stacking contexts with positive stack levels (least   positive first). </li>
+</ol>
+  </section>
+</div>
+
+
+
+<!--Border properties -->
+<div class="slide divider">
+  <section class="content">
+    <h1>Border Radius</h1>
+
+
+  <p>Not part of the box model</p>
+  <h1>Outlines and Shadows</h1>
+
+    <p>Neither impact the box model, but they take up space, so leave room for them!</p>
+</section>
+ </div>
+
+<!--
+<div class="slide">
+<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-radius">border-radius</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Rounds the corners of an element's <b>outer</b> border edge. Shorthand. </p>
+  <pre contenteditable>&lt;length-percentage>{1,4} [ / &lt;length-percentage>{1,4} ]?</pre>
+  <p>One to four &lt;length> or &lt;percentage> values for single radius corners. Followed by a  "/" and one to four more &lt;length> or &lt;percentage> for elliptical corners.</p>
+  <div style="display: flex; justify-content: space-between;">
+  <p>Sets the:<br/>
+    &nbsp; &nbsp; <code>border-top-left-radius</code>,<br/>
+    &nbsp; &nbsp; <code>border-top-right-radius</code><br/>
+    &nbsp; &nbsp; <code>border-bottom-right-radius</code>, and <br/>
+    &nbsp; &nbsp; <code>border-bottom-left-radius</code> <br/>
+properties. In that order!</p>
+<pre contenteditable>border-radius: 50%;
+border-radius: 10px 20px 30px 40px;
+border-radius: 50% 50% 0% 0% / 100% 100% 0 0;</pre>
+</div>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-radius">border-radius</a></code> property</h1>
+  </header>
+<section class="content">
+<div class="radius">
+  <pre contenteditable>border-radius: 0;</pre> <div><b></b>
+    </div>
+    <pre contenteditable>border-radius: 20px;</pre><div><b style="border-radius: 20px"></b>
+    </div>
+    <pre contenteditable>border-radius: 50%;</pre><div><b style="border-radius: 50%"></b>
+    </div>
+</div>
+  <pre contenteditable style="float: left; margin-right: 40px;">border-top-left-radius
+border-top-right-radius
+border-bottom-right-radius
+border-bottom-left-radius</pre>
+
+<p style="clear:both;">DO NOT PREFIX</p>
+<p>
+The border-radius property does not apply to table elements when border-collapse is collapse.</p>
+</section>
+</div>
+
+
+ <!--border-radius -->
+<div class="slide">
+<header><h1><code>border-radius</code> property</h1>
+  </header>
+<section class="content">
+<div class="radius">
+  <pre contenteditable>.circle {border-radius: 50%;}</pre><div> <b style="border-radius: 50%;"></b></div>
+  <pre contenteditable>.oval { border-radius: 50%;}</pre> <div><b style="border-radius: 50%; width: 100px;"></b></div>
+  <pre contenteditable>.different { border-radius: 10px 30px;}</pre> <div><b style="border-radius: 10px 30px; "></b></div>
+  <pre contenteditable>.elliptical { border-radius: 10px / 30px;}</pre> <div><b style="border-radius: 10px / 30px;"></b></div>
+  <pre contenteditable>.ugly { border-radius: 
+  10px 35px 20px 15px / 30px 35px 5px 5px; }</pre> <div><b style="border-radius: 10px 35px 20px 15px / 30px 35px 5px 5px; width: 75px; height: 75px;"></b></div>
+ </div>
+<p>
+The radius applies to the whole background, even if the element has no border; the exact position of the clipping is defined by the <code>background-clip</code> property.
+</p>
+</section>
+</div>
+
+<!--
+<div class="slide">
+<header><h1><code>border-radius</code> property</h1>
+  </header>
+<section class="content">
+  <p>When using the slash (/) syntax, the first values are the top and bottom parts of each corner and the right side are the left and right sides of each corner.</p>
+  <table class="standard-table">
+    <thead>
+      <tr>
+        <th>syntax</th><th>Round corners described</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th>10px;</th><td>Radius is set for all 4 sides</td></tr>
+      <tr><th>10px 20px;</th><td>top-left and bottom-right &amp; top-right and bottom-left</td></tr>
+      <tr><th>10px 20px 30px;</th><td>top-left &amp; top-right and bottom-left &amp; bottom-right</td></tr>
+      <tr><th>10px 20px 30px 40px;</th><td>top-left | top-right | bottom-right | bottom-left</td></tr>
+      </tbody>
+      <thead><tr><th></th><th>(same as above) / vertical sides</th></tr></thead>
+      <tbody>
+      <tr><th>border-radius: 10px 5% / 20px;</th><td>all 4 vertical values</td></tr>
+      <tr><th>10px 5% / 20px 30px;</th><td>left-at-top and right-at-bottom &amp; right-at-top and left-at-bottom</td></tr>
+      <tr><th>10px 5px 2em / 20px 25px 30%;</th><td>left-at-top &amp; right-at-top and left-at-bottom &amp; right-at-bottom</td></tr>
+      <tr><th>10px 5% / 20px 25em 30px 35em;</th><td>left-at-top &amp; right-at-top &amp; right-at-bottom &amp; left-at-bottom</td></tr>
+    </tbody>
+  </table>
+</section>
+</div>
+
+--> 
+
+
+
+
+<div class="slide ghostslide">
+<header><h1>Ghost</h1>
+  </header>
+<section class="content">
+  <div class="ghost"></div>
+ <style contenteditable class="editme">.ghost {
+  border-radius: 50% 50% 0% 0% / 100% 100% 0 0; 
+  position: relative;
+  width: 200px; 
+  height: 300px; 
+  background: radial-gradient(at 50% 70%, #ddd, #fff 50%); 
+  border: 1px solid #ddd; 
+  margin: 1em auto;} 
+.ghost::before, 
+.ghost::after { 
+  content: '⦿'; 
+  height: 40px; 
+  width: 30px; 
+  background: white; 
+  border: #333 solid; 
+  border-radius: 50%;
+  border-width: 30px 10px 1px; 
+  position: absolute; top: 50px;
+} 
+.ghost::before  {left: 40px;} 
+.ghost::after  {right: 40px;}
+
+.ghostslide {
+  background-color: #ccc;
+}
+</style>
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1><code>border-radius</code> notes</h1>
+  </header>
+<section class="content">
+<ul>
+  <li>Border radius does clip click area: the between where the corner should be and the rounded area isn't part of the element when it comes to mouse events. 
+  <li>Border radius doesn't necessarily clip the content.</li>
+  <li>To fix overflowing images, use <code>background-clip: padding-box</code>.</li>
+  <li>Add padding to prevent text from overflowing curved border</li>
+  <li>While from 2013, <a href="https://www.youtube.com/watch?v=fw09zvedeSQ">the humble border radius</a> was a fantastic talk. And back then prefixing wasn't necessary!</li>
+  <li>The maximum total border radius is 100% - if two lenght units are greater than a side, they'll be reduced proportionately.</li>
+</ul>
+</section>
+</div>
+
+
+
+
+
+<!--
+<div class="slide intro">
+  <header>
+    <h1>Outlines and Shadows</h1>
+  </header>
+    <section class="content">
+      <p>Neither impact the box model, but they take up space, so leave room for them!</p>
+</section>
+</div>
+
+
+
+<div class="slide intro">
+  <header>
+    <h1><code>outline</code> properties</h1>
+  </header>
+    <section class="content">
+</section>
+</div>
+
+-->
+<div class="slide">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/outline">outline</a></code> property</h1>
+  </header>
+  <section class="content">
+    <p>
+
+Shorthand. Sets <code>outline-style</code>, <code>outline-width</code>, and <code>outline-color</code>.
+  <pre contenteditable>outline: 1px solid red;</pre>
+<pre contenteditable>outline-style: solid;
+outline-width: 1px;
+outline-color: red;</pre>
+<p>Declaring outline declares all four sides. There is not way to make each side different.</p>
+<p>Outlines are drawn outside of an element's border.</p>
+<p>Because is this, make sure to include enough space if you're doing large outlines</p>
+    
+
+  </section>
+</div>
+
+
+<div class="slide object">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/outline-style">outline-style</a></code> property</h1>
+  </header>
+  <object data="exercises/outline-style.html"></object>
+  <a href="exercises/outline-style.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/outline-offset">outline-offset</a></code> property</h1>
+  </header>
+  <object data="exercises/outline-offset.html"></object>
+  <a href="exercises/outline-offset.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+
+<!--
+<div class="slide divider">
+  <header>
+    <h1>box shadows</h1>
+  </header>
+    <section class="content">
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-shadow">box-shadow</a></code> property</h1>
+  </header>
+    <section class="content">
+      <p>Adds shadow effects around an element's frame. </p>
+      <pre contenteditable>inset &lt;horizontal offset> &lt;vertical offset> &lt;blur radius> &lt;spread radius> &lt;color></pre>
+
+<ul>
+  <li>Optional <code>inset</code> keyword.</li>
+  <li>Two, three, or four &lt;length&gt; values.
+    <ul>
+      <li>The first two values are given are &lt;offset-x&gt;&lt;offset-y&gt; values.</li>
+      <li>Optional third value is the &lt;blur-radius&gt;.</li>
+      <li>Optional fourth value &lt;spread-radius&gt;.</li>
+    </ul>
+  </li>
+  <li>Optionally, a &lt;color&gt;.</li>
+</ul>
+<pre contenteditable>box-shadow: inset 1px -2px 3px 4px rgba(0, 0, 0, 0.2);</pre>
+</section>
+</div>
+
+
+
+<div class="slide divider">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-shadow">box-shadow</a></code> property</h1>
+  </header>
+  <section class="content">
+    
+<dl>
+<dt>inset</dt>
+    <dd>Creates the shadow inside the border, above the background, but below content. The default, when <code>inset</code> keyword is not included, creates a drop shadow </dd> 
+<dt>&lt;offset-x> </dt>
+    <dd>Set the horizontal offset or distance. Negative values place the shadow to the left of the element, positive to the right. If the value is 0, the shadow will be the same width on the left and right.</dd>
+<dt>&lt;offset-y></dt>
+   <dd>Sets the vertical offset or distance. Negative values place the shadow above the element, positive values below the element. If the value is 0, the shadow will be the same width on the top and bottom. </dd>
+<dt>&lt;blur-radius></dt>
+    <dd>Optional. Sets the size of the blur of the shadow. The blur goes from currentColor or the color defined by the shadow color to fully transparent over the distance set. Defaults to 0 (no blurring) if omitted. Negative values are invalid.</dd>
+<dt>&lt;spread-radius></dt>
+    <dd>Also optional, but can only be set if a blur radius is included, even if that blur is set to 0. Sets the distance the shadow color will be fully saturated before blurring if the blur radius is great than zero, or the width of the shadow "outline" if the blur radius is 0. If negative, it causes the blur-radius to "shrink". If 0, the shadow will be the same size as the element</dd>
+<dt>&lt;color></dt>
+    <dd>Optional. Accepts and &lt;color> value. If omitted, it defaults to currentColor in most browsers.</dd>
+</dl>
+
+<p>Unlike text-shadow which is visible behind non-fully opaque text, the box shadow "ends" at the border of the element.</p>
+
+</section>
+</div>
+
+<div class="slide divider">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-shadow">box-shadow</a></code> property</h1>
+  </header>
+<p>Multiple shadows are comma-separated.</p>
+<p>Multiple shadows are drawn back to front (the first one will be on top of the next one)</p>
+<pre contenteditable>box-shadow: 0 0 0 5px red, 
+              0 0 0 10px blue,
+              0 0 0 15px green;</pre>
+<p>Outlines are drawn outside of an element's border.</p>
+<p>Because is this, make sure to include enough space if you're doing large outlines</p>
+</section>
+</div>
+
+
+
+<div class="slide poem">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-shadow">box-shadow</a></code> property</h1>
+  </header>
+    <section class="content">
+
+ <style contenteditable class="editme">.poem p {
+  padding: 20px;
+  white-space: pre;
+  max-width: 20em;
+ }</style>
+
+ <style contenteditable class="editme">.poem p:first-of-type {
+  box-shadow: 0 0 0 1em #F4AAB9,
+              0 0 0 2em #FFFFFF,
+              0 0 0 3em #66CCFF;
+  margin: calc(3em + 1em) auto;
+ }</style>
+
+<p>You may write me down in history
+With your bitter, twisted lies,
+You may trod me in the very dirt
+But still, like dust, I'll rise.</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(2) {
+  box-shadow: inset 1px 1px 100px var(--dark_bg), 
+              0 0 0 3px var(--invertedtext),
+              0 0 0 6px var(--colorpop),
+              0 36px 16px -14px rgba(0,0,0,0.5);
+  background-color: var(--colorpop);
+  color: var(--invertedtext);
+  margin: 1em auto calc(36px + 1em);
+}</style>
+<p>Does my sassiness upset you?
+Why are you beset with gloom?
+’Cause I walk like I've got oil wells
+Pumping in my living room.</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(3) {
+    box-shadow: 0.5em 0.5em 0 white,
+                1em 1em 0 lightgrey;
+    background-color: palegoldenrod;
+    margin: 1em auto calc(1em + 1em) auto;
+    border-radius: 1em 
+}</style>
+<p>Just like moons and like suns,
+With the certainty of tides,
+Just like hopes springing high,
+Still I'll rise.</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(4) {
+    background-color: rebeccapurple;
+    color: white;
+    box-shadow: 0 0 0 5px white,
+                0 0 0 15px rebeccapurple;
+    margin: calc(15px + 1em) auto;
+}</style>
+<p>Did you want to see me broken?
+Bowed head and lowered eyes?
+Shoulders falling down like teardrops,
+Weakened by my soulful cries?</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(5) {
+    border-radius: 50%; 
+    padding: 100px 0; 
+    box-sizing: border-box; 
+    text-align: center;
+    box-shadow:  0 0 0 10px #FF0018, 
+                 0 0 0 20px #FFA52C,
+                 0 0 0 30px #FFFF41, 
+                 0 0 0 40px #008018,
+                 0 0 0 50px #0000F9,
+                 0 0 0 60px #86007D,
+                 1px 30px 60px 60px rgba(0,0,0,0.4);; 
+    background-color: white;
+    margin: calc(60px + 1em) auto calc(120px + 1em);
+}</style>
+<p>Does my haughtiness offend you?
+Don't you take it awful hard
+’Cause I laugh like I've got gold mines
+Diggin’ in my own backyard.</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(6) {
+    box-shadow: inset -5px 5px; 
+    background-color: magenta;
+    margin: calc(0px + 1em) auto;
+}</style>
+<p>You may shoot me with your words,
+You may cut me with your eyes,
+You may kill me with your hatefulness,
+But still, like air, I’ll rise.</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(7) {
+    box-shadow: -15px 15px; 
+    background-color: orange;
+    margin: 1em auto calc(15px + 1em);
+}</style>
+<p>Does my sexiness upset you?
+Does it come as a surprise
+That I dance like I've got diamonds
+At the meeting of my thighs?</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(8) {
+    box-shadow: 0px 30px 40px 50px green;
+    margin: calc(60px + 1em) auto calc(120px + 1em);
+}</style>
+<p>Out of the huts of history’s shame
+I rise
+Up from a past that’s rooted in pain
+I rise
+I'm a black ocean, leaping and wide,
+Welling and swelling I bear in the tide.</p>
+ <style contenteditable class="editme">.poem p:nth-of-type(9) {
+    box-shadow: ; /* make your own */
+    margin: calc(0px + 1em) auto;
+}</style>
+<p>Leaving behind nights of terror and fear
+I rise
+Into a daybreak that’s wondrously clear
+I rise
+Bringing the gifts that my ancestors gave,
+I am the dream and the hope of the slave.
+I rise
+I rise
+I rise..
+</p>
+</section>
+</div>
+
+
+
+<div class="slide">
+  <header>
+    <h1>box shadows</h1>
+  </header>
+    <section class="content">
+      <style class="editme" contenteditable>.mayaAngelou {
+  padding: 20px;
+  box-shadow: 
+       inset 0 -3em 3em rgba(0,0,0,0.1), 
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}</style>
+<blockquote class="mayaAngelou"><q>You may shoot me with your words,<br/>
+You may cut me with your eyes,<br/>
+You may kill me with your hatefulness,<br/>
+But still, like air, I'll rise.</q>
+<p>&mdash; Maya Angelou</p>
+</blockquote>
+</section>
+</div>
+
+
+
+
+<div class="slide divider">
+  <header>
+    <h1>Overflow</h1>
+  </header>
+  <section class="content">
+
+
+  </section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/overflow">overflow</a></code> property</h1>
+  </header>
+  <section class="content">
+    <p>If the content becomes larger than the containing box, it will overflow. You can keep it in the box and add scroll bars, or not, with the overflow property</p>
+  <pre contenteditable>visible | hidden | scroll | <strike>clip</strike> | auto {1,2}</pre>
+  <p>If one value, declared for both horizontal and vertical. If two, the first is horizontal scrolling, the second is vertical scrolling.</p>
+<pre contenteditable>overflow: <b>visible</b>;
+overflow: hidden;
+<strike>overflow: clip;</strike> 
+overflow: scroll;
+overflow: auto;
+overflow: hidden visible;</pre>
+<p>Overflow keeps content up to the outer edge of the padding box.</p>
+  </section>
+</div>
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/web/css/overflow" target="resource">overflow</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Set what should happen should an element's content be too big to fit in its block formatting context. It is a shorthand for <code>overflow-x</code> and <code>overflow-y</code>.</p>
+  <pre contenteditable>overflow: scroll hidden</pre>
+  <dl>
+  <dt>visible</dt>
+  <dd>Content is not clipped and may be rendered outside the padding box.</dd>
+  <dt>hidden</dt>
+  <dd>Content is clipped if necessary to fit the padding box. No  scrollbars are provided, and no support for allowing the user to scroll  (such as by dragging or using a scroll wheel) is allowed. The content <em>can</em> be scrolled programmatically (for example, by setting the value of a property such as offsetLeft), so the element is still a scroll container.</dd>
+  <dt>scroll</dt>
+  <dd>Content is clipped if necessary to fit the padding box. Browsers display scrollbars whether or not any content is actually  clipped, preventing scrollbars from appearing or disappearing as content  changes. Printers may  print overflowing content.</dd>
+  <dt><strike>clip</strike></dt>
+  <dd>Like for hidden, the content is clipped to the element's padding box. The difference between clip and hidden is that the clip  keyword also forbids all scrolling, including programmatic scrolling. </dd>
+  <dt>auto</dt>
+  <dd>If content fits inside the padding box, it looks the same as visible, but still establishes a new block formatting context. Scrollbars only show if content overflows.</dd>
+</dl>
+<dl>
+</section>
+</div>
+
+
+<div class="slide object">
+  <header>
+    <h1>CSS is awesome</h1>
+  </header>
+  <object data="exercises/awesome.html"></object>
+  <a href="exercises/awesome.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+<div class="slide">
+  <header>
+    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/overflow-x">overflow-x</a> &amp; <a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/overflow-y">overflow-y</a></code> properties</h1>
+  </header>
+  <section class="content">
+<h2><code>overflow-x</code> and <code>overflow-y</code></h2>
+<pre contenteditable>[ visible | hidden | clip | scroll | auto ]</pre>
+<pre contenteditable>overflow: visible;
+overflow: hidden;
+overflow: clip;
+overflow: scroll;
+overflow: auto;</pre>
+  </section>
+</div>
+
+
+<div class="slide object">
+  <header>
+    <h1>Overflow</h1>
+  </header>
+  <object data="exercises/overflow.html"></object>
+  <a href="exercises/overflow.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+
+  
+<div class="slide overflow">
+<header><h1><code>overflow</code> property</h1>
+  </header>
+<section class="content">
+ <style contenteditable class="editme">.slide.overflow style.editme {
+    width: 50%; 
+    margin: 2em auto;
+    max-height: 30vh;
+    box-shadow: 0 0 0 3px hsla(0, 0%, 100%, 1), 0 0 0 6px hsla(0, 0%, 0%, 1), 0 0 0 9px var(--colorpop);
+    border-radius: 50px 0 / 50px 0;
+    background: radial-gradient(farthest-corner at 0 0, hsla(0, 0%, 100%, 1) 0% 50%, 0 0 0 6px hsla(0, 0%, 0%, 0.1) 100%);
+    overflow: scroll;
+ }
+</style>
+</section>
+</div>
+
+
+-->
+
+<div class="slide divider">
+  <header>
+    <h1>Size constraints</h1>
+  </header>
+  <section class="content">
+  
+  </section>
+</div>  
+  
+
+<div class="slide">
+<header><h1>Horizontal size constraints</h1>
+  </header>
+<section class="content">
+<h3><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-width" target="resource">min-width</a></code> property</h3>
+  <p>Sets the minimum width of an element, preventing <code>width</code> property from becoming smaller than that.</p>
+<h3><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-width" target="resource">max-width</a></code> property</h3>
+<p>Sets the maximum width of an element, preventing <code>width</code> property from becoming larger than that. If <code>min-width</code> is greater, <code>min-width</code> wins</p>
+
+<h3><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width" target="resource">width</a></code> property</h3>
+<p>Sets the width of an element, as long as the width is greater than or equal to <code>min-width</code>, and less than or equal to <code>max-width</code></p>
+</section>
+</div>
+
+
+ <!--
+<div class="slide">
+  <header>
+    <h1>width constraints</h1>
+  </header>
+  <section class="content">
+  <pre contenteditable><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/width">width</a>: 50em; 
+<a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/max-width">max-width</a>: 40em;
+<a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/min-width">min-width</a>: 60em;</pre>
+<p><code>max-width</code> overrides <code>width</code>. <br/><code>min-width</code> overrides <code>max-width</code>.</p>
+<h2>Keyword values</h2>
+<pre contenteditable>max-width: none;
+max-width: max-content;
+max-width: min-content;
+max-width: fit-content(&lt;length-percentage>);
+max-width: fill-available;</pre>
+<small><a href="https://drafts.csswg.org/css-sizing-3/#width-height-keywords">Specification</a></small>
+  </section>
+</div>
+
+
+-->
+
+
+
+<div class="slide">
+<header><h1>Vertical size constraints</h1>
+  </header>
+<section class="content">
+<h3><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min-height" target="resource">min-height</a></code> property</h3>
+  <p>Sets the minimum height of an element, preventing <code>height</code> property from becoming smaller than that.</p>
+<h3><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/max-height" target="resource">max-height</a></code> property</h3>
+<p>Sets the maximum height of an element, preventing <code>height</code> property from becoming larger than that. If <code>min-height</code> is greater, <code>min-height</code> wins</p>
+
+<h3><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height" target="resource">height</a></code> property</h3>
+<p>Sets the height of an element, as long as the height is greater than or equal to <code>min-height</code>, and less than or equal to <code>max-height</code></p>
+</section>
+</div>
+
+<!--
+<div class="slide">
+  <header>
+    <h1>height constraints</h1>
+  </header>
+  <section class="content">
+  <pre contenteditable><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/height">height</a>: 50em; 
+<a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/max-height">max-height</a>: 40em;
+<a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/min-height">min-height</a>: 60em;</pre>
+<p><code>max-height</code> overrides <code>height</code>. <br/><code>min-height</code> overrides <code>max-height</code>.</p>
+<h2>Keyword values</h2>
+<pre contenteditable>max-height: none;
+max-height: max-content;
+max-height: min-content;
+max-height: fit-content(&lt;length-percentage>);
+max-height: fill-available;</pre>
+<small><a href="https://drafts.csswg.org/css-sizing-3/#height-height-keywords">Specification</a></small>
+  </section>
+</div>
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width" target="resource">width</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Sets an element's width. By default, it sets the width of the content area, but if <code>box-sizing: border-box</code> is set, it sets the width of the border area.</p>
+  <pre contenteditable class="multi">[ &lt;length-percentage> ] && [ border-box | content-box ]?  
+available | min-content | max-content | fit-content | auto</pre>
+ <p>Either a keyterm, or a size fillowed, optionally followed by <code>border-box</code> or <code>content-box</code>.</p>
+
+<dl><dt>border-box</dt>
+    <dd>The preceding length is applied to the element's border box.</dd>
+<dt>content-box</dt>
+    <dd>The preceding length is applied to the element's content box.</dd>
+<dt>auto</dt>
+    <dd>The browser calculates and selects a width for the specified element.</dd>
+<dt>fill</dt>
+    <dd>Use the fill-available inline size or fill-available block size, as appropriate to the writing mode.</dd>
+<dt>max-content</dt>
+    <dd>The intrinsic preferred width.</dd>
+<dt>min-content</dt>
+    <dd>The intrinsic minimum width.</dd>
+<dt>fit-content</dt>
+    <dd>The larger of the intrinsic minimum width or the smaller of the intrinsic preferred width and the available width</dd>
+</dl>
+  <p>The <code>min-width</code> and <code>max-width</code> properties override width.</p>
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height" target="resource">height</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Sets an element's height. By default, it sets the height of the content area, but if <code>box-sizing: border-box</code> is set, it sets the height of the border area.</p>
+  <pre contenteditable class="multi">[ &lt;length-percentage> ] && [ border-box | content-box ]?  
+available | min-content | max-content | fit-content | auto</pre>
+ <p>Either a keyterm, or a size fillowed, optionally followed by <code>border-box</code> or <code>content-box</code>.</p>
+
+<dl><dt>border-box</dt>
+    <dd>The preceding length is applied to the element's border box.</dd>
+<dt>content-box</dt>
+    <dd>The preceding length is applied to the element's content box.</dd>
+<dt>auto</dt>
+    <dd>The browser calculates and selects a height for the specified element.</dd>
+<dt>fill</dt>
+    <dd>Use the fill-available inline size or fill-available block size, as appropriate to the writing mode.</dd>
+<dt>max-content</dt>
+    <dd>The intrinsic preferred height.</dd>
+<dt>min-content</dt>
+    <dd>The intrinsic minimum height.</dd>
+<dt>fit-content</dt>
+    <dd>The larger of the intrinsic minimum height or the smaller of the intrinsic preferred height and the available height</dd>
+</dl>
+  <p>The <code>min-height</code> and <code>max-height</code> properties override <code>height</code>.</p>
+</section>
+</div>
+
+
+<div class="slide">
+  <header>
+    <h1>max-width &amp; max-height</h1>
+  </header>
+  <section class="content">
+
+<p>The maximum value for that dimension. Supercedes <code>width</code> and <code>height</code> declarations if the value is smaller. </p>
+<dl><dt>none</dt>
+    <dd>The dimension has no maximum value.</dd>
+<dt>max-content </dt>
+    <dd>The intrinsic preferred width or height.</dd>
+<dt>min-content </dt>
+    <dd>The intrinsic minimum width or height.</dd>
+<dt>fill-available</dt> 
+    <dd>The containing block's width or height minus that directions margin, border, and padding. </dd>
+<dt>fit-content </dt>
+    <dd>The same as max-content. </dd></dl>
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>min-width &amp; min-height</h1>
+  </header>
+  <section class="content">
+<p>The minimum value for that dimension. Takes precendence over max-* </p>
+<pre contenteditable>&lt;length> | &lt;percentage> | auto | max-content | min-content | fit-content | fill-available</pre>
+<dl>
+  <dt>auto</dt>
+    <dd>Specifies an automatic minimum size. Generally resolves to 0.</dd>
+<dt>max-content</dt>
+    <dd>The intrinsic preferred width or height.</dd>
+<dt>min-content</dt>
+    <dd>The intrinsic minimum width or height.</dd>
+<dt>fill-available</dt>
+    <dd>The containing block's width or height minus the horizontal or vertical margin, border, and padding. </dd>
+<dt>fit-content</dt>
+    <dd>Defined as min(max-content, max(min-content, fill-available)).</dd>
+    </dl>
+</section>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>Size Constraints</h1>
+  </header>
+  <object data="exercises/minmax.html"></object>
+  <a href="exercises/minmax.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+
+<div class="slide divider">
+  <header>
+    <h1><code>display</code> property</h1>
+  </header>
+</div>
+
+<div class="slide">
+<header><h1> <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/display">display</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Sts whether an element is treated as a block or inline element and the layout used for its children, such as grid or flex.
+
+  <pre contenteditable>contents | none | block | inline | run-in | inline-block ...</pre>
+<p> Some values of display will be fully defined in their own sectionss.</p>
+<dl><dt>none</dt>
+  <dd>Element is completely removed from the page flow, as if the element and all it's descendants did not exist.</dd>
+  <dt>inline</dt>
+  <dd>Default for all elements, though user agent style sheets usually set this value for many elements.  Creates an inline-level box.</dd>
+  <dt>block</dt>
+  <dd>Generates a block-level box for the element. Often used as the opposite of <code>display: none;</code>. Don't do that. Use initial to make an element visible again.</dd>
+  <dt>inline-block</dt>
+  <dd>Similar to the inline box, but you can height and width values for the element. Value for <code>&lt;img</code>.</dd>
+  <dt>list-item</dt>
+  <dd>Similar to block-level with an inline box for the <code>::marker</code>.</dd></dl>
+  <p>We'll handle the others as they come into play.</p>   
+  <p>Formally, the display property sets an element's inner and outer display types. The outer type sets an element's participation in flow layout; the inner type sets the layout of children.</p>
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>All the <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/display">display</a></code> properties</h1>
+  </header>
+  <section class="content">
+    <h2><code>&lt;display-outside></code> values</h2>
+  <pre contenteditable>
+display: block;
+display: inline;
+display: run-in;</pre>
+
+
+    <h2><code>&lt;display-inside></code> values</h2>
+ <pre contenteditable>display: flow;
+display: flow-root;
+display: table;
+display: flex;
+display: grid;
+display: ruby;</pre>
+
+
+    <h2><code>&lt;display-outside></code> plus <code>&lt;display-inside></code> values</h2>
+ <pre contenteditable>display: block flow;
+display: inline table;
+display: flex run-in;</pre>
+
+
+
+    <h2><code>&lt;display-listitem></code> values</h2>
+ <pre contenteditable>display: list-item;
+display: list-item block;
+display: list-item inline;
+display: list-item flow;
+display: list-item flow-root;
+display: list-item block flow;
+display: list-item block flow-root;
+display: flow list-item block;</pre>
+
+
+    <h2><code>&lt;display-internal></code> values</h2>
+ <pre contenteditable>display: table-row-group;
+display: table-header-group;
+display: table-footer-group;
+display: table-row;
+display: table-cell;
+display: table-column-group;
+display: table-column;
+display: table-caption;
+display: ruby-base;
+display: ruby-text;
+display: ruby-base-container;
+display: ruby-text-container;</pre>
+
+
+    <h2><code>&lt;display-box></code> values</h2>
+ <pre contenteditable>display: contents;
+display: none;</pre>
+
+
+    <h2><code>&lt;display-legacy></code> values</h2>
+ <pre contenteditable>display: inline-block;
+display: inline-table;
+display: inline-flex;
+display: inline-grid;</pre>
+
+
+    <h2>global values</h2>
+ <pre contenteditable>display: inherit;
+display: initial;
+display: unset;
+display: revert;</pre>
+</pre>
+  </section>
+</div>
+  
+  
+<div class="slide">
+  <header>
+    <h1>Today's <code>display</code> properties</h1>
+  </header>
+  <section class="content">
+  <pre contenteditable>
+display: block;
+display: inline;
+display: inline-block;
+display: none;
+
+display: flex;
+display: inline-flex;
+
+display: grid;
+display: inline-grid;
+
+display: run-in;
+display: list-item;
+
+display: flow;
+display: flow-root;
+display: contents;
+
+display: table;
+display: inline-table;
+display: table-row-group;
+display: table-header-group;
+display: table-footer-group;
+display: table-row;
+display: table-cell;
+display: table-column-group;
+display: table-column;
+display: table-caption;
+
+display: ruby;
+display: ruby-base;
+display: ruby-text;
+display: ruby-base-container;
+display: ruby-text-container;
+
+/* Global values */
+display: inherit;
+display: initial;
+display: unset;</pre>
+</section>
+</div>
+  
+<div class="slide">
+<header><h1> <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/display">display</a></code> property</h1>
+  </header>
+<section class="content">
+  <h3><code>display: none;</code>, an interpretive dance</h3>
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1> <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/visibility">visibility</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Shows or hides an element without changing the layout of a document. Also hide rows or columns in tables.</p>
+  <pre contenteditable>visible | hidden | collapse</pre>
+  <dl><dt>visible</dt>
+    <dd>Default. The element box is visible.</dd>
+<dt>hidden</dt>
+    <dd>The element box is invisible (not drawn), but still affects layout as normal. <B>MAINTAINS SPACE!</B> Doesn't receive focus. Descendants of the element will be visible if they have visibility set to visible. </dd>
+<dt>collapse</dt>
+    <dd>Same as hidden, except for table rows, columns, column groups, and row groups, which are hidden and space removed as if <code>display: none</code> were applied. The size of other rows and columns is still calculated as though the cells in the collapsed row(s) or column(s) are present.<sup>*</sup> Collapsed flex items are hidden, and the space they would have occupied is removed.</dd>
+<p>Will discuss futher in animation and tables sections</p>
+<p><sup>*</sup> Allows for removal of a table row or column without a reflow for the entire table.</p>
+
+</section>
+</div>
+
+<div class="slide object">
+<header><h1>Impact of <code>visibility: collapse</code> in Flex</h1>
+  </header>
+<object data="../flexbox/exercises/collapse.html"></object>
+<a href="../flexbox/exercises/collapse.html" target="play" class="objectlink">↪</a>
+</div>
+
+<div class="slide object">
+<header><h1>Impact of <code>visibility: collapse</code> on tables</h1>
+  </header>
+<object data="exercises/empty.html"></object>
+<a href="exercises/empty.html" target="play" class="objectlink">↪</a>
+</div>
+
+
+
+<div class="slide">
+  <header>
+    <h1>Exercise</h1>
+  </header>
+  <section class="content exercisecards">
+  <figure>
+  <div class="card" data-type="H">
+    <div class="back"></div>
+    <div class="face" data-value="A">♥</div>
+  </div>
+  <div class="card" data-type="C">
+    <div class="back"></div>
+    <div class="face" data-value="A">♣</div>
+  </div>
+  <div class="card" data-type="D">
+    <div class="back"></div>
+   <div class="face" data-value="A">♦</div>
+  </div>
+</figure>
+    <p>Let's continue on with our card example just a bit.</p>
+    <ol>
+      <li>Add a border around the cards </li>
+      <li>Round the corners</li>
+      <li>Add a decorative border on the back of the card.</li>
+      <li>Add a shadow to the back and front of each card.</li>
+      <li>Stack all the cards into a pack (one on top of the other)</li>
+      <li>Move them around a little bit so you can see a bit of each</li><li>Center the whole thing</li>
+    </ol>
+    <p>Extra credit: vertically center the ♥, ♣, and ♦. (You have to remove the visibility hidden to see the face to do this.)</p>
+    <a href="exercises/cards.html" target="exercise">HTML</a> | <a href="exercises/style.css" target="css">CSS</a>
+  </section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>Solution</h1>
+  </header>
+  <section class="content">
+    <a href="exercises/answer.html" target="exercise">HTML</a> | <a href="exercises/answer.css" target="css">CSS</a>
+  </section>
+</div>
+
+
+
+
+<div class="slide">
+  <header>
+    <h1>Solution</h1>
+  </header>
+  <section class="content">
+<p>center the whole card</p>
+<pre contenteditable>
+figure {
+  <i>width: 200px;
+  height: 300px;</i>
+  position: relative;
+  <i>margin: auto;</i>
+}</pre>
+<p>Add border around the cards</p>
+<pre contenteditable>
+.card {
+  height: 300px;
+  width: 200px;
+  position: absolute;
+  <i>border-radius: 10px;
+  border: 2px solid #ccc;</i>
+}
+</pre>
+<p>Round the corners<br/>
+Add a decorative border on the back of the card.</p>
+<pre contenteditable>.back,
+.face {
+  ....
+  <i>border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);</i>
+}</pre>
+
+<pre contenteditable>
+.back {
+  ....
+  <b>border: 10px solid white;</b>
+}</pre>
+<p>Extra credit: vertically center the ♥, ♣, and ♦</p>
+<pre contenteditable>
+.face {
+  font-size: 2em;
+  <b>line-height: 300px; /* extra credit. temporary */
+  text-align: center;</b>
+}</pre>
+<p>Move them around a bit so they're not all on top of each other</p>
+<pre contenteditable>.card:nth-of-type(2) {
+  <b>left: 20px; /* temporary */
+  top: 20px;</b>
+}
+.card:last-of-type {
+  <b>left: 40px; /* temporary */
+  top: 20px;</b>
+}</pre>
+  
+  </section>
+</div>
+  
+ 
+
+<!--NEXT-->
+<div class="slide">
+   <header>
+    <h1>Flexbox</h1>
+  </header>
+  <section class="content">
+    <h1><a href="../flexbox/index.html">Next ➹</a></h1></section>
+</div>
+
+<div class="slide dots">
+  <header>
+    <h1>Table of Content</h1>
+  </header>
+  <section>
+    <ol>
+<li><a href="../intro/index.html">Introduction</a></li>
+<li><a href="../boxmodel/index.html">Box Model</a></li>
+<li><a href="../flexbox/index.html">Flexbox</a></li>
+<li><a href="../grid/index.html">Grids</a></li>
+    <li><a href="../selectors/index.html">Selectors</a></li>
+    <li><a href="../selectors/specificity.html">Specificity</a></li>
+
+<p></ol>
+  </section>
+</div>
+<!-- TOC -->
+<div class="slide">
+  <header>
+    <h1>Links</h1>
+  </header>
+    <section class="content">
+      <ul>
+  <li><a href="https://drafts.csswg.org/css-overflow-3/">CSS Overflow Level 3</a></li>
+  <li><a href="https://drafts.csswg.org/css-sizing-3/">CSS Sizing Level 3</a></li>
+  <li><a href="https://www.w3.org/TR/CSS2/" title="The 'CSS Level&nbsp;2 (Revision&nbsp;1)' specification">CSS Level&nbsp;2 (Revision&nbsp;1)</a></li>
+  <li><a href="https://www.w3.org/TR/CSS1/" title="The 'CSS Level&nbsp;1' specification">CSS Level&nbsp;1</a></li>
+      </ul>
+    </section>
+</div>
+
+
+   </div>
+
+
+</div>
+<header>
+    <nav>
+        <ul>
+            <li><button class="button cancel" id="back">&laquo; Back</button></li>
+            <li><button class="button done" id="next">Next &raquo; </button></li>
+        </ul>
+    </nav>
+</header>
+<script src="../slideshow.js"></script>
+  </body>
+
+</html>
+

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* CSS Document */
+
+:root {
+  --theme: red;
+}
+/* the container */
+figure {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  margin: auto;
+}
+/* all the cards */
+.card {
+  height: 300px;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+}
+.back,
+.face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right:0;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+}
+/* backs of the cards */
+.back {
+  background-image: 
+     linear-gradient(-45deg, var(--theme) 25%, transparent 25% 75%, var(--theme) 75%), 
+     linear-gradient(-45deg, var(--theme) 25%, transparent 25% 75%, rgb(255, 255, 255) 75%), 
+     linear-gradient(45deg, var(--theme) 17%, transparent 17% 25%, var(--theme) 25% 36%, transparent 36% 64%, var(--theme) 64% 75%, transparent 75% 83%, var(--theme) 83%);
+  background-color: rgb(255, 255, 255);
+  background-size: 2em 2em;
+  background-position: -1em -1em;
+  border: 10px solid white;
+}
+/* card faces */
+.face {
+  font-size: 2rem;
+  visibility: hidden;
+  line-height: 300px; /* extra credit. temporary */
+  text-align: center;
+}
+.face::before {
+  content: attr(data-value);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.face::after {
+  content: attr(data-value);
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+/* first, second, and last card */
+.card:first-of-type {
+
+}
+.card:nth-of-type(2) {
+  left: 40px; /* temporary */
+  top: 20px;
+}
+.card:last-of-type {
+  left: 20px; /* temporary */
+  top: 20px;
+}
+/* faces of first, second and last cards */
+.card:first-of-type .face {
+
+}
+.card:nth-of-type(2) .face {
+
+}
+.card:last-of-type  .face {
+  
+}
+/* red cards */
+[data-type="H" i],
+[data-type="D" i] {
+   color: red;
+ }
+/* black cards */
+[data-type="C" i],
+[data-type="S" i] {
+   color: black;
+ }
+/* hovered card */
+.card:hover {
+
+} 
