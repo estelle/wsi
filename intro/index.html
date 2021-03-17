@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS:  Did you know?</title>
+    <link rel="stylesheet" href="../intro/css/main.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+
+<!-- buttons -->
+<header>
+  <nav>
+    <ul>
+      <li><button class="button cancel" id="back">&laquo; Back</button></li>
+      <li><button class="button done" id="next">Next &raquo; </button></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- footer instructions -->
+<div id="info">
+    <p><a href="http://standardista.com">Estelle Weyl</a> | <a href="http://twitter.com/estellevw">@estellevw</a> | <a href="http://github.com/estelle">Github</a> | Press <span class="key">&rarr;</span> key to advance.</p>
+</div>
+
+<!-- presentation shell -->
+  <div id="presentation">
+   <div id="presentation-counter"></div>
+   <div id="slides">
+
+
+<!-- deck TOC -->
+<div class="slide intro">
+ <header>
+  <h1>CSS Basics</h1>
+ </header>
+ <section>
+ <div class="flex12">
+  <ul>
+    <li>Declarations</li>
+    <li>CSS Rulesets</li>
+    <li>Including CSS
+        <ul>
+          <li>&lt;link></li>
+          <li>media</li>
+          <li>&lt;style></li>
+          <li>@import</li>
+          <li>inline styles</li>
+          <li>Scripting</li>
+        </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>Knowledge
+    <ul>
+      <li>White space</li>
+      <li>Character declaration</li>
+      <li>Comments</li>
+      <li>Errors and Error Handling</li>
+      <li>The Cascade</li>
+    </ul>
+    </li>
+  </ul>
+</div>
+<p><a href="https://estelle.github.io/wsi/intro/">estelle.github.io/wsi/intro/</a></p>
+</section>
+</div>
+
+
+<!-- declaration -->
+<div class="slide">
+  <header>
+    <h1>Declaration</h1>
+  </header>
+  <section class="content">
+    <h2>Declaration</h2>
+    <pre><b>property</b><em>:</em> <b>value</b><em>;</em></pre>
+    <pre>color: red;</pre>
+    <pre>font-weight: bold;</pre>
+  </section>
+</div>
+
+
+
+<!--CSS properties covered-->
+<div class="slide object">
+  <header>
+    <h1>CSS Properties</h1>
+  </header>
+  <object data="exercises/properties.html"></object>
+</div>
+
+
+
+
+<!-- Declaration block -->
+<div class="slide">
+  <header>
+    <h1>Declaration block</h1>
+  </header>
+  <section class="content">
+    <pre>{
+  color: red;
+  font-weight: bold;
+}</pre>
+    <pre>{
+  transition: all 2s ease-in;
+  transform: scale(2) translate(50vw, 50vh);
+}</pre>
+  </section>
+</div>
+
+<!-- CSS ruleset syntax -->
+<div class="slide">
+  <header>
+    <h1>CSS Ruleset</h1>
+  </header>
+   <section class="content">
+<pre contenteditable>selectorA {
+   property1: value1;
+   property2: value2;
+}
+
+selectorB, 
+selectorC {
+   property1: value3;
+   property2: value4;
+}</pre>
+</section>
+ </div>
+
+
+
+<!-- CSS ruleset -->
+<div class="slide">
+  <header>
+    <h1>CSS Rulesets</h1>
+  </header>
+  <section class="content">
+<pre contenteditable>p {
+   color: #333333;
+   line-height: 2;
+}
+
+a:link {
+   text-decoration: underline;
+   color: blue;
+}</pre>
+    <p>Selectors define to which elements and pseudo elements the ruleset is applied.</p>
+  </section>
+</div>
+
+
+
+
+<!-- How this deck works -->
+<div class="slide thisSlide">
+<header><h1>Live Code</h1>
+  </header>
+<section class="content">
+ <style contenteditable class="editme css">.thisSlide .css {
+  background-color: var(--dark_bg);
+  color: var(--invertedtext);
+ }</style>
+ <p>This deck is "live". Changing the selectors, properties and values in a code block will change the CSS for the current deck. Instantly.</p>
+</section>
+</div>
+
+
+
+<!-- subsection TOC -->
+<div class="slide divider">
+  <header>
+    <h1>Including CSS</h1>
+  </header>
+  <section class="content">
+    <ul>
+     <li><code>&lt;link></code></li>
+     <li><code>&lt;style></code></li>
+     <li><code>@import</code></li>
+     <li>inline (<code>style</code> attribute)</li>
+     <li>scripting</li>
+   </ul>
+  </section>
+</div>
+
+
+<!-- <link>: example of including various styles -->
+<div class="slide">
+  <header>
+    <h1>&lt;link></h1>
+  </header>
+  <section class="content">
+<pre contenteditable  class="largeblock">&lt;!DOCTYPE HTML&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;CSS Intro&lt;/title&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;styles1.css&quot; <em>type="text/css"</em>/&gt;
+  <b>&lt;link rel=&quot;stylesheet&quot; href=&quot;styles2.css&quot;/&gt;</b>
+  &lt;link rel=&quot;stylesheet&quot; <em>media="all"</em> href=&quot;http://fonts.googleapis.com/css?family=Rum+Raisin&quot;/&gt;
+  &lt;style&gt;
+     @import url(style3.css);
+     pre {
+        border-radius: 5px;
+     }
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body style=&quot;&quot;&gt;
+  ...
+ &lt;/body&gt;</pre>
+  </section>
+</div>
+
+
+
+<!-- style inclusion: media query -->
+<div class="slide">
+  <header>
+    <h1>media</h1>
+  </header>
+  <section class="content">
+    <pre style="float: right;">media="screen"
+media="screen and (max-width: 600px)"
+media="screen, print"
+@media screen and (max-width: 600px)</pre>
+    <ol class="col2">
+      <li>all</li>
+      <li>aural</li>
+      <li>handheld</li>
+      <li>braille</li>
+      <li>embossed</li>
+      <li>print</li>
+      <li>projection</li>
+      <li>screen</li>
+      <li>tty</li>
+      <li>tv</li>
+    </ol>
+  </section>
+</div>
+
+
+
+<!-- <style>: example of including various styles -->
+<div class="slide">
+  <header>
+    <h1>&lt;style></h1>
+  </header>
+  <section class="content">
+<pre contenteditable  class="largeblock">&lt;!DOCTYPE HTML&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;CSS Intro&lt;/title&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;styles1.css&quot;type="text/css"/&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles2.css&quot;/&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;http://fonts.googleapis.com/css?family=Rum+Raisin&quot;/&gt;
+  <b>&lt;style&gt;</b>
+     @import url(style3.css);
+     pre {
+        border-radius: 5px;
+     }
+  <b>&lt;/style&gt;</b>
+ &lt;/head&gt;
+ &lt;body style=&quot;&quot;&gt;
+  ...
+ &lt;/body&gt;</pre></section>
+</div>
+
+
+
+
+
+<!-- @import: example of including various styles -->
+<div class="slide">
+  <header>
+    <h1>@import</h1>
+  </header>
+  <section class="content">
+<pre contenteditable class="largeblock">&lt;!DOCTYPE HTML&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;CSS Intro&lt;/title&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;styles1.css&quot;type="text/css"/&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles2.css&quot;/&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;http://fonts.googleapis.com/css?family=Rum+Raisin&quot;/&gt;
+  <em>&lt;style&gt;</em>
+     <b>@import url(print.css) print;</b>
+     pre {
+        border-radius: 5px;
+     }
+  <em>&lt;/style&gt;</em>
+ &lt;/head&gt;
+ &lt;body style=&quot;&quot;&gt;
+  ...
+ &lt;/body&gt;</pre>
+<ul>
+  <li>@import must be first inside &lt;style>.</li>
+  <li>Media values are comma separated.</li>
+  <li>@import directives not processed until entire file is downloaded causing delay in load time.</li>
+  </ul> 
+</section>
+</div>
+
+
+
+<!-- style attribute: example of including various styles -->
+<div class="slide">
+
+  <header>
+    <h1>inline styles</h1>
+  </header>
+  <section class="content">
+<pre contenteditable class="largeblock">&lt;!DOCTYPE HTML&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;title&gt;CSS Intro&lt;/title&gt;
+   &lt;link rel=&quot;stylesheet&quot; href=&quot;styles1.css&quot;type="text/css"/&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles2.css&quot;/&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;http://fonts.googleapis.com/css?family=Rum+Raisin&quot;/&gt;
+  &lt;style&gt;
+     @import url(style3.css);
+     pre {
+        border-radius: 5px;
+     }
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body <b>style=&quot;</b>background-color: white;<b>&quot;</b>&gt;
+  ...
+ &lt;/body&gt;</pre></section>
+</div>
+
+
+<!-- targeting styles with JavaScript -->
+<div class="slide">
+  <header>
+    <h1>Scripting</h1>
+  </header>
+  <section class="content">
+    <pre contenteditable>let myTarget = document.querySelector('#myID');</pre>
+    <pre contenteditable>myTarget.style.color = 'blue';</pre>
+    <pre contenteditable>myTarget.classList.toggle('myClass');
+
+<i>/* methods: add, remove, toggle, contains */</i></pre>
+  </section>
+</div>
+
+
+
+<!-- subsection TOC -->
+<div class="slide divider">
+  <header>
+    <h1>Knowledge</h1>
+  </header>
+  <section class="content">
+    <ul>
+      <li>CSS Rules</li>
+      <li>White space</li>
+      <li>Character declaration</li>
+      <li>Comments</li>
+      <li>Forgiving yet strict</li>
+  </section>
+</div>
+
+
+<!-- CSS: White space -->
+<div class="slide">
+  <header>
+    <h1>White space</h1>
+  </header>
+  <section class="content">
+    <ul>
+      <li>CSS is for the most part insensitive to white space, with 3 exceptions:
+        <ul>
+          <li>Required between keywords in a value</li>
+          <li>The <code>charset</code> declaration needs to be exact</li>
+          <li>Surround operands with whitespace. Is "-" a minus sign or is it indicating a negative number?</li>
+        </ul>
+      </li>
+      <li>In a selector, one or more spaces is a descendant combinator</li>
+      <li>Comments and white space are encouraged for readability. They can be removed via minification during the build process. </li>
+    </ul>
+  </section>
+</div>
+
+
+<!-- @charset "UTF-8"; -->
+<div class="slide">
+  <header>
+    <h1>Character declaration</h1>
+  </header>
+  <section class="content">
+    <pre><em>@charset "UTF-8";</em></pre>       
+    <ul>
+      <li>Must be the first thing in the stylesheet</li>
+      <li>Must be the first character on the page</li>
+      <li>Must have EXACTLY one space</li>
+      <li>Must have double quotes</li>
+      <li>Only for linked or imported stylesheets</li>
+    </ul>
+  </section>
+</div>
+
+
+<!-- CSS Comments -->
+<div class="slide">
+  <header>
+    <h1>Comments</h1>
+  </header>
+  <section class="content">
+    <p>Comments are generally optional and encouraged for readability:</p>
+    <pre contenteditable><i>/* this is a comment in CSS (and JS) */</i></pre>
+    <pre contenteditable><i>/* this is a multiline
+comment in CSS (and JS)
+that spans 3 lines */</i></pre>
+    <pre contenteditable>color: <i>/* this works */</i> red;</pre>
+  </section>
+</div>
+
+
+
+<!-- CSS Comments -->
+<div class="slide">
+  <header>
+    <h1>Comments</h1>
+  </header>
+  <section class="content">
+    <p>Comments can not be nested:</p>
+    <pre contenteditable><i>/* this is the outer comment
+/* inner comment */</i>
+<strike>This is not a comment */</strike></pre>
+    <pre contenteditable><strike>// This is a single line comment in sass and JS, but not CSS </strike></pre>
+    <p>Comments and white space are encouraged for readability. Sass removes <code>//</code> comments, and <code>/* comments */</code> can be removed via minification during the build process. </p>
+  </section>
+</div>
+
+
+
+<!-- how CSS is forgiving -->
+<div class="slide">
+  <header>
+    <h1>Forgiving yet strict</h1>
+  </header>
+  <section class="content">
+    <h2>Forgiving</h2>
+    <p>Skips declarations it doesn't understand</p>
+    <pre contenteditable>p {
+  color: granola; <i>/* not a valid color */</i>
+  groot: green; <i>/* not a valid property */</i>
+  font-weight: bold; <i>/* will not ignore this */</i>
+}</pre>
+  </section>
+</div>
+
+
+
+
+
+
+<!-- how CSS is NOT forgiving -->
+<div class="slide">
+  <header>
+    <h1>Forgiving yet strict</h1>
+  </header>
+  <section class="content">
+    <h2>Strict</h2>
+    <p>Fails entire ruleset if pseudo-class is wrong in a selector</p>
+    <pre contenteditable>p:oopsie, <i>/* entire declaration tossed */</i>
+p.valid { 
+  color: green;
+}</pre>
+</section>
+</div>
+
+
+
+<!-- pseudo class rules and -webkit- -->
+<div class="slide">
+  <header>
+    <h1>Forgiving for ::-webkit</h1>
+  </header>
+  <section class="content">
+    <p>Fails incorrect selectors except <b>::-webkit-</b> prefixed pseudoelements</p>
+    <pre contenteditable>::-webkit-does-not-exist,
+::after { <i>/* this is NOT ignored */</i>
+  content: 'foo';
+}</pre>
+    <p><i>If there is an invalid pseudo-element or pseudo-class within in a chain or group of selectors, the whole selector list is invalid. If a pseudo-element (but not pseudo-class) has a <code>::-webkit-</code> prefix, webkit and mozilla will not invalidate the selector list.</i></p>
+  </section>
+</div>
+
+
+<!-- commenting out CSS in "illegal" yet supported ways -->
+<div class="slide">
+  <header>
+    <h1>Forgiving yet strict: Comments</h1>
+  </header>
+  <section class="content">
+    <p>Can be used to comment out lines of CSS as you test</p>
+    <pre contenteditable>p {
+  color: red; <i>/* won't be overwritten */</i>
+  //color: green; <i>/* ignored */</i>
+  _color: blue; <i>/* ignored */</i>
+  font-weight: bold; <i>/* valid */</i>
+}</pre>
+    <p>The underscore is used in many of our code examples.</p>
+</section>
+</div>
+
+
+<!-- ignored versus invalid -->
+<div class="slide">
+  <header>
+    <h1>CSS can be difficult</h1>
+  </header>
+  <section class="content">
+    <p>Paragraph will be blue</p>
+    <pre contenteditable>body { color: red; } 
+p { color: blue; } 
+p { color: 16px; }</pre>
+
+    <p>Paragraph will be red</p>
+    <pre contenteditable>:root {--size: 16px;}
+body { color: red; } 
+p { color: blue; } 
+p { color: var(--size); }</pre>
+    <p>The former is a syntax error, which is ignored. The latter is an invalid: custom property values that are invalid are not ignored.
+  </section>
+</div>
+
+
+<!-- the Cascade -->
+<div class="slide">
+  <header>
+    <h1>The cascade</h1>
+  </header>
+  <section class="content">
+    <p>The C in CSS stands for "Cascade"</p>
+    <pre contenteditable>p {
+  color: red; 
+  color: green; 
+  color: blue; 
+}</pre>
+    <p>Will be blue</p>
+  </section>
+</div>
+
+
+<!-- developer tools -->
+<div class="slide">
+  <header>
+    <h1>Developer Tools</h1>
+  </header>
+  <section class="content">
+    <p>Developer tools help with:</p>
+    <ul>
+      <li>Seeing what CSS impacts each element individually</li>
+      <li>What property values have been inherited</li>
+      <li>Finding mistakes</li>
+      <li>Learning about new features</li>
+    </ul>
+    <p>Right click or command click on this paragraph and inspect it.</p> 
+    <table class="standard-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Mac</th>
+          <th>Windows / Linux</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Open DevTools</td>
+          <td><code>Command + Option + I</code></td>
+          <td><code>F12</code> or <code>Control + Shift + I</code></td>
+        </tr>
+        <tr>
+          <td>Console panel</td>
+          <td><code>Command + Option + J</code></td>
+          <td><code>Control + Shift + J</code></td>
+        </tr>
+        <tr>
+          <td>Elements panel</td>
+          <td>
+            <code>Command + Shift + C</code> <br>
+            <code>Command + Option + C</code>
+          </td>
+          <td><code>Control + Shift + C</code></td>
+        </tr>
+      </tbody>
+    </table>
+</section>
+</div>
+
+
+
+
+<!--NEXT-->
+<div class="slide">
+  <header>
+    <h1>Selectors</h1>
+  </header>
+  <section class="content">
+    <h1><a href="../selectors/index.html">Next ➹</a></h1></section>
+</div>
+
+
+
+</div>
+</div>
+  <script src="../slideshow.js"></script>
+  </body>
+</html>
+

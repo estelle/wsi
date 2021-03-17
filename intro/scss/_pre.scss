@@ -1,0 +1,63 @@
+style[class~="editme" i] {
+    border: 1px solid var(--colorpop);
+    padding: 5px 20px;
+    margin-bottom: 1em;
+  }
+pre, style[class~="editme" i] {
+  text-align: left;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  text-shadow: none;
+  white-space: pre;
+  border: 1px solid var(--splashcolor);
+  font-family: monospace;
+}
+section .editme:first-child {
+  margin-top: 1.7em;
+}
+style.editme.mini {margin-top: 10px; margin-bottom: 10px; font-size: 1em;}
+code {
+  background: rgba(255, 255, 255, 0.3);
+  text-shadow: none;
+ &.pre { 
+  padding: 2px 4px; 
+  border-radius: 4px; 
+  font-size: 1em; 
+  text-shadow: none;
+ }
+}
+.current .editme,
+.future .editme,
+.past .editme {
+  display: block;
+}
+pre {
+  b {
+    font-weight: bold;
+    color: var(--splashcolor);
+    display:inline-block;
+  }
+  b:hover {
+    transform:scale(1.2);
+    color: var(--splashcolor);
+  }
+
+  em {
+    font-weight: normal;
+    font-style: normal;
+    color: var(--splashcolor);
+    text-shadow: currentColor 0 0 1px;
+  }
+  a {
+    text-decoration: underline dotted var(--lightsplash);
+  }
+  a:hover, a:active, a:focus {
+      text-decoration: underline dotted var(--splashcolor);
+  }
+}
+code i {
+  opacity: 50%;
+}
+pre.multi { text-align: center; }

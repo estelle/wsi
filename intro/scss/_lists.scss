@@ -1,0 +1,29 @@
+/* definition lists */
+dt {
+font-weight: bold;
+margin-top: 0.5em;
+background-color: var(--header_bg);
+display: inline-block;
+margin-bottom: 2px;
+clear: both;
+}
+dl.inline dt {
+width: 200px;
+float: left;
+text-align: right;
+padding-right: 15px;
+clear: both;
+margin: 0 0 2px 0;
+}
+
+.hide_dd {
+	 dt {margin-bottom: 0.5rem;}
+     dd {display: none;}
+     dt:hover + dd {display:inherit;}
+}
+.sameline {
+	dd {}
+	dt {float: left;}
+}
+
+dl dt { padding: 0 8px; border: 1px solid #ccc;}

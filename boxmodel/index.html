@@ -354,7 +354,6 @@ padding: 10px 20px 30px 40px; <i>/* TRouBLe */</i></pre>
   <li>Margin collapsing occurs only between blocks that belong to the same block formatting context (BFC).</li>
   <li>Margins of floated and absolutely positioned elements don't collapse.</li>
 </ul>
- 
 </section>
 </div>
 
@@ -412,7 +411,25 @@ padding: 10px 20px 30px 40px; <i>/* TRouBLe */</i></pre>
   <object data="exercises/margins.html"></object>
   <a href="exercises/margins.html" target="play" class="objectlink">Try it out</a>
 </div>
-  
+<div class="slide">
+  <header>
+    <h1>Margins: How they Work</h1>
+  </header>
+
+  <section class="content">
+
+<h3>Margin collapsing</h3>
+
+<p>When top and bottom margins collapse, the margin is the <b>larger of two margins</b>, or the difference if one is negative.</p>
+<ul>
+  <li>Margin collapsing occurs only between blocks that belong to the same block formatting context (BFC).</li>
+  <li>Margins of floated and absolutely positioned elements don't collapse.</li>
+</ul>
+<p><strong>Adjacent siblings
+  The margins of adjacent siblings are collapsed (except when the latter sibling needs to be cleared past floats).</strong></p>
+
+</section>
+</div>
 <div class="slide object">
   <header>
     <h1>Collapsing margins on empty boxes</h1>
@@ -420,6 +437,48 @@ padding: 10px 20px 30px 40px; <i>/* TRouBLe */</i></pre>
   <object data="exercises/collapse.html"></object>
   <a href="exercises/collapse.html" target="play" class="objectlink">Try it out</a>
 </div>
+<div class="slide">
+  <header>
+    <h1>Margins: How they Work</h1>
+  </header>
+
+  <section class="content">
+
+<h3>Margin collapsing</h3>
+
+<p>When top and bottom margins collapse, the margin is the <b>larger of two margins</b>, or the difference if one is negative.</p>
+<ul>
+  <li>Margin collapsing occurs only between blocks that belong to the same block formatting context (BFC).</li>
+  <li>Margins of floated and absolutely positioned elements don't collapse.</li>
+</ul><p>Adjacent siblings
+  The margins of adjacent siblings are collapsed (except when the latter sibling needs to be cleared past floats).</p>
+ <p><strong>Empty blocks: 
+  If there is no border, padding, inline content, height, or min-height to separate a block's margin-top from its margin-bottom, then its top and bottom margins collapse.</strong></p>
+</section>
+</div>
+
+<div class="slide">
+  <header>
+    <h1>Margins: How they Work</h1>
+  </header>
+
+  <section class="content">
+
+<h3>Margin collapsing</h3>
+
+<p>When top and bottom margins collapse, the margin is the <b>larger of two margins</b>, or the difference if one is negative.</p>
+<ul>
+  <li>Margin collapsing occurs only between blocks that belong to the same block formatting context (BFC).</li>
+  <li>Margins of floated and absolutely positioned elements don't collapse.</li>
+</ul><p>Adjacent siblings
+  The margins of adjacent siblings are collapsed (except when the latter sibling needs to be cleared past floats).</p>
+ <p>Empty blocks: 
+  If there is no border, padding, inline content, height, or min-height to separate a block's margin-top from its margin-bottom, then its top and bottom margins collapse.</p>
+  <p><strong>No content separating parent and child: 
+    If there is no border, padding, inline part, block formatting context created, or clearance to separate the margin-top of a block from the margin-top of one or more of its descendant blocks; or no border, padding, inline content, height, min-height, or max-height to separate the margin-bottom of a block from the margin-bottom of one or more of its descendant blocks, then those margins collapse. The collapsed margin ends up outside the parent.</strong></p>
+</section>
+</div>
+
 
 <div class="slide object">
   <header>
@@ -877,6 +936,7 @@ border-top-width: 1px;</pre><br><br/>
 
 
   <p>Not part of the box model</p>
+  <p>Shorthand Order: clockwise, starting from top left.</p>
   <h1>Outlines and Shadows</h1>
 
     <p>Neither impact the box model, but they take up space, so leave room for them!</p>
@@ -947,6 +1007,8 @@ The radius applies to the whole background, even if the element has no border; t
   <li>Border radius doesn't necessarily clip the content.</li>
   <li>To fix overflowing images, use <code>background-clip: padding-box</code>.</li>
   <li>Add padding to prevent text from overflowing curved border</li>
+  <li>Shorthand Order: clockwise, starting from top left.</li>
+  <li>Use ems, not pixels, for rounded corners on text, so it can grow with the font</li>
   <li>While from 2013, <a href="https://www.youtube.com/watch?v=fw09zvedeSQ">the humble border radius</a> was a fantastic talk. And back then prefixing wasn't necessary!</li>
   <li>The maximum total border radius is 100% - if two lenght units are greater than a side, they'll be reduced proportionately.</li>
 </ul>

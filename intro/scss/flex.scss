@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+:root { 
+	--splashcolor: #3b6c3b;
+	--lightsplash: #a5cea5;
+	--dark_bg: #3b6c3b;
+	--colorpop: #3b6c3b;
+}
+
+table.standard-table {
+	border: none;
+	border-spacing: 10px 10px;
+	border-collapse: separate; 
+	th, td {
+		border: none;
+		padding: 3px;
+		vertical-align: top;
+		text-align: left;
+	 }
+	thead, tr > :first-child {
+		background-color: rgba(255,255,255,0.8);
+
+	}
+}
+dl dt { padding: 0 5px; }
+pre {
+	font-size: 1.2em;
+}
