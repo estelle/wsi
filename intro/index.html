@@ -29,10 +29,31 @@
    <div id="slides">
 
 
+
+    <div class="slide intro">
+      <header>
+       <h1>CSS Syntax and Semantics</h1>
+      </header>
+      <section>
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax">CSS syntax</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">At-rules</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">Cascade</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Comments">Comments</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Descriptor_(CSS)">Descriptor</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance">Inheritance</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">Shorthand properties</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">Specificity</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax">Value definition syntax</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units">CSS unit and value types</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions">CSS functional notations</a></li>
+     </ul>
+     </section>
+     </div>
 <!-- deck TOC -->
 <div class="slide intro">
  <header>
-  <h1>CSS Basics</h1>
+  <h1>CSS Need to Know</h1>
  </header>
  <section>
  <div class="flex12">
@@ -58,6 +79,15 @@
       <li>Comments</li>
       <li>Errors and Error Handling</li>
       <li>The Cascade</li>
+    </ul>
+    </li>
+  </ul>
+  <ul>
+    <li>Selectors
+    <ul>
+      <li>Attribute Selectors</li>
+      <li>:where()</li>
+      <li>Specificity</li>
     </ul>
     </li>
   </ul>
@@ -87,7 +117,7 @@
   <header>
     <h1>CSS Properties</h1>
   </header>
-  <object data="exercises/properties.html"></object>
+  <object data="properties.html"></object>
 </div>
 
 
@@ -147,24 +177,12 @@ a:link {
    color: blue;
 }</pre>
     <p>Selectors define to which elements and pseudo elements the ruleset is applied.</p>
+    <p>If a selector fails, the entire ruleset is ignored.</p>
   </section>
 </div>
 
 
 
-
-<!-- How this deck works -->
-<div class="slide thisSlide">
-<header><h1>Live Code</h1>
-  </header>
-<section class="content">
- <style contenteditable class="editme css">.thisSlide .css {
-  background-color: var(--dark_bg);
-  color: var(--invertedtext);
- }</style>
- <p>This deck is "live". Changing the selectors, properties and values in a code block will change the CSS for the current deck. Instantly.</p>
-</section>
-</div>
 
 
 
@@ -348,6 +366,23 @@ media="screen, print"
 </div>
 
 
+<!-- How this deck works -->
+<div class="slide thisSlide">
+  <header><h1>Live Code</h1>
+    </header>
+  <section class="content">
+   <style contenteditable class="editme css">.thisSlide .css {
+    background-color: var(--dark_bg);
+    color: var(--invertedtext);
+   }</style>
+   <p>This deck is "live". Changing the selectors, properties and values in a code block will change the CSS for the current deck. Instantly.</p>
+
+   <pre contenteditable>style { display: block; }</pre>
+
+   <pre contenteditable>&lt;style contenteditable>...&lt;/style></pre>
+  </section>
+  </div>
+  
 
 <!-- subsection TOC -->
 <div class="slide divider">
@@ -432,7 +467,7 @@ that spans 3 lines */</i></pre>
 /* inner comment */</i>
 <strike>This is not a comment */</strike></pre>
     <pre contenteditable><strike>// This is a single line comment in sass and JS, but not CSS </strike></pre>
-    <p>Comments and white space are encouraged for readability. Sass removes <code>//</code> comments, and <code>/* comments */</code> can be removed via minification during the build process. </p>
+    <p>Comments and white space are encouraged for readability. </p><p>Sass removes <code>//</code> comments</p><p><code>/* comments */</code> can be removed via minification during the build process. </p>
   </section>
 </div>
 
@@ -547,6 +582,24 @@ p { color: var(--size); }</pre>
   </section>
 </div>
 
+<!-- the Cascade -->
+<div class="slide">
+  <header>
+    <h1>The cascade</h1>
+  </header>
+  <section class="content">
+<ol>
+<li>  Transitions
+</li><li>!important user agent declarations
+</li><li>!important user declarations
+</li><li>!important author declarations
+</li><li>Animations
+</li><li>Normal author declarations
+</li><li>Normal user declarations
+</li><li>Normal user agent declarations </li>
+</ol>
+</section>
+</div>
 
 <!-- developer tools -->
 <div class="slide">
