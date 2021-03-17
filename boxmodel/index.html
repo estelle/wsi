@@ -37,6 +37,23 @@
    </section>
     </div>
 
+    <div class="slide">
+      <header>
+        <h1>Box Model Properties</h1>
+      </header>
+      <section class="content">
+      <div class="boxmodel">
+        <div>margin
+          <div>border
+            <div>padding
+              <div>content</div>
+            &nbsp;</div>
+          &nbsp;</div>
+        &nbsp;</div>
+      &nbsp;</div>
+      </section>
+    </div>
+    
 <!-- divider -->
 <div class="slide divider">
   <header>
@@ -44,51 +61,33 @@
   </header>
 <section class="content">
   <ul class="col3">
-<li></li>
-<li><code>box-sizing</code> property</li>
 <li>Padding Properties</li>
 <li>Margin Properties</li>
 <li>Border Properties</li>
+
+<li>Size constraints
+  <ul>
+    <li><code>width</code> property</li>
+    <li><code>height</code> property</li>
+    <li><code>max-width</code> &amp; <code>max-height</code></li>
+    <li><code>min-width</code> &amp; <code>min-height</code></li>
+  </ul>
+</li>
+<li><code>box-sizing</code> property</li>
 <li><code>line-height</code> property</li>
 <li><code>z-index</code></li>
 <li>Stacking context</li>
 <li><code>border-radius</code></li>
-<li>Outlines and Shadows</li>
 <li><code>outline</code> properties</li>
-<li><code>outline</code> property</li>
 <li><code>outline-offset</code> property</li>
-<li>box shadows</li>
 <li><code>box-shadow</code> property</li>
-<li>Overflow</li>
 <li><code>overflow</code> property</li>
-<li>Size constraints</li>
-<li><code>width</code> property</li>
-<li><code>height</code> property</li>
-<li>max-width &amp; max-height</li>
-<li>min-width &amp; min-height</li>
 <li><code>display</code> property</li>
-<li> <code>visibility</code> property</li>
-<li>Exercise</li></ul>
+<li><code>visibility</code> property</li>
+</ul>
 </section>
 </div>
 
-
-<div class="slide">
-  <header>
-    <h1>Box Model Properties</h1>
-  </header>
-  <section class="content">
-  <div class="boxmodel">
-    <div>margin
-      <div>border
-        <div>padding
-          <div>content</div>
-        &nbsp;</div>
-      &nbsp;</div>
-    &nbsp;</div>
-  &nbsp;</div>
-  </section>
-</div>
 
 
 
@@ -223,7 +222,7 @@
 
 <div class="slide object">
   <header>
-    <h1>box-sizing: border-box;</h1>
+    <h1>box-sizing: border-box / padding-box;</h1>
   </header>
   <object data="exercises/border-box.html"></object>
   <a href="exercises/border-box.html" target="play" class="objectlink">Try it out</a>
@@ -349,7 +348,6 @@ padding: 10px 20px 30px 40px; <i>/* TRouBLe */</i></pre>
   <section class="content">
 
 <h3>Margin collapsing</h3>
-<p>When top and bottom margins collapse, the margin is the larger of two margin, or the difference if one is negative.</p>
 
 <p>When top and bottom margins collapse, the margin is the <b>larger of two margins</b>, or the difference if one is negative.</p>
 <ul>
@@ -539,6 +537,13 @@ border-width: 10px 20px 30px 40px; /* TRouBLe */</pre>
   
   
 
+<div class="slide object">
+  <header>
+    <h1>border-style</h1>
+  </header>
+  <object data="exercises/border-style.html"></object>
+  <a href="exercises/border-style.html" target="play" class="objectlink">Try it out</a>
+</div>
 
   
 <div class="slide">
@@ -564,13 +569,6 @@ border-style: outset;</pre>
   </section>
 </div>
 
-<div class="slide object">
-  <header>
-    <h1>border-style</h1>
-  </header>
-  <object data="exercises/border-style.html"></object>
-  <a href="exercises/border-style.html" target="play" class="objectlink">Try it out</a>
-</div>
 
 <!-- border shorthand-->
 <div class="slide">
@@ -630,28 +628,7 @@ border-top-width: 1px;</pre><br><br/>
   </header>
 <section class="content">
 <p>Check out the LAYOUT box model widget.</p>
-<ul>
-  <li>box-sizing</li>
-  <li>display</li>
-  <li>float</li>
-  <li>line-height</li>
-  <li>position</li>
-  <li>z-index</li>
-</ul>
-<p>Note the color theme. Also note the values are editable</p>
 </section>
-</div>
-
-
-
-
-<div class="slide divider">
-  <header>
-    <h1><code>line-height</code> property</h1>
-  </header>
-  <section class="content">
-    See fonts
-  </section>
 </div>
 
 
@@ -674,13 +651,13 @@ border-top-width: 1px;</pre><br><br/>
       </div>
       <div class="two"><h3>Vertically</h3>
       </div>
-      <div class="three"><h3>Three Words Here</h3>
+      <div class="three"><h3>Verbose content wraps</h3>
       </div>
     </article>
   </section>
 </div>
 
-<!--
+
 <div class="slide divider">
   <header>
     <h1><code>z-index</code></h1>
@@ -701,9 +678,15 @@ border-top-width: 1px;</pre><br><br/>
     </ul>
     <pre contenteditable>z-index: <em>auto</em> | &lt;number></pre>
     <p>The value can be auto, a positive or negative integer, or 0.</p>
+    <p>The z-index  value of elements only have meaning in it's ancestor's stacking context. </p>
+<ul>
+  <li>Stacking contexts can be contained in other stacking contexts, and together create a hierarchy of stacking contexts.</li>
+  <li>Each stacking context is completely independent of its siblings:  only descendant elements are considered when stacking is processed.</li>
+  <li>Each stacking context is self-contained: after the element's  contents are stacked, the whole element is considered in the stacking  order of the parent stacking context.</li>
+</ul>
   </section>
 </div>
-
+<!--
 
 <div class="slide">
   <header>
@@ -764,7 +747,6 @@ border-top-width: 1px;</pre><br><br/>
 </div>
 
 
-
 <div class="slide">
   <header>
     <h1><code>stacking context</code></h1>
@@ -791,21 +773,6 @@ border-top-width: 1px;</pre><br><br/>
   <li><code>contain: layout | contain; </code></li>
 </ul></div>
 
-
-
-<div class="slide">
-  <header>
-    <h1><code>stacking context</code></h1>
-  </header>
-  <section class="content">
-<p>The z-index  value of elements only have meaning in it's ancestor's stacking context. </p>
-<ul>
-  <li>Stacking contexts can be contained in other stacking contexts, and together create a hierarchy of stacking contexts.</li>
-  <li>Each stacking context is completely independent of its siblings:  only descendant elements are considered when stacking is processed.</li>
-  <li>Each stacking context is self-contained: after the element's  contents are stacked, the whole element is considered in the stacking  order of the parent stacking context.</li>
-</ul>
-  </section>
-</div>
 
 <div class="slide">
 <header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/css/isolation" target="resource">isolation</a></code> property</h1>
@@ -916,54 +883,6 @@ border-top-width: 1px;</pre><br><br/>
 </section>
  </div>
 
-<!--
-<div class="slide">
-<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-radius">border-radius</a></code> property</h1>
-  </header>
-<section class="content">
-  <p>Rounds the corners of an element's <b>outer</b> border edge. Shorthand. </p>
-  <pre contenteditable>&lt;length-percentage>{1,4} [ / &lt;length-percentage>{1,4} ]?</pre>
-  <p>One to four &lt;length> or &lt;percentage> values for single radius corners. Followed by a  "/" and one to four more &lt;length> or &lt;percentage> for elliptical corners.</p>
-  <div style="display: flex; justify-content: space-between;">
-  <p>Sets the:<br/>
-    &nbsp; &nbsp; <code>border-top-left-radius</code>,<br/>
-    &nbsp; &nbsp; <code>border-top-right-radius</code><br/>
-    &nbsp; &nbsp; <code>border-bottom-right-radius</code>, and <br/>
-    &nbsp; &nbsp; <code>border-bottom-left-radius</code> <br/>
-properties. In that order!</p>
-<pre contenteditable>border-radius: 50%;
-border-radius: 10px 20px 30px 40px;
-border-radius: 50% 50% 0% 0% / 100% 100% 0 0;</pre>
-</div>
-</section>
-</div>
-
-
-
-<div class="slide">
-<header><h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/border-radius">border-radius</a></code> property</h1>
-  </header>
-<section class="content">
-<div class="radius">
-  <pre contenteditable>border-radius: 0;</pre> <div><b></b>
-    </div>
-    <pre contenteditable>border-radius: 20px;</pre><div><b style="border-radius: 20px"></b>
-    </div>
-    <pre contenteditable>border-radius: 50%;</pre><div><b style="border-radius: 50%"></b>
-    </div>
-</div>
-  <pre contenteditable style="float: left; margin-right: 40px;">border-top-left-radius
-border-top-right-radius
-border-bottom-right-radius
-border-bottom-left-radius</pre>
-
-<p style="clear:both;">DO NOT PREFIX</p>
-<p>
-The border-radius property does not apply to table elements when border-collapse is collapse.</p>
-</section>
-</div>
-
-
  <!--border-radius -->
 <div class="slide">
 <header><h1><code>border-radius</code> property</h1>
@@ -982,39 +901,6 @@ The radius applies to the whole background, even if the element has no border; t
 </p>
 </section>
 </div>
-
-<!--
-<div class="slide">
-<header><h1><code>border-radius</code> property</h1>
-  </header>
-<section class="content">
-  <p>When using the slash (/) syntax, the first values are the top and bottom parts of each corner and the right side are the left and right sides of each corner.</p>
-  <table class="standard-table">
-    <thead>
-      <tr>
-        <th>syntax</th><th>Round corners described</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><th>10px;</th><td>Radius is set for all 4 sides</td></tr>
-      <tr><th>10px 20px;</th><td>top-left and bottom-right &amp; top-right and bottom-left</td></tr>
-      <tr><th>10px 20px 30px;</th><td>top-left &amp; top-right and bottom-left &amp; bottom-right</td></tr>
-      <tr><th>10px 20px 30px 40px;</th><td>top-left | top-right | bottom-right | bottom-left</td></tr>
-      </tbody>
-      <thead><tr><th></th><th>(same as above) / vertical sides</th></tr></thead>
-      <tbody>
-      <tr><th>border-radius: 10px 5% / 20px;</th><td>all 4 vertical values</td></tr>
-      <tr><th>10px 5% / 20px 30px;</th><td>left-at-top and right-at-bottom &amp; right-at-top and left-at-bottom</td></tr>
-      <tr><th>10px 5px 2em / 20px 25px 30%;</th><td>left-at-top &amp; right-at-top and left-at-bottom &amp; right-at-bottom</td></tr>
-      <tr><th>10px 5% / 20px 25em 30px 35em;</th><td>left-at-top &amp; right-at-top &amp; right-at-bottom &amp; left-at-bottom</td></tr>
-    </tbody>
-  </table>
-</section>
-</div>
-
---> 
-
-
 
 
 <div class="slide ghostslide">
@@ -1070,28 +956,6 @@ The radius applies to the whole background, even if the element has no border; t
 
 
 
-
-<!--
-<div class="slide intro">
-  <header>
-    <h1>Outlines and Shadows</h1>
-  </header>
-    <section class="content">
-      <p>Neither impact the box model, but they take up space, so leave room for them!</p>
-</section>
-</div>
-
-
-
-<div class="slide intro">
-  <header>
-    <h1><code>outline</code> properties</h1>
-  </header>
-    <section class="content">
-</section>
-</div>
-
--->
 <div class="slide">
   <header>
     <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/outline">outline</a></code> property</h1>
@@ -1130,14 +994,8 @@ outline-color: red;</pre>
 </div>
 
 
-<!--
-<div class="slide divider">
-  <header>
-    <h1>box shadows</h1>
-  </header>
-    <section class="content">
-</section>
-</div>
+
+
 
 <div class="slide">
   <header>
@@ -1189,169 +1047,6 @@ outline-color: red;</pre>
 
 </section>
 </div>
-
-<div class="slide divider">
-  <header>
-    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-shadow">box-shadow</a></code> property</h1>
-  </header>
-<p>Multiple shadows are comma-separated.</p>
-<p>Multiple shadows are drawn back to front (the first one will be on top of the next one)</p>
-<pre contenteditable>box-shadow: 0 0 0 5px red, 
-              0 0 0 10px blue,
-              0 0 0 15px green;</pre>
-<p>Outlines are drawn outside of an element's border.</p>
-<p>Because is this, make sure to include enough space if you're doing large outlines</p>
-</section>
-</div>
-
-
-
-<div class="slide poem">
-  <header>
-    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/box-shadow">box-shadow</a></code> property</h1>
-  </header>
-    <section class="content">
-
- <style contenteditable class="editme">.poem p {
-  padding: 20px;
-  white-space: pre;
-  max-width: 20em;
- }</style>
-
- <style contenteditable class="editme">.poem p:first-of-type {
-  box-shadow: 0 0 0 1em #F4AAB9,
-              0 0 0 2em #FFFFFF,
-              0 0 0 3em #66CCFF;
-  margin: calc(3em + 1em) auto;
- }</style>
-
-<p>You may write me down in history
-With your bitter, twisted lies,
-You may trod me in the very dirt
-But still, like dust, I'll rise.</p>
- <style contenteditable class="editme">.poem p:nth-of-type(2) {
-  box-shadow: inset 1px 1px 100px var(--dark_bg), 
-              0 0 0 3px var(--invertedtext),
-              0 0 0 6px var(--colorpop),
-              0 36px 16px -14px rgba(0,0,0,0.5);
-  background-color: var(--colorpop);
-  color: var(--invertedtext);
-  margin: 1em auto calc(36px + 1em);
-}</style>
-<p>Does my sassiness upset you?
-Why are you beset with gloom?
-’Cause I walk like I've got oil wells
-Pumping in my living room.</p>
- <style contenteditable class="editme">.poem p:nth-of-type(3) {
-    box-shadow: 0.5em 0.5em 0 white,
-                1em 1em 0 lightgrey;
-    background-color: palegoldenrod;
-    margin: 1em auto calc(1em + 1em) auto;
-    border-radius: 1em 
-}</style>
-<p>Just like moons and like suns,
-With the certainty of tides,
-Just like hopes springing high,
-Still I'll rise.</p>
- <style contenteditable class="editme">.poem p:nth-of-type(4) {
-    background-color: rebeccapurple;
-    color: white;
-    box-shadow: 0 0 0 5px white,
-                0 0 0 15px rebeccapurple;
-    margin: calc(15px + 1em) auto;
-}</style>
-<p>Did you want to see me broken?
-Bowed head and lowered eyes?
-Shoulders falling down like teardrops,
-Weakened by my soulful cries?</p>
- <style contenteditable class="editme">.poem p:nth-of-type(5) {
-    border-radius: 50%; 
-    padding: 100px 0; 
-    box-sizing: border-box; 
-    text-align: center;
-    box-shadow:  0 0 0 10px #FF0018, 
-                 0 0 0 20px #FFA52C,
-                 0 0 0 30px #FFFF41, 
-                 0 0 0 40px #008018,
-                 0 0 0 50px #0000F9,
-                 0 0 0 60px #86007D,
-                 1px 30px 60px 60px rgba(0,0,0,0.4);; 
-    background-color: white;
-    margin: calc(60px + 1em) auto calc(120px + 1em);
-}</style>
-<p>Does my haughtiness offend you?
-Don't you take it awful hard
-’Cause I laugh like I've got gold mines
-Diggin’ in my own backyard.</p>
- <style contenteditable class="editme">.poem p:nth-of-type(6) {
-    box-shadow: inset -5px 5px; 
-    background-color: magenta;
-    margin: calc(0px + 1em) auto;
-}</style>
-<p>You may shoot me with your words,
-You may cut me with your eyes,
-You may kill me with your hatefulness,
-But still, like air, I’ll rise.</p>
- <style contenteditable class="editme">.poem p:nth-of-type(7) {
-    box-shadow: -15px 15px; 
-    background-color: orange;
-    margin: 1em auto calc(15px + 1em);
-}</style>
-<p>Does my sexiness upset you?
-Does it come as a surprise
-That I dance like I've got diamonds
-At the meeting of my thighs?</p>
- <style contenteditable class="editme">.poem p:nth-of-type(8) {
-    box-shadow: 0px 30px 40px 50px green;
-    margin: calc(60px + 1em) auto calc(120px + 1em);
-}</style>
-<p>Out of the huts of history’s shame
-I rise
-Up from a past that’s rooted in pain
-I rise
-I'm a black ocean, leaping and wide,
-Welling and swelling I bear in the tide.</p>
- <style contenteditable class="editme">.poem p:nth-of-type(9) {
-    box-shadow: ; /* make your own */
-    margin: calc(0px + 1em) auto;
-}</style>
-<p>Leaving behind nights of terror and fear
-I rise
-Into a daybreak that’s wondrously clear
-I rise
-Bringing the gifts that my ancestors gave,
-I am the dream and the hope of the slave.
-I rise
-I rise
-I rise..
-</p>
-</section>
-</div>
-
-
-
-<div class="slide">
-  <header>
-    <h1>box shadows</h1>
-  </header>
-    <section class="content">
-      <style class="editme" contenteditable>.mayaAngelou {
-  padding: 20px;
-  box-shadow: 
-       inset 0 -3em 3em rgba(0,0,0,0.1), 
-             0 0  0 2px rgb(255,255,255),
-             0.3em 0.3em 1em rgba(0,0,0,0.3);
-}</style>
-<blockquote class="mayaAngelou"><q>You may shoot me with your words,<br/>
-You may cut me with your eyes,<br/>
-You may kill me with your hatefulness,<br/>
-But still, like air, I'll rise.</q>
-<p>&mdash; Maya Angelou</p>
-</blockquote>
-</section>
-</div>
-
-
 
 
 <div class="slide divider">
@@ -1407,59 +1102,6 @@ overflow: hidden visible;</pre>
 </div>
 
 
-<div class="slide object">
-  <header>
-    <h1>CSS is awesome</h1>
-  </header>
-  <object data="exercises/awesome.html"></object>
-  <a href="exercises/awesome.html" target="play" class="objectlink">Try it out</a>
-</div>
-
-<div class="slide">
-  <header>
-    <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/overflow-x">overflow-x</a> &amp; <a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/overflow-y">overflow-y</a></code> properties</h1>
-  </header>
-  <section class="content">
-<h2><code>overflow-x</code> and <code>overflow-y</code></h2>
-<pre contenteditable>[ visible | hidden | clip | scroll | auto ]</pre>
-<pre contenteditable>overflow: visible;
-overflow: hidden;
-overflow: clip;
-overflow: scroll;
-overflow: auto;</pre>
-  </section>
-</div>
-
-
-<div class="slide object">
-  <header>
-    <h1>Overflow</h1>
-  </header>
-  <object data="exercises/overflow.html"></object>
-  <a href="exercises/overflow.html" target="play" class="objectlink">Try it out</a>
-</div>
-
-
-  
-<div class="slide overflow">
-<header><h1><code>overflow</code> property</h1>
-  </header>
-<section class="content">
- <style contenteditable class="editme">.slide.overflow style.editme {
-    width: 50%; 
-    margin: 2em auto;
-    max-height: 30vh;
-    box-shadow: 0 0 0 3px hsla(0, 0%, 100%, 1), 0 0 0 6px hsla(0, 0%, 0%, 1), 0 0 0 9px var(--colorpop);
-    border-radius: 50px 0 / 50px 0;
-    background: radial-gradient(farthest-corner at 0 0, hsla(0, 0%, 100%, 1) 0% 50%, 0 0 0 6px hsla(0, 0%, 0%, 0.1) 100%);
-    overflow: scroll;
- }
-</style>
-</section>
-</div>
-
-
--->
 
 <div class="slide divider">
   <header>
@@ -1485,29 +1127,6 @@ overflow: auto;</pre>
 </section>
 </div>
 
-
- <!--
-<div class="slide">
-  <header>
-    <h1>width constraints</h1>
-  </header>
-  <section class="content">
-  <pre contenteditable><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/width">width</a>: 50em; 
-<a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/max-width">max-width</a>: 40em;
-<a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/min-width">min-width</a>: 60em;</pre>
-<p><code>max-width</code> overrides <code>width</code>. <br/><code>min-width</code> overrides <code>max-width</code>.</p>
-<h2>Keyword values</h2>
-<pre contenteditable>max-width: none;
-max-width: max-content;
-max-width: min-content;
-max-width: fit-content(&lt;length-percentage>);
-max-width: fill-available;</pre>
-<small><a href="https://drafts.csswg.org/css-sizing-3/#width-height-keywords">Specification</a></small>
-  </section>
-</div>
-
-
--->
 
 
 
@@ -1545,7 +1164,7 @@ max-height: fill-available;</pre>
   </section>
 </div>
 
-
+-->
 <div class="slide">
 <header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width" target="resource">width</a></code> property</h1>
   </header>
@@ -1574,7 +1193,7 @@ available | min-content | max-content | fit-content | auto</pre>
 </section>
 </div>
 
-
+<!----
 <div class="slide">
 <header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/height" target="resource">height</a></code> property</h1>
   </header>
@@ -1653,168 +1272,10 @@ available | min-content | max-content | fit-content | auto</pre>
   <object data="exercises/minmax.html"></object>
   <a href="exercises/minmax.html" target="play" class="objectlink">Try it out</a>
 </div>
-
-
-<div class="slide divider">
-  <header>
-    <h1><code>display</code> property</h1>
-  </header>
-</div>
-
-<div class="slide">
-<header><h1> <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/display">display</a></code> property</h1>
-  </header>
-<section class="content">
-  <p>Sts whether an element is treated as a block or inline element and the layout used for its children, such as grid or flex.
-
-  <pre contenteditable>contents | none | block | inline | run-in | inline-block ...</pre>
-<p> Some values of display will be fully defined in their own sectionss.</p>
-<dl><dt>none</dt>
-  <dd>Element is completely removed from the page flow, as if the element and all it's descendants did not exist.</dd>
-  <dt>inline</dt>
-  <dd>Default for all elements, though user agent style sheets usually set this value for many elements.  Creates an inline-level box.</dd>
-  <dt>block</dt>
-  <dd>Generates a block-level box for the element. Often used as the opposite of <code>display: none;</code>. Don't do that. Use initial to make an element visible again.</dd>
-  <dt>inline-block</dt>
-  <dd>Similar to the inline box, but you can height and width values for the element. Value for <code>&lt;img</code>.</dd>
-  <dt>list-item</dt>
-  <dd>Similar to block-level with an inline box for the <code>::marker</code>.</dd></dl>
-  <p>We'll handle the others as they come into play.</p>   
-  <p>Formally, the display property sets an element's inner and outer display types. The outer type sets an element's participation in flow layout; the inner type sets the layout of children.</p>
-</section>
-</div>
-
-<div class="slide">
-  <header>
-    <h1>All the <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/display">display</a></code> properties</h1>
-  </header>
-  <section class="content">
-    <h2><code>&lt;display-outside></code> values</h2>
-  <pre contenteditable>
-display: block;
-display: inline;
-display: run-in;</pre>
-
-
-    <h2><code>&lt;display-inside></code> values</h2>
- <pre contenteditable>display: flow;
-display: flow-root;
-display: table;
-display: flex;
-display: grid;
-display: ruby;</pre>
-
-
-    <h2><code>&lt;display-outside></code> plus <code>&lt;display-inside></code> values</h2>
- <pre contenteditable>display: block flow;
-display: inline table;
-display: flex run-in;</pre>
+-->
 
 
 
-    <h2><code>&lt;display-listitem></code> values</h2>
- <pre contenteditable>display: list-item;
-display: list-item block;
-display: list-item inline;
-display: list-item flow;
-display: list-item flow-root;
-display: list-item block flow;
-display: list-item block flow-root;
-display: flow list-item block;</pre>
-
-
-    <h2><code>&lt;display-internal></code> values</h2>
- <pre contenteditable>display: table-row-group;
-display: table-header-group;
-display: table-footer-group;
-display: table-row;
-display: table-cell;
-display: table-column-group;
-display: table-column;
-display: table-caption;
-display: ruby-base;
-display: ruby-text;
-display: ruby-base-container;
-display: ruby-text-container;</pre>
-
-
-    <h2><code>&lt;display-box></code> values</h2>
- <pre contenteditable>display: contents;
-display: none;</pre>
-
-
-    <h2><code>&lt;display-legacy></code> values</h2>
- <pre contenteditable>display: inline-block;
-display: inline-table;
-display: inline-flex;
-display: inline-grid;</pre>
-
-
-    <h2>global values</h2>
- <pre contenteditable>display: inherit;
-display: initial;
-display: unset;
-display: revert;</pre>
-</pre>
-  </section>
-</div>
-  
-  
-<div class="slide">
-  <header>
-    <h1>Today's <code>display</code> properties</h1>
-  </header>
-  <section class="content">
-  <pre contenteditable>
-display: block;
-display: inline;
-display: inline-block;
-display: none;
-
-display: flex;
-display: inline-flex;
-
-display: grid;
-display: inline-grid;
-
-display: run-in;
-display: list-item;
-
-display: flow;
-display: flow-root;
-display: contents;
-
-display: table;
-display: inline-table;
-display: table-row-group;
-display: table-header-group;
-display: table-footer-group;
-display: table-row;
-display: table-cell;
-display: table-column-group;
-display: table-column;
-display: table-caption;
-
-display: ruby;
-display: ruby-base;
-display: ruby-text;
-display: ruby-base-container;
-display: ruby-text-container;
-
-/* Global values */
-display: inherit;
-display: initial;
-display: unset;</pre>
-</section>
-</div>
-  
-<div class="slide">
-<header><h1> <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/web/css/display">display</a></code> property</h1>
-  </header>
-<section class="content">
-  <h3><code>display: none;</code>, an interpretive dance</h3>
-</section>
-</div>
 
 
 <div class="slide">
@@ -1851,109 +1312,6 @@ display: unset;</pre>
 
 
 
-<div class="slide">
-  <header>
-    <h1>Exercise</h1>
-  </header>
-  <section class="content exercisecards">
-  <figure>
-  <div class="card" data-type="H">
-    <div class="back"></div>
-    <div class="face" data-value="A">♥</div>
-  </div>
-  <div class="card" data-type="C">
-    <div class="back"></div>
-    <div class="face" data-value="A">♣</div>
-  </div>
-  <div class="card" data-type="D">
-    <div class="back"></div>
-   <div class="face" data-value="A">♦</div>
-  </div>
-</figure>
-    <p>Let's continue on with our card example just a bit.</p>
-    <ol>
-      <li>Add a border around the cards </li>
-      <li>Round the corners</li>
-      <li>Add a decorative border on the back of the card.</li>
-      <li>Add a shadow to the back and front of each card.</li>
-      <li>Stack all the cards into a pack (one on top of the other)</li>
-      <li>Move them around a little bit so you can see a bit of each</li><li>Center the whole thing</li>
-    </ol>
-    <p>Extra credit: vertically center the ♥, ♣, and ♦. (You have to remove the visibility hidden to see the face to do this.)</p>
-    <a href="exercises/cards.html" target="exercise">HTML</a> | <a href="exercises/style.css" target="css">CSS</a>
-  </section>
-</div>
-
-<div class="slide">
-  <header>
-    <h1>Solution</h1>
-  </header>
-  <section class="content">
-    <a href="exercises/answer.html" target="exercise">HTML</a> | <a href="exercises/answer.css" target="css">CSS</a>
-  </section>
-</div>
-
-
-
-
-<div class="slide">
-  <header>
-    <h1>Solution</h1>
-  </header>
-  <section class="content">
-<p>center the whole card</p>
-<pre contenteditable>
-figure {
-  <i>width: 200px;
-  height: 300px;</i>
-  position: relative;
-  <i>margin: auto;</i>
-}</pre>
-<p>Add border around the cards</p>
-<pre contenteditable>
-.card {
-  height: 300px;
-  width: 200px;
-  position: absolute;
-  <i>border-radius: 10px;
-  border: 2px solid #ccc;</i>
-}
-</pre>
-<p>Round the corners<br/>
-Add a decorative border on the back of the card.</p>
-<pre contenteditable>.back,
-.face {
-  ....
-  <i>border-radius: 10px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);</i>
-}</pre>
-
-<pre contenteditable>
-.back {
-  ....
-  <b>border: 10px solid white;</b>
-}</pre>
-<p>Extra credit: vertically center the ♥, ♣, and ♦</p>
-<pre contenteditable>
-.face {
-  font-size: 2em;
-  <b>line-height: 300px; /* extra credit. temporary */
-  text-align: center;</b>
-}</pre>
-<p>Move them around a bit so they're not all on top of each other</p>
-<pre contenteditable>.card:nth-of-type(2) {
-  <b>left: 20px; /* temporary */
-  top: 20px;</b>
-}
-.card:last-of-type {
-  <b>left: 40px; /* temporary */
-  top: 20px;</b>
-}</pre>
-  
-  </section>
-</div>
-  
- 
 
 <!--NEXT-->
 <div class="slide">
