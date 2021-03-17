@@ -1,0 +1,45 @@
+
+h1:first-child {
+	margin-top: 0;
+}
+
+section footer, 
+.slide footer {
+	font-size: 22px;
+	margin: 20px 0 0 30px;
+}
+section footer {
+	text-align: right;
+	position: absolute;
+	bottom: 10px;
+	width: 800px;
+}
+
+
+div.example {
+	display: block;
+	padding: 10px 20px;
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 8px;
+	margin-bottom: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.active {
+  color: red; 
+  font-weight: bold; 
+  background-color: rgba(0,0,0,0.3);
+}
+
+section.twopart {
+	display: flex;
+	justify-content: space-around;
+}
+.wrong, .sidenote {
+	opacity: 0.3;
+}
+
+input[type="checkbox"]:indeterminate + label {
+  color: blue;
+}
+
+strike {opacity: 0.5;}
