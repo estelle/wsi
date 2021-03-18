@@ -1,0 +1,881 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+    <title>Fonts</title>
+<link rel="stylesheet" href="../intro/css/main.css"/> 
+<style>
+  style {
+    margin-top: 20px;
+  }
+	:root { 
+	--font: Book Antiqua, Georgia, serif;
+	--splashcolor: #008800;
+	--lightsplash: #33cc33;
+	--text: #333333;
+	--textsecondary: #4d4d4d;
+	--invertedtext: #ffffff;
+	--header_bg: #ffffff;
+	--light_bg: #f4f4f4;
+	--dark_bg: #666;
+	--colorpop: #008800;
+}
+
+
+</style>
+</head>
+
+<body>
+<!-- Top instructions -->
+<div id="topinfo"></div>
+<!-- footer instructions -->
+<div id="info">
+    <p><a href="http://standardista.com">Estelle Weyl</a> | <a href="http://twitter.com/estellevw">@estellevw</a> | <a href="http://github.com/estelle">Github</a> | Press <span class="key">&rarr;</span> key to advance.</p>
+</div>
+
+  <div id="presentation">
+   <div id="presentation-counter"></div>
+   <div id="slides">
+
+<div class="slide intro">
+<header><h1>Fonts</h1>
+  </header>
+<section class="content">
+
+   <p><a href="https://estelle.github.io/wsi/fonts/">estelle.github.io/wsi/fonts/</a></p>
+</section>
+</div>
+
+<div class="slide intro">
+<header><h1><code>@font-face</code></h1>
+  </header>
+<section class="content">
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code>@font-face</code></h1>
+  </header>
+<section class="content">
+  <p>Enables using custom fonts on the web.</p>
+  <p>The feature that enables us to not be reliant only on "web-safe" fonts</p>
+  <h2>Caveats</h2>
+  <ul>
+    <li>CORS: font files must be on the same domain as the page using them</li>
+    <li>Lots of fonts can lead to slow load (limit # of fonts)</li>
+    <li>Lots of characters can lead to large font files (limit character set)</li>
+    <li>Slow load can lead to FOUT (swap)</li>
+    <li>Don't use if you don't need to! (use system fonts)</li>
+  </ul>
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="resource">@font-face</a></code> at-rule</h1>
+  </header>
+<section class="content">
+  <p>Specifies a font which can then be used as a <code>font-family</code> value</p>
+  <pre>@font-face {
+   <b>font-family: &lt;family-name>; 
+src: &lt;src>;</b> 
+   unicode-range: &lt;unicode-range>; 
+   font-variant: &lt;font-variant>; 
+   font-feature-settings: &lt;font-feature-settings>; 
+   font-variation-settings: &lt;font-variation-settings>;
+   font-stretch: &lt;font-stretch>; 
+   font-weight: &lt;font-weight>; 
+   font-style: &lt;font-style>; 
+}</pre>
+<p>A value for each font descriptor is set, whether explicitly or to the default value.</p> 
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code>@font-face</code></h1>
+  </header>
+<section class="content"><p>Start with:</p>
+  <pre contenteditable>@font-face {
+   font-family: 'Name of your font'; 
+   src: ;
+}</pre>
+<p>Values for CSS descriptors are same as that of its corresponding font property.</p>
+<p><code>font-family</code> and <code>src</code> descriptors are required.</p>
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code>font-family</code> descriptor</h1>
+  </header>
+<section class="content"><p>Required value. Specifies the name you will be referencing when you include the font in a font list.</p>
+  <pre contenteditable>@font-face {
+  font-family: My Font Name;
+  src: local('font name on my system') url('path/fontFileName.ttf');
+}</pre>
+<p>Doesn't need to be quoted unless there's punctuation or a word starts with a number. Though, quoting makes it easier to read.</p></section>
+</div>
+
+<div class="slide">
+<header><h1><code>font-family</code> descriptor</h1>
+  </header>
+<section class="content">
+  <pre contenteditable>@font-face {
+  font-family: "Cool Font";
+  src: local('Times New Roman') url('path/unrelatedName.ttf');
+}</pre>
+<p>The name you give isn't restricted by other values, including names of existing fonts.</p>
+<p> Don't use system ui names (see font shorthand)</p>
+<pre contenteditable>@font-face {
+  font-family: "Times New Roman";
+  src: url('path/unrelatedName.ttf');
+}</pre>
+<p>Will use the <code>unrelatedName.ttf</code> instead of the system's <code>Times New Roman</code>.</p>
+<p>Font family names are case insensitive.</p>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code>src</code> descriptor</h1>
+  </header>
+<section class="content"><p>Specifies the resource containing font data</p>
+<pre contenteditable>
+src: local(Acme Font),
+     url(path/to/acme.woff),
+     url(path/to/acme.otf), 
+     url(path/to/acme.svg);</pre>
+  <p>Use both <code>local()</code> and <code>url()</code></p> <p>If the user has the font installed, use that and save time/bytes.  If not, download the font file.</p>
+  <ul>
+    <li>comma-separated list of font files or locally-installed font face names</li>
+    <li>Using the first it can successfully activate</li>
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code>src</code> descriptor <code>format()</code> hint</h1>
+  </header>
+<section class="content"><p>Optional hint describing the format of the font resource</p>
+<pre contenteditable>
+src: local(Acme Font),
+     url(path/to/acme.woff) format("woff"),
+     url(path/to/acme.otf) format("opentype"), 
+     url(path/to/acme.svg) format("svg");</pre>
+  <p>Comma-separated list of format strings of well-known font formats.</p>
+   <ul> 
+    <li>Browsers skip resource if the format is unsupported or unknown </li>
+    <li>If there's no hint, browser downloads then tests (bad performance). </li></ul>
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code>src</code> descriptor <code>local()</code> resource</h1>
+  </header>
+<section class="content">
+<p>To use a locally available copies of a given font and download it if it's not, or to rename a OS font, or to overwrite the name of a 3rd party font</p>
+<pre contenteditable>@font-face {
+  font-family: "Estelle's Fantastic Font";
+  src: local(Estelle Bold),                          /* full font name */
+       local(Estelle-Bold),                          /* Postscript name */
+       url(path/EstelleBoldFnt.woff) format("woff"), /* Download if user */
+       url(path/EstelleBoldFnt.otf)  format("otf");  /* doesn't have it. */
+  font-weight: bold;
+}</pre>
+<p>specifies a single font, not an entire font family</p>
+</section>
+</div>
+
+
+
+
+
+
+<div class="slide divider">
+<header><h1><code>font-style</code>, <code>font-weight</code> and <code>font-stretch</code> descriptors</h1>
+  </header>
+<section class="content">
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code>font-style</code>, <code>font-weight</code> and <code>font-stretch</code> descriptors</h1>
+  </header>
+<section class="content">
+  <p>Allows authors to specify the font styles, weights, and stretch for the font specified in the @font-face rule.</p>
+  <pre contenteditable>@font-face {
+  font-family: groovyFont;
+  src: url('groovy-oblique.ttf');
+  font-style: oblique -30deg 30deg;
+  font-weight: 300 500;
+  font-stretch: 75% 150%;
+}</pre>
+<p>For every font family, different files can be downloaded for each style, weight, or stretch.  The descriptors explicitly specify when this file should be used. </p>
+</section>
+</div>
+
+
+
+
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style" target="resource">font-style</a></code> descriptor</h1>
+  </header>
+<section class="content">
+<pre>auto | normal | italic | oblique [ &lt;angle> | &lt;angle> &ltangle> ] ?</pre>
+<p style="max-width: 25em; float: right; clear:right">Use <code>"slnt"</code> variation for oblique OR <code>ital=1</code> for italic. Not both.</p>
+  <dl>
+  <dt>normal</dt>
+  <dd>Used for normal version of the font-family. <code class="pre">font-style: normal;</code></dd>
+  <dt>italic</dt>
+  <dd>Use for italic version of the normal font. <code class="pre">font-style: italic;</code></dd>
+  <dt>oblique</dt>
+  <dd>Sloped version of the normal font. <code class="pre">font-style: oblique;</code></dd>
+  <dt>oblique with angle</dt>
+  <dd>Font is set to oblique with a specifie slange angle <code class="pre">font-style: oblique -10deg;</code></dd>
+  <dt>oblique &lt;angle> range </dt>
+  <dd>Selects a font classified as oblique while specifying a range of allowable angles of text slant. <code class="pre">font-style: oblique -30deg 30deg;</code> </dd>
+</dl>
+<p>Range is only supported when the font-style is oblique; for font-style: normal or italic, no second value is allowed.</p>
+</section>
+</div>
+
+
+<div class="slide ">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight" target="resource">font-weight</a></code> descriptor</h1>
+  </header>
+<section class="content"><pre contenteditable style="float: right;">auto |normal | bold | &lt;number>{1,2}</pre>
+  <p style="width: 25em; float: right; clear:right"> There are generally limited weights available for a font family. When specified weight doesn't exist, a nearby weight is used. <br/><br/>Fonts lacking bold are often synthesized by browser. To prevent this, use <code>font-synthesis</code> property.<br/><br/>Use <code>"wght"</code> variation for font-weights</p> 
+  <table class="standard-table">
+  <thead><tr><th>Value</th><th>Mapping</th></tr></thead>
+<tbody>  <tr><th>1 </th><td> lowest valid value</td></tr>
+    <tr><th>100 </th><td> Thin</td></tr>
+    <tr><th>200 </th><td> Extra Light (Ultra Light)</td></tr>
+    <tr><th>300 </th><td> Light</td></tr>
+    <tr><th>400 </th><td> Normal</td></tr>
+    <tr><th>500 </th><td> Medium</td></tr>
+    <tr><th>600 </th><td> Semi Bold (Demi Bold)</td></tr>
+    <tr><th>700 </th><td> Bold</td></tr>
+    <tr><th>800 </th><td> Extra Bold (Ultra Bold)</td></tr>
+    <tr><th>900 </th><td> Black (Heavy) </td></tr>
+    <tr><th>1000 </th><td> highest valid value</td></tr>
+  </tbody>
+  </table>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1>Some styles</h1>
+  </header>
+<section class="content"><style contenteditable class="editme" style="height: 60vh; overflow: scroll;">@font-face {
+  font-family: 'boldish';
+  src: local("adapter pe");
+  font-weight: 0 100;
+}
+@font-face {
+  font-family: 'boldish';
+  src: local('League Mono Variable');
+  font-weight: 100 250
+}
+@font-face {
+  font-family: 'boldish';
+  src: local("adapter pe");
+  font-weight: 250 450;
+}
+@font-face {
+  font-family: 'boldish';
+  src: local('acme');
+  font-weight: 450 675;
+}
+@font-face {
+  font-family: 'boldish';
+  src: url('fonts/Soulcraft.ttf') ;
+  font-weight: 675 1000;
+}
+p.fwd { font-size: 2.5rem;
+  font-family: boldish;
+  font-weight: 50;
+}
+</style>
+<p class="fwd">Class is fwd</p>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-stretch" target="resource">font-stretch</a></code> descriptor</h1>
+  </header>
+<section class="content">
+
+  <p style="width: 25em; float: right; clear:right"> For variable fonts, the <code>"wdth"</code> variation is used to implement varying widths.</p> 
+  <table  class="standard-table">
+  <thead>
+    <tr>
+      <th>Absolute keyword value </th>
+      <th>Numeric value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ultra-condensed </th>
+      <td>50% </td>
+    </tr>
+    <tr>
+      <th>extra-condensed </th>
+      <td>62.5% </td>
+    </tr>
+    <tr>
+      <th>condensed </th>
+      <td>75% </td>
+    </tr>
+    <tr>
+      <th>semi-condensed </th>
+      <td>87.5% </td>
+    </tr>
+    <tr>
+      <th>normal </th>
+      <td>100% </td>
+    </tr>
+    <tr>
+      <th>semi-expanded </th>
+      <td>112.5% </td>
+    </tr>
+    <tr>
+      <th>expanded </th>
+      <td>125% </td>
+    </tr>
+    <tr>
+      <th>extra-expanded </th>
+      <td>150% </td>
+    </tr>
+    <tr>
+      <th>ultra-expanded </th>
+      <td>200% </td>
+    </tr>
+  </tbody>
+</table>
+</section>
+</div>
+
+
+
+
+
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range" target="resource">unicode-range</a></code> descriptor</h1>
+  </header>
+<section class="content">
+  <p>Sets the specific range of characters to be used from a font defined by @font-face. Defaults to all characters available.</p>
+  <pre contenteditable>unicode-range: U+0025-00FF, U+4??;</pre>
+  <dl>
+  <dt>single codepoint</dt>
+  <dd>A single Unicode character <code class="pre">unicode-range: U+26</code></dd>
+  <dt>codepoint range</dt>
+  <dd>A range of Unicode characters. <code class="pre">unicode-range: U+0025-00FF;</code>.</dd>
+  <dt>wildcard range</dt>
+  <dd>A range of Unicode code points denoted with <code>?</code>. <code class="pre">unicode-range: U+4??</code> => U+400 to U+4FF.</dd>
+</dl>
+  <p>If the page doesn't use any character in the range, the font is not downloaded</p>
+  <p>If a single character on a page requires a font, the whole font is downloaded.</p>
+</section>
+</div>
+
+
+<!--  -->
+<div class="slide">
+  <header>
+    <h1>Unicode Subset</h1>
+  </header>
+  <section class="content">
+    <pre>@font-face {
+    font-family: 'myFont';
+    src: url('myfont-webfont.woff2') format('woff2'),
+         url('myfont-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+26;
+}</pre>
+  </section>
+</div>
+
+<div class="slide object">
+  <header>
+    <h1>Font Squirrel</h1>
+  </header>
+  <object data="http://www.fontsquirrel.com/tools/webfont-generator"></object>
+  <a href="http://www.fontsquirrel.com/tools/webfont-generator" target="play" title="open font squirrel in new window">↪</a>
+</div>
+
+
+
+
+<div class="slide rooster">
+<header><h1>Character ranges</h1>
+  </header>
+<section class="content">
+<style contenteditable class="editme">
+  @font-face {
+    font-family: 'Rooster';
+    src: local(Acme);
+    unicode-range: U+26, U+57;
+}
+.rooster p {
+  font-family: Rooster, georgia, sans-serif;
+  font-size: 2rem;
+  _text-transform: capitalize;
+}
+</style>
+<p>All is fair is love &amp; war.</p>
+</section>
+</div>
+
+
+
+<div class="slide rye">
+  <header>
+    <h1>Subsets of Google Fonts</h1>
+  </header>
+  <section class="content">
+  
+ <link href="https://fonts.googleapis.com/css?family=Rye&text=AEIOUaeiou" rel="stylesheet" type="text/css" />
+
+<style contenteditable class="editme">.rye p {
+    font-family: 'Rye', sans-serif;
+  }</style>
+<pre contenteditable>&lt;link  rel="stylesheet" 
+href="//fonts.googleapis.com/<br/>css?family=Rye:regular&amp;text=AEIOUaeiou"&gt;</pre><p>But I've never been to the moon! Shut up and get to the point! What are their names? Good news, everyone! There's a report on TV with some very bad news!
+
+I'm sure those windmills will keep them cool. This is the worst part. The calm before the battle. I can explain. It's very valuable. You wouldn't. Ask anyway! I daresay that Fry has discovered the smelliest object in the known universe! I've been there. My folks were always on me to groom myself and wear underpants. What am I, the pope?</p>
+</section>
+</div>
+
+
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings" target="resource">font-feature-settings</a></code> descriptor</h1>
+  </header>
+<section class="content"><p>Controls advanced typographic features in OpenType fonts.</p>
+    <table  class="standard-table">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<tr><th>"c2sc"</th><td>Small Capitals From Capitals</td></tr>
+<tr><th>"calt"</th><td>Contextual Alternates</td></tr>
+<tr><th>"case"</th><td>Case-Sensitive Forms</td></tr>
+<tr><th>"dnom"</th><td>Denominators</td></tr>
+<tr><th>"frac"</th><td>Fractions</td></tr>
+<tr><th>"hist" </th><td>enable historical forms </td></tr>
+<tr><th>"liga"</th><td>Standard Ligatures</td></tr>
+<tr><th>"lnum"</th><td>Lining Figures</td></tr>
+<tr><th>"locl"</th><td>Localized Forms</td></tr>
+<tr><th>"numr"</th><td>Numerators</td></tr>
+<tr><th>"onum"</th><td>Oldstyle Figures</td></tr>
+<tr><th>"pnum"</th><td>Proportional Figures</td></tr>
+<tr><th>"sinf"</th><td>Scientific Inferiors</td></tr>
+<tr><th>"smcp"</th><td>Small Capitals</td></tr>
+<tr><th>"ss01"</th><td>Stylistic Set 1 (Numero correct)</td></tr>
+<tr><th>"ss07" </th> <td>Stylistic Set 7</td></tr>
+<tr><th>"subs"</th><td>Subscript</td></tr>
+<tr><th>"sups"</th><td>Superscript</td></tr>
+<tr><th>"tnum"</th><td>Tabular Figures</td></tr>
+<tr><th>"zero"</th><td>Slashed Zero</td></tr>
+  </tbody>
+</table>
+  <p>Use the <code>font-variant</code> shorthand property or an associated longhand property such as <code>font-variant-ligatures, font-variant-caps, font-variant-east-asian, font-variant-alternates, font-variant-numeric</code> or <code>font-variant-position.</code></p>
+  <ul>
+    <li>Must be 4 characters.</li>
+    <li>&lt;string>, not an &lt;ident></li>
+  </ul>
+</section>
+</div>
+
+
+
+<div class="slide ffs">
+<header><h1><code>font-feature-settings</code></h1>
+  </header>
+<section class="content">
+
+<style contenteditable class="editme">@font-face {
+  font-family: 'variableFont3';
+  src: local("adapter pe");
+  font-feature-settings: "tnum" on, "zero" on;
+}
+.ffs p {
+  font-family: variableFont3, serif; 
+  font-feature-settings: "tnum" on, "zero" on;
+}</style>
+<p contenteditable>Lashana Lynch as 007 will be fantastic!.</p>
+</section>
+</div>
+
+
+
+<div class="slide ffs">
+<header><h1><code>font-feature-settings</code></h1>
+  </header>
+<section class="content">
+<pre contenteditable> {
+   font-feature-settings: 
+        "c2sc", "calt", "case", "dnom", "frac", "liga", "lnum", 
+        "locl", "numr", "onum", "pnum", "sinf", "smcp", "ss01", 
+        "ss07", "subs", "sups", "tnum", "zero";
+}</pre>
+</section>
+</div>
+
+
+
+
+
+<div class="slide">
+<header><h1>Font Notes</h1>
+  </header>
+<section class="content">
+<ol>
+  <li>Loading: Font files can have huge files sizes. Redue the number of fonts and the charset for each</li>
+	<li>Legal ownership: Putting a font on the web makes it available for people to download freely. You need the right type of ownership to do this legally</li>
+	<li>Performance: Due to the size, they can take a long time to load. FOUT and FOIC<ul>
+    <li>Flash of Unstyled Text:  display fallback until custom font loads</li>
+    <li>Flash of Invisible Text: Hides the text until custom font loaded</li>
+  </ul>
+  </li>
+  <li>Don't forget <code>font-synthesis: none;</code></li>
+</ol>
+</section>
+</div>
+
+
+
+
+<div class="slide">
+<header><h1>Font Notes</h1>
+  </header>
+<section class="content">
+If a font family match occurs, the user agent assembles the set of font faces in that family and then narrows the set to a single face using other font properties in the order given below. A group of faces defined via @font-face rules with identical font descriptor values but differing ‘unicode-range’ values are considered to be a single composite face for this step:
+<ol>
+   <li> ‘font-stretch’ is tried first. If the matching set contains faces with width values matching the ‘font-stretch’ value, faces with other width values are removed from the matching set. If there is no face that exactly matches the width value the nearest width is used instead. If the value of ‘font-stretch’ is ‘normal’ or one of the condensed values, narrower width values are checked first, then wider values. If the value of ‘font-stretch’ is one of the expanded values, wider values are checked first, followed by narrower values. Once the closest matching width has been determined by this process, faces with other widths are removed from the matching set.</li>
+<li>    ‘font-style’ is tried next. If the value of ‘font-style’ is ‘italic’, italic faces are checked first, then oblique, then normal faces. If the value is ‘oblique’, oblique faces are checked first, then italic faces and then normal faces. If the value is ‘normal’, normal faces are checked first, then oblique faces, then italic faces. Faces with other style values are excluded from the matching set. User agents are permitted to distinguish between italic and oblique faces within platform font families but this is not required, so all italic or oblique faces may be treated as italic faces. However, within font families defined via @font-face rules, italic and oblique faces must be distinguished using the value of the ‘font-style’ descriptor. For families that lack any italic or oblique faces, user agents may create artificial oblique faces, if this is permitted by the value of the ‘font-synthesis’ property.</li>
+<li>    ‘font-weight’ is matched next, so it will always reduce the matching set to a single font face. If bolder/lighter relative weights are used, the effective weight is calculated based on the inherited weight value, as described in the definition of the ‘font-weight’ property. Given the desired weight and the weights of faces in the matching set after the steps above, if the desired weight is available that face matches. Otherwise, a weight is chosen using the rules below:<ol>
+  <li>
+        If the desired weight is less than 400, weights below the desired weight are checked in descending order followed by weights above the desired weight in ascending order until a match is found.</li><li>
+        If the desired weight is greater than 500, weights above the desired weight are checked in ascending order followed by weights below the desired weight in descending order until a match is found.</li><li>
+        If the desired weight is 400, 500 is checked first and then the rule for desired weights less than 400 is used.
+        If the desired weight is 500, 400 is checked first and then the rule for desired weights less than 400 is used.
+        </li>
+        </ol>
+        </li> 
+   <li> ‘font-size’ must be matched within a UA-dependent margin of tolerance. (Typically, sizes for scalable fonts are rounded to the nearest whole pixel, while the tolerance for bitmapped fonts could be as large as 20%.) Further computations, e.g., by ‘em’ values in other properties, are based on the ‘font-size’ value that is used, not the one that is specified. </li>
+ </li>
+</ol>
+</section>
+</div>
+
+
+<div class="slide ffs2">
+<header><h1>How many font files do you need?</h1>
+  </header>
+<section class="content">
+
+<style contenteditable class="editme">.ffs2 p {
+  font-family: variableFont, acme, serif; 
+  font-weight: bold;
+  font-style: italic;
+  font-synthesis: none;
+}</style>
+<p contenteditable>Lashana Lynch as 007 will be fantastic!.</p>
+<ul>
+<li>try <code>bold, italic</code> and <code>normal</code> </li>
+<li>try <code>font-synthesis: none, weight</code> and <code>style</code></li>
+<li>Try each combo for all the fonts</li>
+</ul>
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1>Developer Tools</h1>
+  </header>
+<section class="content">
+<p>The developer tools for fonts are AWESOME!</p>
+<ul>
+  <li>See the 
+        applied font (used for rendering) in rules view (it's underlined)</li>
+  <li>Discover the Fonts Panel</li>
+  <li>See a list of all used fonts used in a document</li>
+  <li>
+        on hover of the font family, highlight where the font is used to render content (this is great for showing subsets)
+        editor area, works for both non-varialbe and variable fonts (will show all custom axis)
+        editor can convert units if you switch them
+        at the bottom, list of all fonts used on page incl. hover functionality mentioned above</li>
+      </ul>
+
+</section>
+</div>
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display" target="resource">font-display</a></code> descriptor</h1>
+  </header>
+<section class="content"><p>how a font face is displayed based on whether and when it is downloaded and ready to use</p>
+  <pre contenteditable>font-display: auto | block | swap | fallback | optional</pre>
+  <dl>
+  <dt>auto</dt>
+  <dd>The font display strategy is defined by the user agent.</dd>
+  <dt>block</dt>
+  <dd>Gives the font face a short block period and an infinite swap period.</dd>
+  <dt>swap</dt>
+  <dd>Gives the font face an extremely small block period and an infinite swap period.</dd>
+  <dt>fallback</dt>
+  <dd>Gives the font face an extremely small block period and a short swap period.</dd>
+  <dt>optional</dt>
+  <dd>Gives the font face an extremely small block period and no swap period.</dd>
+</dl>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code>font-display</a></code> timeline</h1>
+  </header>
+<section class="content"><h2>The font display timeline</h2>
+<p>The font display timeline is based on a timer that begins the moment  the user agent attempts to use a given downloaded font face. The  timeline is divided into the three periods below which dictate the  rendering behavior of any elements using the font face.</p>
+<dl>
+  <dt>Font block period</dt>
+  <dd>If the font face is not loaded, any element attempting to use it must render an <em>invisible</em> fallback font face. If the font face successfully loads during this period, it is used normally.</dd>
+  <dt>Font swap period</dt>
+  <dd>If the font face is not loaded, any element attempting to use it  must render a fallback font face. If the font face successfully loads  during this period, it is used normally.</dd>
+  <dt>Font failure period</dt>
+  <dd>If the font face is not loaded, the user agent treats it as a failed load causing normal font fallback.</dd>
+</dl>
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1><code>font-display</a></code> implementation</h1>
+  </header>
+<section class="content">
+<p>If you know the font is going to take a while to load or has a very different look than the fallback</p>
+<pre contenteditable>@font-face {
+  font-family: MyLargeFont;
+  src: url(/path/to/fonts/hugeFontFile.woff) format('woff');
+  font-display: <b>fallback</b>;
+}</pre>
+<p>If you know the fallback isn't too shockingly different from the custom font.</p>
+<pre contenteditable>@font-face {
+  font-family: MyRequiredFont;
+  src: url(/path/to/fonts/hugeFontFile.woff) format('woff');
+  font-display: <b>swap</b>;
+}</pre>
+</section>
+</div>
+
+
+
+
+
+
+<div class="slide intro">
+<header><h1>Variable Fonts</h1>
+  </header>
+<section class="content">
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide" target="resource">Variable Fonts</a></h1>
+  </header>
+<section class="content">
+	<p>Fonts that have many different variations - bold, italic, oblique, condensed, expanded, glyphs -  of a typeface in a single file, rather than having a separate font file for every width, weight, or style.</p>
+  <ul>
+    <li>Only one HTTP requests</li>
+    <li>Larger than a single font, but smaller than 2 versions (bold & regular)</li>
+    <li>(Almost) Infinite options</li>
+  </ul>
+</section>
+</div>
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings" target="resource">font-variation-settings</a></code> property</h1>
+  </header>
+<section class="content">
+  <p>Specify 4-letter axis names and values of the characteristics you want to vary</p>
+
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th scope="col">Axis Tag</th>
+      <th scope="col">CSS Property</th>
+    </tr>
+  </thead>
+
+  <tbody style="height: 300px; overflow: scroll;">
+    <tr>
+      <td>&quot;wght&quot;</td>
+      <td>font-weight</td>
+    </tr>
+    <tr>
+      <td>&quot;wdth&quot;</td>
+      <td>font-stretch</td>
+    </tr>
+    <tr>
+      <td>&quot;slnt&quot; (slant)</td>
+      <td>font-style: oblique + angle</td>
+    </tr>
+    <tr>
+      <td>&quot;ital&quot;</td>
+      <td>font-style: italic</td>
+    </tr>
+    <tr>
+      <td>&quot;opsz&quot;</td>
+      <td><p>font-optical-sizing</p></td>
+    </tr><tr><td>c2sc</td><td>Small Capitals From Capitals</td></tr>
+  </tbody>
+</table>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings" target="resource">font-variation-settings</a></code> property</h1>
+  </header>
+<section class="content">
+<style contenteditable class="editme">@font-face {
+  font-family: 'Handjet';
+  src: local('Handjet'), url('fonts/Handjet-VF.ttf');
+  font-weight: 1 1000;
+}p.vf1 { font-size: 3em;
+  font-family: Handjet, variableFont, serif; 
+  font-variation-settings: 'wght' 20;
+}</style>
+<p class="vf1">Font weight is set with font-variation-settings value.</p>
+<p>Comparison paragraph of text</p>
+</section>
+</div>
+
+
+
+<div class="slide">
+<header><h1><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings" target="resource">font-variation-settings</a></code> property</h1>
+  </header>
+<section class="content">
+<style contenteditable class="editme">@font-face {
+  font-family: 'OtherVF';
+  src: url(fonts/SourceSansVariable-Italic.ttf);
+  font-weight: 1 1000;
+}p.vf2 { font-size: 3em;
+  font-family: OtherVF, variableFont, serif; 
+  font-variation-settings: 'wght' 200;
+}</style>
+<p class="vf2">This paragraph will change based on the font-variant value.</p>
+<p>Comparison paragraph of text</p>
+</section>
+</div>
+
+
+
+<div class="slide object">
+  <header>
+    <h1>Variable Fonts</h1>
+  </header>
+  <object data="https://www.axis-praxis.org/specimens/__DEFAULT__"></object>
+  <a href="https://www.axis-praxis.org/specimens/__DEFAULT__" class="objectlink" target="resource">axis-praxis.org</a>
+</div>
+
+
+
+<div class="slide object">
+  <header>
+    <h1>Font Style Matcher</h1>
+  </header>
+  <object data="https://meowni.ca/font-style-matcher/"></object>
+  <a href="https://meowni.ca/font-style-matcher/" class="objectlink" target="resource">meowni.ca</a>
+</div>
+
+
+<div class="slide">
+<header><h1>More....</h1>
+  </header>
+<section class="content">
+  <p><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-kerning" target="resource">font-kerning</a></code> property</p>
+  <pre contenteditable>font-kerning: auto | normal | none;</pre>
+<p><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures" target="resource">font-variant-ligatures</a></code> property
+</p>
+  <pre contenteditable class="multi">normal | none | (no-)contextual | (no-)common-ligatures | 
+ (no-)discretionary-ligatures | (no-)historical-ligatures;</pre>
+<p><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-caps" target="resource">font-variant-caps</a></code> property</p>
+<pre contenteditable class="multi">normal | small-caps | all-small-caps | petite-caps |
+all-petite-caps | unicase | titling-caps</pre>
+<p><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric" target="resource">font-variant-numeric</a></code> property: either <code>normal</code> or one or more of the other space-separated values</p>
+<pre contenteditable class="multi">normal | ordinal | slashed-zero | lining-nums | oldstyle-nums | proportional-nums | tabular-nums | diagonal-fractions | stacked-fractions</pre>
+<p><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternatives" target="resource">font-variant-alternatives</a></code> property</p>
+<p><code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-emoji" target="resource">font-variant-emoji</a></code> property</p>
+</section>
+</div>
+
+
+
+
+
+
+<!--NEXT-->
+<div class="slide divider">
+     <header>
+    <h1>Text</h1>
+  </header>
+    <h1><a href="../text">Next ➹</a></h1>
+    </div>
+
+    <div class="slide dots">
+      <header>
+        <h1>Table of Content</h1>
+      </header>
+      <section>
+        <ol>
+          <li><a href="../intro/index.html">Introduction</a></li>
+          <li><a href="../boxmodel/index.html">Box Model</a></li>
+          <li><a href="../flexbox/index.html">Flexbox</a></li>
+          <li><a href="../grid/index.html">Grids</a></li>
+          <li><a href="../selectors/index.html">Selectors</a></li>
+          <li><a href="../selectors/specificity.html">Specificity</a></li>
+          <li><a href="../form/index.html">Forms &amp; Accessibiltiy</a></li>
+          <p>
+        </ol>
+      </section>
+    </div>
+<!-- TOC -->
+
+
+
+   </div>
+
+
+</div>
+<header>
+    <nav>
+        <ul>
+            <li><button class="button cancel" id="back">&laquo; Back</button></li>
+            <li><button class="button done" id="next">Next &raquo; </button></li>
+        </ul>
+    </nav>
+</header>
+<script src="../slideshow.js"></script>
+  </body>
+
+</html>
