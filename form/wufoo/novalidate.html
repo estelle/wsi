@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://www.wufoo.com/html5/attributes/11-novalidate.html -->
+<html class="loaded"><script>var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script>var Typekit={load:function(){}};</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	
+	<title>HTML5 Forms: NoValidate Type Attribute Demo | Wufoo</title>
+
+	<meta name="description" content="
+	Novalidate if a form-level attribute used to turn off validation for a form, despite the attributes of the inputs it contains (i.e. will override inputs with the required attribute, or that would otherwise fail validation).	 ">
+	
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<script src="http://use.typekit.com/kqq4ejg.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+	
+	<link rel="stylesheet" href="http://www.wufoo.com/stylesheets/custom/html5/css/slide.css">
+	<link rel="canonical" href="./novalidate_files/novalidate.html">
+<style>@-webkit-keyframes popyarpvshnfmfjqkntgoozodznnrkvksnkeehfr {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes popyarpvshnfmfjqkntgoozodznnrkvksnkeehfr {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:solid 2px #fff !important;box-sizing:content-box !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-webkit-border-radius:5px !important;-webkit-box-shadow:0px 0px 20px #000 !important;-webkit-box-sizing:content-box !important;}.yarpvshnfmfjqkntgoozodznnrkvksnkeehfr-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(chrome-extension://mlomiejdfkolichcflejclcbmpeaniij/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr-gear:hover{-webkit-animation-name:popyarpvshnfmfjqkntgoozodznnrkvksnkeehfr !important;animation-name:popyarpvshnfmfjqkntgoozodznnrkvksnkeehfr !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr:hover #yarpvshnfmfjqkntgoozodznnrkvksnkeehfr-gear{text-decoration:none !important;display:inline-block !important;}@media print{#yarpvshnfmfjqkntgoozodznnrkvksnkeehfr{display:none !important;}}</style></head>
+
+<body>
+	
+	<div id="page-wrap">
+
+<header>
+	<section>
+		<h2><a href="http://www.wufoo.com/html5/">The Current State of <strong>HTML5 Forms</strong></a></h2>
+		<a href="http://www.wufoo.com/" id="logo">Wufoo</a>
+	</section>
+</header>
+
+<h1 class="attribute">
+	<section>
+		The <strong>novalidate</strong> Attribute	</section>
+</h1>
+
+<div id="content">
+
+	<section id="info">
+		
+<pre><code>&lt;form <strong>novalidate</strong>&gt;
+  &lt;input type=number name=num step=5&gt;
+&lt;/form&gt;</code></pre>
+		
+		<div id="demo">
+			<table>
+				<tbody><tr>
+					<td>
+						<h3>Live Demo (with novalidate)</h3>
+						<p>"4" would fail validation.</p>
+						<form novalidate="">
+						  <input type="number" step="5" name="num" style="font-size: 30px;">
+						  <br><br>
+					      <input type="submit">
+						</form>
+					</td>
+					<td>
+						<h3>Live Demo (without novalidate)</h3>
+						<p>"4" would fail validation.</p>
+						<form>
+						  <input type="number" step="5" name="num2" style="font-size: 30px;" required="">
+						  <br><br>
+					      <input type="submit">
+						</form>
+					</td>
+				</tr>
+			</tbody></table>
+		</div>
+			
+		<table id="types" class="chart" cellspacing="0">
+			<thead>
+				<tr>
+					<th>
+						<img src="./novalidate_files/firefox.png" alt="">
+						<div>Firefox</div> <span>4+</span></th>
+					<th>
+						<img src="./novalidate_files/safari.png" alt="">
+						<div>Safari</div> <span>7-</span></th>
+					<th>
+						<img src="./novalidate_files/mobsafari.png" alt="">
+						<div>Safari Mobile</div> <span>7-</span></th>
+					<th>
+						<img src="./novalidate_files/chrome.png" alt="">
+						<div>Chrome</div> <span>10+</span></th>
+					<th>
+						<img src="./novalidate_files/opera.png" alt="">
+						<div>Opera</div> <span>10.0+</span></th>
+					<th>
+						<img src="./novalidate_files/ie.png" alt="">
+						<div>IE</div> <span>10+</span></th>
+					<th>
+						<img src="./novalidate_files/android.png" alt="">
+						<div>Android</div> <span>4.2</span></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+				<!--
+				<img src="../images/x.png" alt="No support">
+				<img src="../images/check.png" alt="Supported">
+				<img src="../images/kinda.png" alt="Kinda supported">
+				-->
+				
+				<tr>
+					<td><img src="./novalidate_files/check.png" alt="Supported"></td>
+					<td><img src="./novalidate_files/x.png" alt="No support"></td>
+					<td><img src="./novalidate_files/x.png" alt="No support"></td>
+					<td><img src="./novalidate_files/check.png" alt="Supported"></td>
+					<td><img src="./novalidate_files/check.png" alt="Supported"></td>
+					<td><img src="./novalidate_files/check.png" alt="Supported"></td>
+					<td><img src="./novalidate_files/x.png" alt="No support"></td>
+				</tr>
+			</tbody>
+		</table>
+				
+		<table id="screenshots">		
+			<tbody><tr>	
+				
+				<td id="lowdown">
+					<div>
+						<h3>The Low Down</h3>
+					
+						<p>
+							<code>novalidate</code> if a form-level attribute used to turn off validation for a form,
+							despite the attributes of the inputs it contains (i.e. will override inputs with the
+							<code>required</code> attribute, or that would otherwise fail validation).
+						</p>
+					
+						<ul>
+							<li>
+								Forms naturally validate, no special attributes needed. This special attribute is needed 
+								to turn that off. Include it only on the <code>&lt;form&gt;</code> opening tag.
+						  </li>
+							<li>
+								You might use this if you plan to do your own client-side validation, if you want to create your own validation bubbles,  or if you plan
+								to go all server-side validation (which you need to do anyway).
+							</li>
+							<li>Do not use <code>novalidate</code> if you simply want to internationalize or otherwise change the content of the default error messages. This can be done with JavaScript. </li>
+							<li>
+								This is a classic example of why server side validation is extra important: one little change in development tools can force an entire form to skip
+								validation allowing bad data to go through.
+							</li>
+							<li>While Safari, iOS and Android to support the validation object, the form is sumbmitted whether the form validates or not, as if the <code>novalidate</code> attribute was always present. </li>
+						</ul>
+					</div>
+				</td>
+				
+			</tr>
+		</tbody></table>
+
+	</section><!--info-->
+	
+</div><!--content-->
+
+
+	<footer>
+		<section class="footer-cta">
+			Let Wufoo do the hard work.  <a href="https://secure.wufoo.com/signup/1/">Sign up</a> for a free account and
+			start making forms the easy way.
+		</section>
+		<section>
+
+						<a href="http://www.wufoo.com/html5/attributes/10-pattern.html" id="previous">Previous</a>
+			
+			Jump to:
+			<select id="jumper">
+				<optgroup label="Types"><option value="/html5/types/3-url.html">The url Type</option><option value="/html5/types/15-radio.html"></option><option value="/html5/types/7-number.html">The number Type</option><option value="/html5/types/17-reset.html"></option><option value="/html5/types/8-range.html">The range Type</option><option value="/html5/types/14-file.html"></option><option value="/html5/types/10-button.html"></option><option value="/html5/types/5-search.html">The search Type</option><option value="/html5/types/6-color.html">The color Type</option><option value="/html5/types/11-hidden.html"></option><option value="/html5/types/2-tel.html">The tel Type</option><option value="/html5/types/1-email.html">The email Type</option><option value="/html5/types/13-checkbox.html"></option><option value="/html5/types/9-text.html"></option><option value="/html5/types/12-password.html"></option><option value="/html5/types/20-template.html"></option><option value="/html5/types/4-date.html">The date Type</option><option value="/html5/types/16-submit.html"></option></optgroup><optgroup label="Attributes"><option value="/html5/attributes/01-placeholder.html">The placeholder Attribute</option><option value="/html5/attributes/28-heightwidth.html"></option><option value="/html5/attributes/05-list.html">The list Attribute</option><option value="/html5/attributes/07-accept.html">The accept Attribute</option><option value="/html5/attributes/15-formtarget.html">The formtarget Attribute</option><option value="/html5/attributes/13-formaction.html">The formaction Attribute</option><option value="/html5/attributes/23-inputmode.html"></option><option value="/html5/attributes/29-value.html"></option><option value="/html5/attributes/09-required.html">The required Attribute</option><option value="/html5/attributes/22-form.html"></option><option value="/html5/attributes/24-dirname.html"></option><option value="/html5/attributes/03-maxlength.html">The maxlength Attribute</option><option value="/html5/attributes/18-minlength.html"></option><option value="/html5/attributes/06-autocomplete.html">The autocomplete Attribute</option><option value="/html5/attributes/08-multiple.html">The multiple Attribute</option><option value="/html5/attributes/21-readonly.html"></option><option value="/html5/attributes/14-formmethod.html">The formmethod Attribute</option><option value="/html5/attributes/27-tabindex.html"></option><option value="/html5/attributes/04-minmaxstep.html">The min, max, and step Attributes</option><option value="/html5/attributes/26-selectiondirection.html"></option><option value="/html5/attributes/19-formtarget.html"></option><option value="/html5/attributes/25-autosave.html"></option><option value="/html5/attributes/16-formenctype.html">The formenctype Attribute</option><option value="/html5/attributes/17-spellcheck.html">The spellcheck Attribute</option><option value="/html5/attributes/10-pattern.html">The pattern Attribute</option><option value="/html5/attributes/20-accept.html"></option><option value="/html5/attributes/32-name.html"></option><option value="/html5/attributes/33-checked.html"></option><option value="/html5/attributes/11-novalidate.html" selected="selected">The novalidate Attribute</option><option value="/html5/attributes/30-disabled.html"></option><option value="/html5/attributes/31-size.html"></option><option value="/html5/attributes/02-autofocus.html">The autofocus Attribute</option><option value="/html5/attributes/25-type.html"></option><option value="/html5/attributes/12-formnovalidate.html">The formnovalidate Attribute</option></optgroup><optgroup label="Elements"><option value="/html5/elements/6-option.html"></option><option value="/html5/elements/1-meter.html">The meter Element</option><option value="/html5/elements/2-progress.html">The progress Element</option><option value="/html5/elements/3-output.html">The output Element</option><option value="/html5/elements/4-keygen.html">The keygen Element</option><option value="/html5/elements/7-label.html"></option><option value="/html5/elements/5-datalist.html"></option></optgroup>			</select>
+			<a href="https://master.wufoo.com/forms/error-in-the-html5-forms-support-information/">Report an Error</a>
+
+						<a href="http://www.wufoo.com/html5/attributes/12-formnovalidate.html" id="next">Next</a>
+			
+		</section>
+	</footer>
+
+	</div><!--page-wrap-->
+
+	<script src="./novalidate_files/jquery.min.js"></script>
+	<script src="./novalidate_files/html5docs.js"></script>
+
+	<!-- Google Analytics -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-621688-1']);
+_gaq.push(['_setDomainName', 'auto']);
+_gaq.push(['_setAllowLinker', true]);
+
+if (undefined !== window.SETUSERCOOKIE) _gaq.push(['_setVar', 'current_user']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+	
+
+
+
+</body></html>

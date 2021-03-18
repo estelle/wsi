@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title></title>
+</head>
+<body><div class="slide">
+  <header><h1>ARIA Accessibilty</h1></header>
+    <section class="content">
+      <ul>
+        <li>aria-labeledby="otherElement idValues"</li>
+        <li>aria-label="Read by Screen Reader</li>
+        <li>&lt;label for="idOfFormControl&gt; (or implicit label)</li>
+        <li>placeholder</li>
+        <li>title</li>
+        <li>not accessible</li>
+      </ul>
+      <pre>&lt;label for="telephone">Telephone Number&lt;/label>
+  &lt;input type="tel" id="telephone" placeholder="(XXX) XXX-XXXX"
+  aria-describedby="10-digit phone number"&gt;
+  &lt;span class="hint" id="hint">10-digit phone number&gt;/span></pre>
+  <label for="telephonex">Telephone Number</label>
+  <input type="tel" id="telephonex" placeholder="(XXX) XXX-XXXX"
+  aria-describedby="hint3" aria-label="this is the label" aria-labeledby="hint4"><span class="hint" id="hint3">10-digit phone number</span><span class="hint" id="hint4">hint4</span>
+    </section>
+</div>
+</body>
+</html>

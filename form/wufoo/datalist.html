@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://www.wufoo.com/html5/elements/5-datalist.html -->
+<html class="loaded"><script>var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script>var Typekit={load:function(){}};</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	
+	<title>HTML5 Forms: Datalist Element Demo | Wufoo</title>
+
+	<meta name="description" content="
+	Creates a list of option from which the user can choose	 ">
+	
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<script src="http://use.typekit.com/kqq4ejg.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+	
+	<link rel="stylesheet" href="http://www.wufoo.com/stylesheets/custom/html5/css/slide.css">
+	<link rel="canonical" href="./datalist_files/datalist.html">
+<style>@-webkit-keyframes poprangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn {50% {-webkit-transform:scale(1.2);}100% {-webkit-transform:scale(1);}}@keyframes poprangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn {50% {-webkit-transform:scale(1.2);transform:scale(1.2);}100% {-webkit-transform:scale(1);transform:scale(1);}}#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:solid 2px #fff !important;box-sizing:content-box !important;color:#fff !important;display:block !important;height:auto !important;margin:0 !important;opacity:0.9 !important;padding:7px 10px !important;position:fixed !important;visibility:visible !important;width:auto !important;z-index:2147483647 !important;-webkit-border-radius:5px !important;-webkit-box-shadow:0px 0px 20px #000 !important;-webkit-box-sizing:content-box !important;}.rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn-blocked{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;color:#AAA !important;display:inline !important;text-decoration:line-through !important;}#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn br{display:block !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn span{background:transparent !important;padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;}#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn div{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;border:0 !important;margin:0 !important;padding:0 !important;width:auto !important;letter-spacing:normal !important;font:13px Arial,Helvetica !important;text-align:left !important;text-shadow:none !important;text-transform:none !important;word-spacing:normal !important;}#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn a{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;font-weight:normal !important;background:none !important;text-decoration:underline !important;color:#fff !important;}a#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn-gear{padding:0;margin:0;font:13px Arial,Helvetica;text-transform:none;font-size: 100%;vertical-align:baseline;line-height:normal;color:#fff;text-decoration:none !important;position:absolute !important;display:none !important;font-size:20px !important;width:20px !important;height:20px !important;line-height:20px !important;text-align:center !important;background-color:rgba(255,255,255,.8) !important;background-image:url(chrome-extension://mlomiejdfkolichcflejclcbmpeaniij/data/images/gear.svg) !important;background-size:16px 16px !important;background-position:center center !important;background-repeat:no-repeat !important;text-decoration:none !important;}a#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn-gear:hover{-webkit-animation-name:poprangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn !important;animation-name:poprangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn !important;-webkit-animation-duration:0.3s !important;animation-duration:0.3s !important;}#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn:hover #rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn-gear{text-decoration:none !important;display:inline-block !important;}@media print{#rangpvhrgrpbwqudbedaorhuetencdifmwjwrkymn{display:none !important;}}</style></head>
+
+<body>
+	
+	<div id="page-wrap">
+
+<header>
+	<section>
+		<h2><a href="http://www.wufoo.com/html5/">The Current State of <strong>HTML5 Forms</strong></a></h2>
+		<a href="http://www.wufoo.com/" id="logo">Wufoo</a>
+	</section>
+</header>
+
+<h1 class="element">
+	<section>
+			</section>
+</h1>
+
+<div id="content">
+
+	<section id="info">
+		
+		<pre><code>&lt;input type="text" <strong>list="datalist"</strong>&gt;
+&lt;<strong>datalist id="datalist"</strong>&gt;
+	&lt;option&gt;First Choice&lt;/option&gt;
+	&lt;option&gt;Second Choice&lt;/option&gt;
+	&lt;option&gt;Third Choice&lt;/option&gt;
+&lt;/datalist&gt;</code></pre><code>
+		
+		<div id="demo">
+			<h3>Live Demo</h3>
+			<form id="form-demo">
+				<input type="text" list="datalist">
+				<datalist id="datalist">
+					<option>First Choice</option>
+					<option>Second Choice</option>
+					<option>Third Choice</option>
+				</datalist>
+			</form>
+		</div>
+			
+		<table id="types" class="chart" cellspacing="0">
+			<thead>
+				<tr>
+					<th>
+						<img src="./datalist_files/firefox.png" alt="">
+						<div>Firefox</div> <span>4+</span></th>
+					<th>
+						<img src="./datalist_files/safari.png" alt="">
+						<div>Safari</div> 
+						<span>8-</span></th>
+					<th>
+						<img src="./datalist_files/mobsafari.png" alt="">
+						<div>Safari Mobile</div> 
+						<span>8-</span></th>
+					<th>
+						<img src="./datalist_files/chrome.png" alt="">
+						<div>Chrome</div> <span>20+</span></th>
+					<th>
+						<img src="./datalist_files/opera.png" alt="">
+						<div>Opera</div> <span>9+</span></th>
+					<th>
+						<img src="./datalist_files/ie.png" alt="">
+						<div>IE</div> <span>10+</span></th>
+					<th>
+						<img src="./datalist_files/android.png" alt="">
+						<div>Android</div> 
+						<span>4.4.3+</span></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+				<!--
+				<img src="../images/x.png" alt="No support">
+				<img src="../images/check.png" alt="Supported">
+				<img src="../images/kinda.png" alt="Kinda supported">
+				-->
+				
+				<tr>
+					<td><img src="./datalist_files/check.png" alt="Supported"></td>
+					<td><img src="./datalist_files/x.png" alt="No support"></td>
+					<td><img src="./datalist_files/x.png" alt="No support"></td>
+					<td><img src="./datalist_files/check.png" alt="Supported"></td>
+					<td><img src="./datalist_files/check.png" alt="Supported"></td>
+					<td><img src="./datalist_files/check.png" alt="Supported"></td>
+					<td><img src="./datalist_files/check.png" alt="Supported"></td>
+				</tr>
+			</tbody>
+		</table>
+				
+		<table id="screenshots">		
+			<tbody><tr>	
+				<td id="supported">
+					<h3>Supported Browser <strong>Screenshots</strong></h3>
+					<figure><img src="./datalist_files/color-datalist-supported-chrome.png" alt="Color with datalist"> <img src="./datalist_files/range-datalist-supported-chrome.png" alt="range with datalist"> <img src="./datalist_files/time-datalist-supported-chrome.png" alt="Time with datalist">
+					  <figcaption> Chrome 34 </figcaption>
+				  </figure>
+<figure>
+						
+	  <figcaption>
+							
+						</figcaption>
+					</figure>
+				</td>
+				
+				<td id="lowdown">
+				  <h3>The Low Down</h3>
+					
+				  <p>The <code>&lt;datalist&gt;</code> element lets you provide <code>&lt;option&gt;</code>s that are available for selection by another form control.</p>
+                    <ul>
+                      <li>When an <code>input</code> with a <code><a href="http://www.wufoo.com/html5/attributes/05-list.html">list</a></code> attribute  matching the id of your  <code>&lt;datalist&gt;<a href="./datalist_files/datalist.html"></a></code> element 
+				    comes into focus, is double clicked or upon data entry, a  menu will appear populated by the <code>option</code> provided in the <code>&lt;datalist&gt;</code>. </li>
+                      <li>While not officially required, you must include an id for the inputs to reference. One <code>&lt;datalist&gt;</code> can be referenced by an unlimited number of input elements. </li>
+                      <li>A datalist must contain zero or more <code>&lt;option&gt;</code> elements. No other children are valid. </li>
+                      <li>You might think of an <code>&lt;input&gt;</code> with a linked <code>&lt;datalist&gt;</code> like you would a group of radio buttons with an "Other: _________" choice or a select that also allows for free form data entry. For most input types, it behaves a bit like autocomplete or "suggested" items might. If you type "V" the list will show only items that start with "V" in Chrome, Opera and IE, and any <code><a href="http://www.wufoo.com/html5/elements/6-option.html">&lt;option&gt;</a></code> containing "V" in Firefox.</li>
+                      <li>If a browser doesn't support <code>&lt;datalist&gt;</code>, it will not show the nested <code>&lt;options&gt;</code>. Generally <code>&lt;options&gt;</code> only display when nested within a <code>&lt;select&gt;</code>. Now, they also display, though differently, when nested in a <code>&lt;datalist&gt;</code> in supporting browsers.</li>
+                      <li>For <code><a href="http://www.wufoo.com/html5/types/8-range.html">&lt;input type="range"&gt;</a></code>, supporting browsers show tick marks along the slider at each value included as an <code>&lt;option&gt;</code> in the associated <code>&lt;datalist&gt;</code>.</li>
+                      <li>For the date input types, supporting browsers show a drop down <code>&lt;option&gt;</code> in the associated <code>&lt;datalist&gt;</code>.</li>
+                      <li>Firefox doesn't show the data list drop down on focus, rather you have to double click on the input, otherwise it will show the suggestions upon data entry.</li>
+                      <li>In mobile, <code>&lt;datalist&gt;</code> is supported in conjunction with most input types in Blackberry 10, Opera mobile thru v 12.1 (support was removed in 21), Chrome for Android and Firefox for Firefox OS. It is not supported in IE10 mobile.</li>
+                      <li>Fallback is just a regular text input. In non-supporting browsers, the <code>&lt;datalist&gt;</code> will not show unless you include a nested <code>&lt;select&gt;</code>, which is a way of falling back, as shown in progressive usage below as demonstrated by <a href="http://adactio.com/journal/4272/">Jeremy Keith</a>.</li>
+                </ul></td>
+				
+			</tr>
+		</tbody></table>
+
+	</code></section><!--info--><code>
+	
+</code></div><!--content--><code>
+
+
+	<footer>
+		<section class="footer-cta">
+			Let Wufoo do the hard work.  <a href="https://secure.wufoo.com/signup/1/">Sign up</a> for a free account and
+			start making forms the easy way.
+		</section>
+		<section>
+
+						<a href="" id="previous">Previous</a>
+			
+			Jump to:
+			<select id="jumper">
+				<optgroup label="Types"><option value="/html5/types/3-url.html">The url Type</option><option value="/html5/types/15-radio.html"></option><option value="/html5/types/7-number.html">The number Type</option><option value="/html5/types/17-reset.html"></option><option value="/html5/types/8-range.html">The range Type</option><option value="/html5/types/14-file.html"></option><option value="/html5/types/10-button.html"></option><option value="/html5/types/5-search.html">The search Type</option><option value="/html5/types/6-color.html">The color Type</option><option value="/html5/types/11-hidden.html"></option><option value="/html5/types/2-tel.html">The tel Type</option><option value="/html5/types/1-email.html">The email Type</option><option value="/html5/types/13-checkbox.html"></option><option value="/html5/types/9-text.html"></option><option value="/html5/types/12-password.html"></option><option value="/html5/types/20-template.html"></option><option value="/html5/types/4-date.html">The date Type</option><option value="/html5/types/16-submit.html"></option></optgroup><optgroup label="Attributes"><option value="/html5/attributes/01-placeholder.html">The placeholder Attribute</option><option value="/html5/attributes/28-heightwidth.html"></option><option value="/html5/attributes/05-list.html">The list Attribute</option><option value="/html5/attributes/07-accept.html">The accept Attribute</option><option value="/html5/attributes/15-formtarget.html">The formtarget Attribute</option><option value="/html5/attributes/13-formaction.html">The formaction Attribute</option><option value="/html5/attributes/23-inputmode.html"></option><option value="/html5/attributes/29-value.html"></option><option value="/html5/attributes/09-required.html">The required Attribute</option><option value="/html5/attributes/22-form.html"></option><option value="/html5/attributes/24-dirname.html"></option><option value="/html5/attributes/03-maxlength.html">The maxlength Attribute</option><option value="/html5/attributes/18-minlength.html"></option><option value="/html5/attributes/06-autocomplete.html">The autocomplete Attribute</option><option value="/html5/attributes/08-multiple.html">The multiple Attribute</option><option value="/html5/attributes/21-readonly.html"></option><option value="/html5/attributes/14-formmethod.html">The formmethod Attribute</option><option value="/html5/attributes/27-tabindex.html"></option><option value="/html5/attributes/04-minmaxstep.html">The min, max, and step Attributes</option><option value="/html5/attributes/26-selectiondirection.html"></option><option value="/html5/attributes/19-formtarget.html"></option><option value="/html5/attributes/25-autosave.html"></option><option value="/html5/attributes/16-formenctype.html">The formenctype Attribute</option><option value="/html5/attributes/17-spellcheck.html">The spellcheck Attribute</option><option value="/html5/attributes/10-pattern.html">The pattern Attribute</option><option value="/html5/attributes/20-accept.html"></option><option value="/html5/attributes/32-name.html"></option><option value="/html5/attributes/33-checked.html"></option><option value="/html5/attributes/11-novalidate.html">The novalidate Attribute</option><option value="/html5/attributes/30-disabled.html"></option><option value="/html5/attributes/31-size.html"></option><option value="/html5/attributes/02-autofocus.html">The autofocus Attribute</option><option value="/html5/attributes/25-type.html"></option><option value="/html5/attributes/12-formnovalidate.html">The formnovalidate Attribute</option></optgroup><optgroup label="Elements"><option value="/html5/elements/6-option.html"></option><option value="/html5/elements/1-meter.html">The meter Element</option><option value="/html5/elements/2-progress.html">The progress Element</option><option value="/html5/elements/3-output.html">The output Element</option><option value="/html5/elements/4-keygen.html">The keygen Element</option><option value="/html5/elements/7-label.html"></option><option value="/html5/elements/5-datalist.html" selected="selected"></option></optgroup>			</select>
+			<a href="https://master.wufoo.com/forms/error-in-the-html5-forms-support-information/">Report an Error</a>
+
+						<a href="http://www.wufoo.com/html5/types/2-tel.html" id="next">Next</a>
+			
+		</section>
+	</footer>
+
+	</code></div><!--page-wrap--><code>
+
+	<script src="./datalist_files/jquery.min.js"></script>
+	<script src="./datalist_files/html5docs.js"></script>
+
+	<!-- Google Analytics -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-621688-1']);
+_gaq.push(['_setDomainName', 'auto']);
+_gaq.push(['_setAllowLinker', true]);
+
+if (undefined !== window.SETUSERCOOKIE) _gaq.push(['_setVar', 'current_user']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+	
+
+
+
+</code></body></html>
