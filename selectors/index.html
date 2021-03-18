@@ -124,10 +124,8 @@ selectorC {
 }
 
 selector[attribute],
-selector ~ relation {
-    -vendor-property: -vendor-value;
-    -vendor-property: value;
-    property: -vendor-value;
+selector ~ relation,
+[attribute$="alue"] {
     property: value;
 }</pre>
   </section>
@@ -196,18 +194,18 @@ E F
   <section class="flex12 content">
     <article>
       <h3>CSS Level 1 Selectors</h3>
-      <ul>
+      <ul><code>
         <li>E</li>
         <li>.class</li>
         <li>#id</li>
         <li>E F</li>
         <li>:link</li>
-        <li>:active</li>
+        <li>:active</li></code>
       </ul>
      </article>
      <article>
       <h3>CSS Level 2 Selectors</h3>
-      <ul>
+      <ul><code>
         <li>*</li>
         <li>E &gt; F</li>
         <li>E + F</li>
@@ -223,7 +221,7 @@ E F
         <li>:before</li>
         <li>:after</li>
         <li>:first-letter</li>
-        <li>:first-line</li>
+        <li>:first-line</li></code>
       </ul>
     </article>
   </section>
@@ -238,7 +236,7 @@ E F
   </header>
   <section class="content">
       <h3>CSS Selectors Level 3</h3>
-      <ul  class="col3">
+      <ul  class="col3"><code>
       <li>::before</li>
       <li>::after</li>
       <li>::first-letter</li>
@@ -262,7 +260,7 @@ E F
 
       <li>:empty</li>
       <li>:not(selector)</li>
-      <li>:target</li>
+      <li>:target</li></code>
     </ul>
   </section>
 </div>
@@ -276,7 +274,7 @@ E F
   </header>
   <section class="content">
     <h3>UI / Selectors #4</h3>
-    <ul class="col2">
+    <ul class="col2"><code>
       <li>:enabled</li>
       <li>:disabled</li>
       <li>:read-only</li>
@@ -292,7 +290,7 @@ E F
       <li>:required</li>
       <li>:optional</li>
       <li>:blank </li>
-      <li>:user-invalid </li>
+      <li>:user-invalid </li></code>
     </ul>
   </section>
 </div>
@@ -303,12 +301,12 @@ E F
     <h1>CSS Selectors Level 4</h1>
   </header>
   <section class="content">
-    <ul class="col2">
+    <ul class="col2"><code>
        <li>:not(s1, s2) </li>
        <li>:is() </li>
        <li>:where() </li>
-       <li>:has(rs1, rs2) </li>
-       <li>[foo="bar" i] </li>
+       <li>:has(rs1, rs2)</code> (at risk)</li>
+       <code><li>[foo="bar" i] </li>
        <li>[foo="bar" s] </li>
        <li>:dir(ltr) </li>
        <li>:lang(zh, *-hant) </li>
@@ -320,7 +318,7 @@ E F
        <li>:focus-within </li>
        <li>:focus-visible </li>
       <li>:nth-child(n [of S]?) </li>
-      <li>:nth-last-child(n [of S]?) </li>
+      <li>:nth-last-child(n [of S]?) </li></code>
     </ul>
   </section>
 </div>
@@ -336,24 +334,24 @@ E F
   <section class="content twopart">
     <article>
       <h3>Time Dimensional</h3>
-      <ul>
+      <ul><code>
         <li>:current </li>
         <li>:current(s) </li>
         <li>:past </li>
-        <li>:future </li>
+        <li>:future </li></code>
       </ul>
       <h3>Video/Audio Play States</h3>
-      <ul>
+      <ul><code>
         <li>:playing</li>
-        <li>:paused</li>
+        <li>:paused</li></code>
       </ul>
     </article>
     <article>
       <h3>Grid-structural</h3>
-      <ul>
+      <ul><code>
         <li>F || E </li>
         <li>:nth-col(n) </li>
-        <li>:nth-last-col(n) </li>
+        <li>:nth-last-col(n) </li></code>
       </ul>
     </article>
   </section>
@@ -374,28 +372,27 @@ E F
     <article>
       <h3>Sometime</h3>
       <ul>
-        <li>::selection</li>
+        <li><code>::selection</code></li>
       </ul>
       <h3>css-scoping-1</h3>
       <ul>
-        <li>::slotted()</li>
-        <li>:host</li>
-        <li>:host-context()</li>
-        <li>::shadow</li>
-        <li>::content</li>
+        <li><code>::slotted()</code></li>
+        <li><code>:host</code></li>
+        <li><code>:host-context()</code></li>
+        <li><code>::shadow</code></li>
+        <li><code>::content</code></li>
       </ul>
     </article>
     <article>
       <h3>Removed</h3>
       <ul>
-        <li><strike>:column(selector)</strike> (see :nth-col())</li>
-         <li><strike>E /foo/ F</strike></li>
-         <li><strike>E! > F</strike> (see :has())</li>
-
-         <li><strike>E >> F</strike></li>
-         <li><strike>:matches()</strike> (now :is())</li>
-         <li><strike>:drop</strike></li>
-         <li><strike>:nth-match()</strike> (now :nth-child(… of selector))</li>
+        <li><strike><code>:column(selector)</code></strike> (see <code>:nth-col()</code>)</li>
+         <li><strike><code>E /foo/ F</code></strike></li>
+         <li><strike><code>E! > F</code></strike> (see <code>:has()</code>)</li>
+         <li><strike><code>E >> F</code></strike></li>
+         <li><strike><code>:matches()</code></strike> (now <code>:is()</code>)</li>
+         <li><strike><code>:drop</code></strike></li>
+         <li><strike><code>:nth-match()</code></strike> (now <code>:nth-child(… of selector)</code>)</li>
       </ul>
     </article>
   </section>
@@ -439,36 +436,25 @@ var chil = el.<strong>querySelectorAll</strong>('.foo');</pre>
 </div>
 
 
-<!-- How we did the next section of slides -->
+
 <div class="slide">
   <header>
-    <h1>In some of our slides ...</h1>
+    <h1><a target="resource" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors">Selectors API</a></h1>
   </header>
   <section class="content">
-    <pre contenteditable>function makeActive(slctr){
-  let i = j = 0,
-      elements = document.<strong>querySelectorAll</strong>('.cur .ex li'),
-      cur = document.<strong>querySelectorAll</strong>('.cur .ex ' + slctr);
-
-  for (; i &lt; elements.length; i++){
-    elements[i].<strong>classList.remove</strong>('active');
-  }
-
-  for (; j &lt; cur.length; j++){
-    cur[j].<strong>classList.add</strong>('active');
-  }
-}      </pre>
+    <pre contenteditable>  var context = document.getElementById('context');
+  var selected = context.querySelectorAll(':scope > div');</pre>
+<pre contenteditable>&lt;div id="context">
+  <strong>&lt;div id="element-1"></strong>
+      &lt;div id="element-1.1">&lt;/div>
+      &lt;div id="element-1.2">&lt;/div>
+  &lt;/div>
+  <strong>&lt;div id="element-2"></strong>
+      &lt;div id="element-2.1">&lt;/div>
+  &lt;/div>
+&lt;/div>
+</pre>
   </section>
-</div>
-
-
-
-<!-- divider -->
-<div class="slide divider">
-  <header>
-    <h1><span style="font-size: xx-large;">Brief intro to</span><br> Specificity</h1>
-    <p  style="font-size: xx-large;">Will be covered in depth later</p>
-  </header>
 </div>
 
 
@@ -555,6 +541,25 @@ ul li {} 0-0-2</pre>
   </header>
   <object data="exercises/02_global.html"></object>
   <a href="exercises/02_global.html" target="play" class="objectlink">Try it out</a>
+</div>
+
+
+
+<div class="slide">
+  <header>
+    <h1>Detour: Inheritance</h1>
+  </header>
+  <section>
+    <p>some CSS property values set on parent elements are inherited by their child elements, and some aren't.</p>
+    <ul>
+      <li>inherited properties, which by default are set to the computed value of the parent element</li>
+      <li>non-inherited properties, which by default are set to initial value of the property</li>
+    </ul>
+
+
+    <p>Allow elements to inherit: don't declare property values except when you're overriding the brand theme.</p>
+    <p>Check the dev tools: how many occurrences of the property are crossed out?</p><p>Which properties are inherited? Common sense, or consult <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#formal_definition">MDN</a></p>
+  </section>
 </div>
 
 
@@ -787,7 +792,7 @@ function hasaclass(selector) {
 </div>
 
 
-
+<!--
 <div class="object slide">
   <object data="https://codepen.io/estelle/pen/lEGev"></object>
   <header>
@@ -795,7 +800,24 @@ function hasaclass(selector) {
   </header>
   <a href="https://codepen.io/estelle/pen/lEGev" target="play" class="objectlink">Codepen</a>
 </div>
+-->
 
+
+<div class="slide">
+  <header>
+    <h1>Attribute Selectors in Tailwind</h1>
+  </header>
+  <section class="content">
+    <pre contenteditable>&lt;div data-style-anchor="gift-card-balance another-hook" 
+     class="space-y-md sm:flex sm:justify-between sm:space-y-none 
+     sm:space-x-lg another-class"></pre>
+     <pre>&lt;button class="btn-primary"></pre>
+    <pre contenteditable>[data-style-anchor]
+[data-style-anchor~="another-hook"]
+[class*="flex]
+[class|="btn"]    </pre>
+  </section>
+</div>
 
 
 <div class="object slide">
@@ -1128,7 +1150,7 @@ E:[att*=VAL s]  <b class="notes">/* anywhere as a case-sensitive substring */</b
 </div>
 
 
-<!--Form related UI pseudo-classes -->
+<!--Form related UI pseudo-classes 
 <div class="slide divider">
   <header>
     <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:read-write">:read-write</a></code> &amp; <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only">:read-only</a></code></h1>
@@ -1174,7 +1196,7 @@ E:[att*=VAL s]  <b class="notes">/* anywhere as a case-sensitive substring */</b
   </section>
 </div>
 
-<!-- divider -->
+<!-- divider 
 <div class="slide divider">
   <header>
     <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:empty">:empty</a></code> &amp; <code><a target="resource" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:blank">:blank</a></code></h1>
@@ -1202,7 +1224,7 @@ E:[att*=VAL s]  <b class="notes">/* anywhere as a case-sensitive substring */</b
 
 
 
- <!-- :empty pseudo-class -->
+ <!-- :empty pseudo-class 
 <div class="slide">
   <header>
     <h1><code><a target="resource" href="https://developer.mozilla.org/en-US/docs/Web/CSS/:blank">:blank</a><code></h1>
@@ -1219,7 +1241,7 @@ E:[att*=VAL s]  <b class="notes">/* anywhere as a case-sensitive substring */</b
 
 
 
-<!--Form related UI pseudo-classes -->
+<!--Form related UI pseudo-classes 
 <div class="slide">
   <header>
     <h1>:empty &amp; :blank</h1>
@@ -1249,7 +1271,7 @@ E:[att*=VAL s]  <b class="notes">/* anywhere as a case-sensitive substring */</b
 <!-- divider -->
 <div class="slide intro">
   <header>
-    <h1>BREAK</h1>
+    <h1>Next deck</h1>
   </header>
   <section class="content">
     <a href="index2.html">Next ➹</a>

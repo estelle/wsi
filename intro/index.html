@@ -585,18 +585,30 @@ p { color: var(--size); }</pre>
 <!-- the Cascade -->
 <div class="slide">
   <header>
-    <h1>The cascade</h1>
+    <h1>Cascade Sorting Order</h1>
   </header>
   <section class="content">
+    <ol><li>Origin and Importance 
 <ol>
 <li>  Transitions
-</li><li>!important user agent declarations
-</li><li>!important user declarations
-</li><li>!important author declarations
+</li><li>!important user agent (browser) declarations
+</li><li>!important user (customer) declarations
+</li><li>!important author (developer) declarations
 </li><li>Animations
-</li><li>Normal author declarations
-</li><li>Normal user declarations
-</li><li>Normal user agent declarations </li>
+</li><li>Normal author (developer) declarations
+</li><li>Normal user (customer) declarations
+</li><li>Normal user agent (browser) declarations </li>
+</ol>
+</li>
+</ol>
+<p>Cascade is applied before the specificity algorithm.</p>
+<p>The user agent !importants are on <a href="https://searchfox.org/mozilla-central/source/layout/style/res/html.css">user agent features</a></p>
+<ol>
+  <li>
+    Source order</li><li>
+    Specificity</li><li>
+    Importance
+</li>
 </ol>
 </section>
 </div>
@@ -614,36 +626,6 @@ p { color: var(--size); }</pre>
       <li>Finding mistakes</li>
       <li>Learning about new features</li>
     </ul>
-    <p>Right click or command click on this paragraph and inspect it.</p> 
-    <table class="standard-table">
-      <thead>
-        <tr>
-          <th>Action</th>
-          <th>Mac</th>
-          <th>Windows / Linux</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Open DevTools</td>
-          <td><code>Command + Option + I</code></td>
-          <td><code>F12</code> or <code>Control + Shift + I</code></td>
-        </tr>
-        <tr>
-          <td>Console panel</td>
-          <td><code>Command + Option + J</code></td>
-          <td><code>Control + Shift + J</code></td>
-        </tr>
-        <tr>
-          <td>Elements panel</td>
-          <td>
-            <code>Command + Shift + C</code> <br>
-            <code>Command + Option + C</code>
-          </td>
-          <td><code>Control + Shift + C</code></td>
-        </tr>
-      </tbody>
-    </table>
 </section>
 </div>
 
